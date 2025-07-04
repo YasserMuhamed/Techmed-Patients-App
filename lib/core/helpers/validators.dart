@@ -30,7 +30,11 @@ class AppValidators {
     return null;
   }
 
-  static String? confirmPasswordValidator(String? value, String password, BuildContext context) {
+  static String? confirmPasswordValidator(
+    String? value,
+    String password,
+    BuildContext context,
+  ) {
     if (value!.isEmpty) {
       return S.of(context).required;
     } else if (value != password) {

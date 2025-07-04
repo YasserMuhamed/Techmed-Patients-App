@@ -28,7 +28,10 @@ class ChangePasswordButton extends StatelessWidget {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {
         if (state is ChangePasswordSuccess) {
-          ToastHelper.showSuccessToast(context, S.of(context).change_password_success);
+          ToastHelper.showSuccessToast(
+            context,
+            S.of(context).change_password_success,
+          );
           context.pop();
         } else if (state is ChangePasswordFailure) {
           ToastHelper.showErrorToast(context, state.error);
@@ -47,7 +50,9 @@ class ChangePasswordButton extends StatelessWidget {
               newPasswordConfirmation: newPasswordConfirmationController.text,
             );
             if (formKey.currentState!.validate()) {
-              BlocProvider.of<ProfileCubit>(context).changeUserPassword(changePasswordRequest);
+              BlocProvider.of<ProfileCubit>(
+                context,
+              ).changeUserPassword(changePasswordRequest);
             } else {
               setAutovalidateMode(AutovalidateMode.onUserInteraction);
             }

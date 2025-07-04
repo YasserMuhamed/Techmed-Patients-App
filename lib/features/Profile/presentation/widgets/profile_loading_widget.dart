@@ -10,8 +10,19 @@ class ProfileLoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Skeletonizer(
-      effect: ShimmerEffect(baseColor: AppColors.darkColor, highlightColor: AppColors.cardBackground),
-      child: UserInfo(user: UserData(id: 12, name: 'Loading...', email: 'Loading...', phoneNumber: "Loading...", nationalId: "Loading...")),
+      effect: ShimmerEffect(
+        baseColor: AppColors.darkColor,
+        highlightColor: AppColors.cardBackground,
+      ),
+      child: UserInfo(
+        user: UserData(
+          id: 12,
+          name: 'Loading...',
+          email: 'Loading...',
+          phoneNumber: "Loading...",
+          nationalId: "Loading...",
+        ),
+      ),
     );
   }
 }

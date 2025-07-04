@@ -18,22 +18,40 @@ class LogoutTile extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       contentPadding: EdgeInsets.zero,
 
-      title: Text(S.of(context).log_out, style: AppTextStyles.poppins16Medium(context).copyWith(color: AppColors.error)),
-      trailing: const Icon(FontAwesomeIcons.arrowRightFromBracket, color: AppColors.error, size: 20),
+      title: Text(
+        S.of(context).log_out,
+        style: AppTextStyles.poppins16Medium(
+          context,
+        ).copyWith(color: AppColors.error),
+      ),
+      trailing: const Icon(
+        FontAwesomeIcons.arrowRightFromBracket,
+        color: AppColors.error,
+        size: 20,
+      ),
       onTap: () {
         showAdaptiveDialog(
           context: context,
           builder: (context) {
             return AlertDialog(
               backgroundColor: AppColors.darkBackground,
-              title: Text(S.of(context).log_out, style: TextStyle(color: AppColors.error)),
-              content: Text(S.of(context).log_out_confirmation, style: TextStyle(color: AppColors.primaryText)),
+              title: Text(
+                S.of(context).log_out,
+                style: TextStyle(color: AppColors.error),
+              ),
+              content: Text(
+                S.of(context).log_out_confirmation,
+                style: TextStyle(color: AppColors.primaryText),
+              ),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text(S.of(context).cancel, style: TextStyle(color: AppColors.grayText)),
+                  child: Text(
+                    S.of(context).cancel,
+                    style: TextStyle(color: AppColors.grayText),
+                  ),
                 ),
                 SizedBox(
                   width: 80.w,

@@ -19,6 +19,8 @@ class AppTextField extends StatelessWidget {
     this.floatingLabelBehavior,
     this.minLines,
     this.focusNode,
+    this.initialValue,
+    this.enabled = true,
   });
   final bool? obscureText;
   final Icon? prefixIcon;
@@ -33,12 +35,15 @@ class AppTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final FloatingLabelBehavior? floatingLabelBehavior;
+  final String? initialValue;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: AppTextStyles.poppins16Regular(context),
-
+      initialValue: initialValue,
+      enabled: enabled,
       maxLines: maxLines,
       focusNode: focusNode,
       minLines: minLines,
@@ -50,7 +55,8 @@ class AppTextField extends StatelessWidget {
       autofocus: false,
 
       decoration: InputDecoration(
-        fillColor: AppColors.cardBackground,
+        fillColor:
+            enabled ? AppColors.cardBackground : AppColors.darkBackground,
         filled: true,
         labelStyle: AppTextStyles.poppins16Regular(
           context,
@@ -60,7 +66,14 @@ class AppTextField extends StatelessWidget {
         ).copyWith(color: AppColors.secondaryText),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
-
+        prefixIconColor: enabled ? AppColors.iconColor : AppColors.disabled,
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
+          borderSide: BorderSide(
+            color: AppColors.darkBackground,
+            width: 1.5.sp,
+          ),
+        ),
         suffixIconColor: WidgetStateColor.resolveWith((states) {
           if (states.contains(WidgetState.error)) {
             return Colors
@@ -74,14 +87,28 @@ class AppTextField extends StatelessWidget {
         hintText: hintText,
         alignLabelWithHint: true,
         floatingLabelBehavior:
-            floatingLabelBehavior ?? FloatingLabelBehavior.auto,
+            floatingLabelBehavior ?? FloatingLabelBehavior.never,
         label: label,
         errorStyle: AppTextStyles.poppins14Regular(
           context,
         ).copyWith(color: AppColors.error),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
-          borderSide: BorderSide(color: AppColors.primaryText, width: 1.5.sp),
+          borderSide: BorderSide(
+            color: AppColors.darkBackground,
+            width: 1.5.sp,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
+          borderSide: BorderSide(
+            color: AppColors.darkBackground,
+            width: 1.5.sp,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.r),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1.5.sp),
         ),
       ),
     );

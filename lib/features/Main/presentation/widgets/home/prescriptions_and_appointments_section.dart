@@ -3,44 +3,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:techmed/Features/Main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart'
-    show BottomNavCubit;
+import 'package:techmed/Features/Main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart' show BottomNavCubit;
+import 'package:techmed/configs/theme/app_colors.dart';
+import 'package:techmed/configs/theme/app_text_styles.dart';
+import 'package:techmed/generated/l10n.dart';
 
 class PrescriptionsAndAppointmentsSection extends StatelessWidget {
-  const PrescriptionsAndAppointmentsSection({
-    super.key,
-    required this.pageController,
-  });
+  const PrescriptionsAndAppointmentsSection({super.key, required this.pageController});
   final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TopCardItem(
           icon: FontAwesomeIcons.prescriptionBottle,
-          title: "Prescriptions",
-          subTitle: "View and manage medications",
+          title: S.of(context).prescriptions,
+          subTitle: S.of(context).view_and_manage_medications,
           onTap: () {
-            pageController.animateToPage(
-              1,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-            );
+            pageController.animateToPage(1, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
             BlocProvider.of<BottomNavCubit>(context).changeSelectedIndex(1);
           },
         ),
         TopCardItem(
           icon: CupertinoIcons.calendar,
-          title: "Appointments",
-          subTitle: "Schedule doctor visits",
+          title: S.of(context).appointments,
+          subTitle: S.of(context).schedule_doctor_visit,
           onTap: () {
-            pageController.animateToPage(
-              2,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-            );
+            pageController.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
             BlocProvider.of<BottomNavCubit>(context).changeSelectedIndex(2);
           },
         ),
@@ -50,13 +42,7 @@ class PrescriptionsAndAppointmentsSection extends StatelessWidget {
 }
 
 class TopCardItem extends StatelessWidget {
-  const TopCardItem({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.subTitle,
-    required this.onTap,
-  });
+  const TopCardItem({super.key, required this.icon, required this.title, required this.subTitle, required this.onTap});
   final IconData icon;
   final String title;
   final String subTitle;
@@ -67,37 +53,18 @@ class TopCardItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 160.w,
+        width: MediaQuery.of(context).size.width * 0.45,
 
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).colorScheme.onSurface.withAlpha(25),
-              blurRadius: 5,
-            ),
-          ],
-          color: Theme.of(context).colorScheme.onSurfaceVariant,
-          borderRadius: BorderRadius.circular(12),
-        ),
+        decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(12)),
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, size: 38, color: Theme.of(context).colorScheme.primary),
+            Icon(icon, size: 38, color: AppColors.white),
             SizedBox(height: 16.h),
-            Text(
-              title,
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w600),
-            ),
-            Text(
-              subTitle,
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: Theme.of(context).colorScheme.onSecondary,
-              ),
-            ),
+            Text(title, style: AppTextStyles.poppins14Medium(context)),
+            Text(subTitle, style: AppTextStyles.poppins12Regular(context).copyWith(color: AppColors.secondaryText)),
           ],
         ),
       ),

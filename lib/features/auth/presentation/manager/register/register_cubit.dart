@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:techmed/features/auth/data/models/register_request.dart';
+import 'package:techmed/features/auth/data/models/register_response/register_response.dart';
 import 'package:techmed/features/auth/data/repositories/auth_repository.dart';
 
 part 'register_state.dart';
@@ -12,9 +13,6 @@ class RegisterCubit extends Cubit<RegisterState> {
   Future<void> register(RegisterRequest req) async {
     emit(RegisterLoading());
     final result = await authRepository.register(req);
-    result.fold(
-      (failure) => emit(RegisterFailure(failure.error)),
-      (response) => emit(RegisterSuccess()),
-    );
+    result.fold((failure) => emit(RegisterFailure(failure.error)), (response) => emit(RegisterSuccess(response: response)));
   }
 }

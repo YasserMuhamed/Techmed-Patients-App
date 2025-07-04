@@ -19,23 +19,46 @@ class AppRouter {
 
     switch (settings.name) {
       case AppRoutes.kLoginScreen:
-        return MaterialPageRoute(builder: (_) => BlocProvider(create: (context) => getIt<LoginCubit>(), child: const LoginScreen()));
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<LoginCubit>(),
+                child: const LoginScreen(),
+              ),
+        );
       case AppRoutes.kRegisterScreen:
-        return MaterialPageRoute(builder: (_) => BlocProvider(create: (context) => getIt<RegisterCubit>(), child: const RegisterScreen()));
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<RegisterCubit>(),
+                child: const RegisterScreen(),
+              ),
+        );
       case AppRoutes.kChangePasswordScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(create: (context) => getIt<ProfileCubit>(), child: const ChangePasswordScreen()),
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ProfileCubit>(),
+                child: const ChangePasswordScreen(),
+              ),
         );
       case AppRoutes.kUpdateUserInfoScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(create: (context) => getIt<ProfileCubit>(), child: const UpdateUserInformationScreen()),
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<ProfileCubit>()..getUserProfile(),
+                child: const UpdateUserInformationScreen(),
+              ),
         );
       case AppRoutes.kMainScreen:
         return MaterialPageRoute(
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider(create: (context) => getIt<ProfileCubit>()..getUserProfile()),
+                  BlocProvider(
+                    create:
+                        (context) => getIt<ProfileCubit>()..getUserProfile(),
+                  ),
                   BlocProvider(
                     create:
                         (context) =>

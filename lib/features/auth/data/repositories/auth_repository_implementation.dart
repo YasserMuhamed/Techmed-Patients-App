@@ -17,7 +17,10 @@ class AuthRepositoryImplementation implements AuthRepository {
   @override
   Future<Either<Failures, LoginResponse>> login(LoginRequest request) async {
     try {
-      final response = await apiManager.post(endPoint: ApiConstants.loginEndPoint, data: request.toJson());
+      final response = await apiManager.post(
+        endPoint: ApiConstants.loginEndPoint,
+        data: request.toJson(),
+      );
       return right(LoginResponse.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -29,9 +32,14 @@ class AuthRepositoryImplementation implements AuthRepository {
   }
 
   @override
-  Future<Either<Failures, RegisterResponse>> register(RegisterRequest registerRequest) async {
+  Future<Either<Failures, RegisterResponse>> register(
+    RegisterRequest registerRequest,
+  ) async {
     try {
-      final response = await apiManager.post(endPoint: ApiConstants.registerEndPoint, data: registerRequest.toJson());
+      final response = await apiManager.post(
+        endPoint: ApiConstants.registerEndPoint,
+        data: registerRequest.toJson(),
+      );
       return Right(RegisterResponse.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -45,7 +53,9 @@ class AuthRepositoryImplementation implements AuthRepository {
   @override
   Future<Either<Failures, UserModel>> getUserProfile() async {
     try {
-      final response = await apiManager.get(endPoint: ApiConstants.userProfileEndPoint);
+      final response = await apiManager.get(
+        endPoint: ApiConstants.userProfileEndPoint,
+      );
       return Right(UserModel.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {

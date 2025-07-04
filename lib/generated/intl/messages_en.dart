@@ -65,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "delete_account_confirmation": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete your account?",
     ),
+    "divorced": MessageLookupByLibrary.simpleMessage("Divorced"),
+    "doctor_name": MessageLookupByLibrary.simpleMessage("Doctor Name"),
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
@@ -78,14 +80,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "emergency_contact_name": MessageLookupByLibrary.simpleMessage(
       "Emergency Contact Name",
     ),
+    "enter_allergies": MessageLookupByLibrary.simpleMessage(
+      "Enter allergies (if any)",
+    ),
     "enter_confirm_new_password": MessageLookupByLibrary.simpleMessage(
       "Enter confirm new password",
     ),
     "enter_current_password": MessageLookupByLibrary.simpleMessage(
       "Enter current password",
     ),
+    "enter_emergency_contact_name": MessageLookupByLibrary.simpleMessage(
+      "Enter emergency contact name",
+    ),
+    "enter_emergency_contact_number": MessageLookupByLibrary.simpleMessage(
+      "Enter emergency contact number",
+    ),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
       "Enter new password",
+    ),
+    "enter_your_age": MessageLookupByLibrary.simpleMessage("Enter your age"),
+    "enter_your_birth_date": MessageLookupByLibrary.simpleMessage(
+      "Enter your birth date",
     ),
     "enter_your_email": MessageLookupByLibrary.simpleMessage(
       "Enter your email",
@@ -107,7 +122,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "error_message": MessageLookupByLibrary.simpleMessage(
       "An error occurred. Please try again.",
     ),
+    "female": MessageLookupByLibrary.simpleMessage("Female"),
     "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
     "generic_error": MessageLookupByLibrary.simpleMessage(
       "Something went wrong. Please try again later.",
     ),
@@ -142,7 +160,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Login to your account",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "male": MessageLookupByLibrary.simpleMessage("Male"),
     "marital_status": MessageLookupByLibrary.simpleMessage("Marital Status"),
+    "married": MessageLookupByLibrary.simpleMessage("Married"),
+    "medication": MessageLookupByLibrary.simpleMessage("Medication"),
+    "medication_name": MessageLookupByLibrary.simpleMessage("Medication Name"),
     "name_no_special_chars": MessageLookupByLibrary.simpleMessage(
       "Name should not contain special characters",
     ),
@@ -161,6 +183,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "no_emergency_number_provided": MessageLookupByLibrary.simpleMessage(
       "No emergency number provided",
+    ),
+    "no_gender_provided": MessageLookupByLibrary.simpleMessage(
+      "No gender provided",
     ),
     "no_marital_status_provided": MessageLookupByLibrary.simpleMessage(
       "No marital status provided",
@@ -200,6 +225,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "phone_number_required": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),
+    "prescription_details": MessageLookupByLibrary.simpleMessage(
+      "Prescription Details",
+    ),
     "prescriptions": MessageLookupByLibrary.simpleMessage("Prescriptions"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "profile_picture": MessageLookupByLibrary.simpleMessage("Profile Picture"),
@@ -207,9 +235,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "profile_updated": MessageLookupByLibrary.simpleMessage(
       "Profile updated successfully.",
     ),
+    "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
+      "Profile updated successfully.",
+    ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "register_message": MessageLookupByLibrary.simpleMessage(
       "Please fill in the details to create your account.",
+    ),
+    "registration_successful": MessageLookupByLibrary.simpleMessage(
+      "Registration successful. Welcome!",
     ),
     "required": MessageLookupByLibrary.simpleMessage("Required"),
     "required_field": MessageLookupByLibrary.simpleMessage(
@@ -223,20 +257,38 @@ class MessageLookup extends MessageLookupByLibrary {
       "Retype your password",
     ),
     "save_changes": MessageLookupByLibrary.simpleMessage("Save Changes"),
+    "schedule_doctor_visit": MessageLookupByLibrary.simpleMessage(
+      "Schedule Doctor Visit",
+    ),
+    "select_gender": MessageLookupByLibrary.simpleMessage("Select Gender"),
+    "select_marital_status": MessageLookupByLibrary.simpleMessage(
+      "Select Marital Status",
+    ),
     "settings_title": MessageLookupByLibrary.simpleMessage("Settings"),
+    "single": MessageLookupByLibrary.simpleMessage("Single"),
     "success": MessageLookupByLibrary.simpleMessage("Success"),
+    "todays_medications": MessageLookupByLibrary.simpleMessage(
+      "Today\'s Medications",
+    ),
     "update_info": MessageLookupByLibrary.simpleMessage("Update Information"),
     "update_profile": MessageLookupByLibrary.simpleMessage("Update Profile"),
+    "update_your_info": MessageLookupByLibrary.simpleMessage(
+      "Update Your Information",
+    ),
     "upload_profile_picture": MessageLookupByLibrary.simpleMessage(
       "Upload Profile Picture",
     ),
     "verify_phone": MessageLookupByLibrary.simpleMessage("Verify phone number"),
+    "view_and_manage_medications": MessageLookupByLibrary.simpleMessage(
+      "View and Manage Medications",
+    ),
     "weak_password": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 6 characters long.",
     ),
     "welcome_message": MessageLookupByLibrary.simpleMessage(
       "Welcome to TechMed",
     ),
+    "widowed": MessageLookupByLibrary.simpleMessage("Widowed"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }

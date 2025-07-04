@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:techmed/core/helpers/extensions.dart';
+import 'package:techmed/core/utils/functions/translate_gender.dart';
 import 'package:techmed/features/Profile/presentation/widgets/profile_image.dart';
 import 'package:techmed/generated/l10n.dart';
 import 'package:techmed/configs/theme/app_colors.dart';
@@ -34,23 +36,23 @@ class UserInfo extends StatelessWidget {
             22.verticalSpace,
             Text(S.of(context).emergency_contact, style: AppTextStyles.poppins16Medium(context)),
             Text(
-              user.emergencyContactName ?? S.of(context).no_name_provided,
+              (user.emergencyContactName.isNullOrEmpty()) ? S.of(context).no_name_provided : user.emergencyContactName!,
               style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
             ),
             Text(
-              user.emergencyContactPhone ?? S.of(context).no_emergency_number_provided,
+              (user.emergencyContactPhone.isNullOrEmpty()) ? S.of(context).no_emergency_number_provided : user.emergencyContactPhone!,
               style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
             ),
             22.verticalSpace,
             Text(S.of(context).allergies, style: AppTextStyles.poppins16Medium(context)),
             Text(
-              user.allergies ?? S.of(context).no_allergies_provided,
+              (user.allergies.isNullOrEmpty()) ? S.of(context).no_allergies_provided : user.allergies!,
               style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
             ),
             22.verticalSpace,
             Text(S.of(context).age, style: AppTextStyles.poppins16Medium(context)),
             Text(
-              user.age != null ? user.age.toString() : S.of(context).no_age_provided,
+              (user.age != null && user.age! > 0) ? user.age.toString() : S.of(context).no_age_provided,
               style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
             ),
             22.verticalSpace,
@@ -60,11 +62,30 @@ class UserInfo extends StatelessWidget {
               style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
             ),
             22.verticalSpace,
-            Text(S.of(context).birth_date, style: AppTextStyles.poppins16Medium(context)),
-            Text(
-              user.maritalStatus ?? S.of(context).no_allergies_provided,
-              style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
-            ),
+            Text(S.of(context).gender, style: AppTextStyles.poppins16Medium(context)),
+            Text(translateGender(user.gender), style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText)),
+            22.verticalSpace,
+            Text(S.of(context).marital_status, style: AppTextStyles.poppins16Medium(context)),
+            Text(() {
+              final Map<String, String> backendToLocalized = {
+                'single': S.of(context).single,
+                'married': S.of(context).married,
+                'divorced': S.of(context).divorced,
+                'widowed': S.of(context).widowed,
+              };
+              final status = user.maritalStatus;
+              if (status != null && status.isNotEmpty) {
+                final key = backendToLocalized.keys.firstWhere((k) => k.toLowerCase() == status.toLowerCase(), orElse: () => '');
+                if (key.isNotEmpty) {
+                  return backendToLocalized[key]!;
+                }
+                // fallback: try to match localized value
+                final value = backendToLocalized.values.firstWhere((v) => v.toLowerCase() == status.toLowerCase(), orElse: () => status);
+                return value;
+              }
+              return S.of(context).no_marital_status_provided;
+            }(), style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText)),
+
             29.verticalSpace,
           ],
         ),

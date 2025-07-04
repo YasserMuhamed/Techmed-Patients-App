@@ -11,7 +11,10 @@ final class _RegisterInitial extends RegisterState {}
 
 final class RegisterLoading extends RegisterState {}
 
-final class RegisterSuccess extends RegisterState {}
+final class RegisterSuccess extends RegisterState {
+  final RegisterResponse response;
+  const RegisterSuccess({required this.response});
+}
 
 final class RegisterFailure extends RegisterState {
   final String message;

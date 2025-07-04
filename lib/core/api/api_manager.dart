@@ -27,7 +27,7 @@ class ApiManager {
 
   Future<Response> patch({
     required String endPoint,
-    required Map<String, dynamic> data,
+    required Object data,
   }) async {
     final response = await dio.patch(baseUrl + endPoint, data: data);
 

@@ -40,3 +40,16 @@ final class ChangePasswordFailure extends ProfileState {
   @override
   List<Object> get props => [error];
 }
+
+final class UpdateUserDataLoading extends ProfileState {}
+
+final class UpdateUserDataSuccess extends ProfileState {}
+
+final class UpdateUserDataFailure extends ProfileState {
+  final String error;
+
+  const UpdateUserDataFailure(this.error);
+
+  @override
+  List<Object> get props => [error];
+}

@@ -25,7 +25,10 @@ class AppTextStyles {
     FontStyle? fontStyle,
     BuildContext? context, // Add context
   }) {
-    Locale locale = context != null ? Intl.getCurrentLocale().toLocale() : const Locale('en');
+    Locale locale =
+        context != null
+            ? Intl.getCurrentLocale().toLocale()
+            : const Locale('en');
     return TextStyle(
       fontFamily: getFontFamily(fontFamily, locale),
       color: textColor,

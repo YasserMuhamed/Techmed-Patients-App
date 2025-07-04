@@ -12,7 +12,10 @@ class BackIconAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_outlined, color: AppColors.white),
+          icon: const Icon(
+            Icons.arrow_back_ios_new_outlined,
+            color: AppColors.white,
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
         Text(title, style: AppTextStyles.poppins18Medium(context)),

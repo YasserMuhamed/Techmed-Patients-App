@@ -924,6 +924,216 @@ class S {
       args: [],
     );
   }
+
+  /// `Update Your Information`
+  String get update_your_info {
+    return Intl.message(
+      'Update Your Information',
+      name: 'update_your_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message('Full Name', name: 'full_name', desc: '', args: []);
+  }
+
+  /// `Enter emergency contact name`
+  String get enter_emergency_contact_name {
+    return Intl.message(
+      'Enter emergency contact name',
+      name: 'enter_emergency_contact_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter emergency contact number`
+  String get enter_emergency_contact_number {
+    return Intl.message(
+      'Enter emergency contact number',
+      name: 'enter_emergency_contact_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter allergies (if any)`
+  String get enter_allergies {
+    return Intl.message(
+      'Enter allergies (if any)',
+      name: 'enter_allergies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your age`
+  String get enter_your_age {
+    return Intl.message(
+      'Enter your age',
+      name: 'enter_your_age',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your birth date`
+  String get enter_your_birth_date {
+    return Intl.message(
+      'Enter your birth date',
+      name: 'enter_your_birth_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message('Gender', name: 'gender', desc: '', args: []);
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message('Male', name: 'male', desc: '', args: []);
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message('Female', name: 'female', desc: '', args: []);
+  }
+
+  /// `Select Marital Status`
+  String get select_marital_status {
+    return Intl.message(
+      'Select Marital Status',
+      name: 'select_marital_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Married`
+  String get married {
+    return Intl.message('Married', name: 'married', desc: '', args: []);
+  }
+
+  /// `Single`
+  String get single {
+    return Intl.message('Single', name: 'single', desc: '', args: []);
+  }
+
+  /// `Divorced`
+  String get divorced {
+    return Intl.message('Divorced', name: 'divorced', desc: '', args: []);
+  }
+
+  /// `Widowed`
+  String get widowed {
+    return Intl.message('Widowed', name: 'widowed', desc: '', args: []);
+  }
+
+  /// `Select Gender`
+  String get select_gender {
+    return Intl.message(
+      'Select Gender',
+      name: 'select_gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile updated successfully.`
+  String get profile_updated_successfully {
+    return Intl.message(
+      'Profile updated successfully.',
+      name: 'profile_updated_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration successful. Welcome!`
+  String get registration_successful {
+    return Intl.message(
+      'Registration successful. Welcome!',
+      name: 'registration_successful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No gender provided`
+  String get no_gender_provided {
+    return Intl.message(
+      'No gender provided',
+      name: 'no_gender_provided',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View and Manage Medications`
+  String get view_and_manage_medications {
+    return Intl.message(
+      'View and Manage Medications',
+      name: 'view_and_manage_medications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication Name`
+  String get medication_name {
+    return Intl.message(
+      'Medication Name',
+      name: 'medication_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Schedule Doctor Visit`
+  String get schedule_doctor_visit {
+    return Intl.message(
+      'Schedule Doctor Visit',
+      name: 'schedule_doctor_visit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor Name`
+  String get doctor_name {
+    return Intl.message('Doctor Name', name: 'doctor_name', desc: '', args: []);
+  }
+
+  /// `Today's Medications`
+  String get todays_medications {
+    return Intl.message(
+      'Today\'s Medications',
+      name: 'todays_medications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prescription Details`
+  String get prescription_details {
+    return Intl.message(
+      'Prescription Details',
+      name: 'prescription_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication`
+  String get medication {
+    return Intl.message('Medication', name: 'medication', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

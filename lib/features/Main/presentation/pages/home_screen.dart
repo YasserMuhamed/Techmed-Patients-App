@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:techmed/Features/Main/presentation/widgets/home/prescriptions_and_appointments_section.dart';
 import 'package:techmed/Features/Main/presentation/widgets/home/todays_medications_section.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key, this.pageController});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key, this.pageController});
 
   final PageController? pageController;
 
@@ -18,9 +18,7 @@ class HomeView extends StatelessWidget {
             spacing: 25,
             children: [
               SizedBox(height: 1.h),
-              PrescriptionsAndAppointmentsSection(
-                pageController: pageController!,
-              ),
+              PrescriptionsAndAppointmentsSection(pageController: pageController!),
               TodaysMedicationsSection(),
             ],
           ),

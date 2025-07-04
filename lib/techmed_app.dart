@@ -32,7 +32,7 @@ class TechMedApp extends StatelessWidget {
               ],
               supportedLocales: S.delegate.supportedLocales,
               title: 'TechMed',
-              theme: ThemeData.dark(useMaterial3: true).copyWith(colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF512DA8))),
+              theme: ThemeData.dark(useMaterial3: true),
               debugShowCheckedModeBanner: false,
               initialRoute: routeHandler(),
               onGenerateRoute: AppRouter.generateRoute,

@@ -48,41 +48,80 @@ class _ProfileViewState extends State<ProfileView> {
                   },
                 ),
                 22.verticalSpace,
-                Text(S.of(context).account, style: AppTextStyles.poppins18Bold(context)),
+                Text(
+                  S.of(context).account,
+                  style: AppTextStyles.poppins18Bold(context),
+                ),
                 22.verticalSpace,
                 CustomDivider(),
                 SizedBox(height: 27.h),
                 22.verticalSpace,
                 ListTile(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
                   contentPadding: EdgeInsets.zero,
 
-                  title: Text(S.of(context).update_info, style: AppTextStyles.poppins16Medium(context)),
-                  trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.iconColor, size: 20),
+                  title: Text(
+                    S.of(context).update_info,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: AppColors.iconColor,
+                    size: 20,
+                  ),
                   onTap: () {
-                    context.pushNamed(AppRoutes.kUpdateUserInfoScreen);
+                    context.pushNamed(AppRoutes.kUpdateUserInfoScreen).then((
+                      value,
+                    ) {
+                      if (value == true) {
+                        BlocProvider.of<ProfileCubit>(context).getUserProfile();
+                      }
+                    });
                   },
                 ),
                 22.verticalSpace,
                 ListTile(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
                   contentPadding: EdgeInsets.zero,
 
-                  title: Text(S.of(context).change_password, style: AppTextStyles.poppins16Medium(context)),
-                  trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.iconColor, size: 20),
+                  title: Text(
+                    S.of(context).change_password,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: AppColors.iconColor,
+                    size: 20,
+                  ),
                   onTap: () {
                     context.pushNamed(AppRoutes.kChangePasswordScreen);
                   },
                 ),
                 22.verticalSpace,
                 ListTile(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
                   contentPadding: EdgeInsets.zero,
-                  title: Text(S.of(context).change_language, style: AppTextStyles.poppins16Medium(context)),
-                  trailing: const Icon(Icons.language, color: AppColors.iconColor, size: 20),
+                  title: Text(
+                    S.of(context).change_language,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
+                  trailing: const Icon(
+                    Icons.language,
+                    color: AppColors.iconColor,
+                    size: 20,
+                  ),
                   onTap: () async {
                     final locale = Localizations.localeOf(context);
-                    final newLocale = locale.languageCode == 'en' ? const Locale('ar') : const Locale('en');
+                    final newLocale =
+                        locale.languageCode == 'en'
+                            ? const Locale('ar')
+                            : const Locale('en');
                     BlocProvider.of<LocaleCubit>(context).setLocale(newLocale);
                   },
                 ),
