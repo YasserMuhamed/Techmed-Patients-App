@@ -9,7 +9,7 @@ import 'package:techmed/core/helpers/toast_helper.dart';
 import 'package:techmed/core/helpers/validators.dart';
 import 'package:techmed/core/widgets/app_text_field.dart';
 import 'package:techmed/core/widgets/custom_button.dart';
-import 'package:techmed/features/Profile/presentation/widgets/gender_widget.dart';
+import 'package:techmed/features/profile/presentation/widgets/gender_widget.dart';
 import 'package:techmed/features/auth/data/models/register_request.dart';
 import 'package:techmed/features/auth/presentation/manager/register/register_cubit.dart';
 import 'package:techmed/generated/l10n.dart';
@@ -60,7 +60,10 @@ class _RegisterFormSectionState extends State<RegisterFormSection> {
             controller: phoneController,
             keyboardType: TextInputType.phone,
             validator: (value) => AppValidators.phoneValidator(value, context),
-            prefixIcon: Icon(Icons.phone_android_outlined, color: AppColors.iconColor),
+            prefixIcon: Icon(
+              Icons.phone_android_outlined,
+              color: AppColors.iconColor,
+            ),
             hintText: S.of(context).enter_your_phone,
           ),
           AppPaddings.gap24.verticalSpace,
@@ -68,12 +71,18 @@ class _RegisterFormSectionState extends State<RegisterFormSection> {
             controller: passwordController,
             maxLines: isObscure ? 1 : 1,
             keyboardType: TextInputType.visiblePassword,
-            validator: (value) => AppValidators.passwordValidator(value, context),
+            validator:
+                (value) => AppValidators.passwordValidator(value, context),
             prefixIcon: Icon(Icons.lock_outline, color: AppColors.iconColor),
             hintText: S.of(context).enter_your_password,
             obscureText: isObscure,
             suffixIcon: IconButton(
-              icon: Icon(isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined, color: AppColors.iconColor),
+              icon: Icon(
+                isObscure
+                    ? Icons.visibility_off_outlined
+                    : Icons.visibility_outlined,
+                color: AppColors.iconColor,
+              ),
               onPressed: () {
                 setState(() {
                   isObscure = !isObscure;
@@ -85,8 +94,12 @@ class _RegisterFormSectionState extends State<RegisterFormSection> {
           AppTextField(
             controller: nationalIdController,
             keyboardType: TextInputType.number,
-            validator: (value) => AppValidators.nationalIdValidator(value, context),
-            prefixIcon: Icon(FontAwesomeIcons.idCard, color: AppColors.iconColor),
+            validator:
+                (value) => AppValidators.nationalIdValidator(value, context),
+            prefixIcon: Icon(
+              FontAwesomeIcons.idCard,
+              color: AppColors.iconColor,
+            ),
             hintText: S.of(context).enter_your_national_id,
           ),
           AppPaddings.gap24.verticalSpace,
@@ -95,7 +108,10 @@ class _RegisterFormSectionState extends State<RegisterFormSection> {
           BlocConsumer<RegisterCubit, RegisterState>(
             listener: (context, state) {
               if (state is RegisterSuccess) {
-                ToastHelper.showSuccessToast(context, S.of(context).registration_successful);
+                ToastHelper.showSuccessToast(
+                  context,
+                  S.of(context).registration_successful,
+                );
                 context.pop();
               } else if (state is RegisterFailure) {
                 ToastHelper.showErrorToast(context, state.message);
@@ -103,7 +119,11 @@ class _RegisterFormSectionState extends State<RegisterFormSection> {
             },
             builder: (context, state) {
               if (state is RegisterLoading) {
-                return CustomButton(isLoading: true, text: "", onPressed: () {});
+                return CustomButton(
+                  isLoading: true,
+                  text: "",
+                  onPressed: () {},
+                );
               }
               return CustomButton(
                 text: S.of(context).register,
@@ -123,7 +143,9 @@ class _RegisterFormSectionState extends State<RegisterFormSection> {
                       nationalId: nationalIdController.text,
                       gender: selectedGender,
                     );
-                    BlocProvider.of<RegisterCubit>(context).register(registerRequest);
+                    BlocProvider.of<RegisterCubit>(
+                      context,
+                    ).register(registerRequest);
                   } else {
                     setState(() {
                       _autovalidateMode = AutovalidateMode.onUserInteraction;

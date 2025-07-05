@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:techmed/configs/theme/app_colors.dart';
+import 'package:techmed/configs/theme/app_text_styles.dart';
 
 class LogoText extends StatelessWidget {
   const LogoText({super.key, required this.fontSize});
@@ -13,16 +15,15 @@ class LogoText extends StatelessWidget {
           children: [
             TextSpan(
               text: 'TECH',
-              style: Theme.of(
+              style: AppTextStyles.poppins16Medium(
                 context,
-              ).textTheme.headlineLarge!.copyWith(fontSize: fontSize),
+              ).copyWith(fontSize: fontSize),
             ),
             TextSpan(
               text: 'MED',
-              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                color: Theme.of(context).colorScheme.primary,
-                fontSize: fontSize,
-              ),
+              style: AppTextStyles.poppins16Medium(
+                context,
+              ).copyWith(fontSize: fontSize, color: AppColors.primaryColor),
             ),
           ],
         ),

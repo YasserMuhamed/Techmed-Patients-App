@@ -13,6 +13,9 @@ class RegisterCubit extends Cubit<RegisterState> {
   Future<void> register(RegisterRequest req) async {
     emit(RegisterLoading());
     final result = await authRepository.register(req);
-    result.fold((failure) => emit(RegisterFailure(failure.error)), (response) => emit(RegisterSuccess(response: response)));
+    result.fold(
+      (failure) => emit(RegisterFailure(failure.error)),
+      (response) => emit(RegisterSuccess(response: response)),
+    );
   }
 }

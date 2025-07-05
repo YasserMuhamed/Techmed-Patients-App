@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:techmed/core/helpers/extensions.dart';
 import 'package:techmed/core/helpers/toast_helper.dart';
 import 'package:techmed/core/widgets/custom_button.dart';
-import 'package:techmed/features/Profile/data/models/change_password_request.dart';
-import 'package:techmed/features/Profile/presentation/profile_cubit/profile_cubit.dart';
+import 'package:techmed/features/profile/data/models/change_password_request.dart';
+import 'package:techmed/features/profile/presentation/profile_cubit/profile_cubit.dart';
 import 'package:techmed/generated/l10n.dart';
 
 class ChangePasswordButton extends StatelessWidget {

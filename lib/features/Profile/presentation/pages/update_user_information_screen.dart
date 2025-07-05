@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,8 +9,8 @@ import 'package:techmed/core/helpers/toast_helper.dart';
 import 'package:techmed/core/helpers/validators.dart';
 import 'package:techmed/core/widgets/back_icon_appbar.dart';
 import 'package:techmed/core/widgets/custom_button.dart';
-import 'package:techmed/features/Profile/data/models/update_user_request.dart';
-import 'package:techmed/features/Profile/presentation/profile_cubit/profile_cubit.dart';
+import 'package:techmed/features/profile/data/models/update_user_request.dart';
+import 'package:techmed/features/profile/presentation/profile_cubit/profile_cubit.dart';
 import 'package:techmed/features/auth/data/models/user_model/user_data.dart';
 import 'package:techmed/generated/l10n.dart';
 
@@ -33,7 +32,9 @@ class UpdateUserInformationScreen extends StatelessWidget {
                 },
                 buildWhen: (previous, current) {
                   // Only rebuild when the state is ProfileSuccess or ProfileLoading
-                  return current is ProfileSuccess || current is ProfileLoading || current is ProfileFailure;
+                  return current is ProfileSuccess ||
+                      current is ProfileLoading ||
+                      current is ProfileFailure;
                 },
                 builder: (context, state) {
                   if (state is ProfileLoading) {
@@ -47,7 +48,9 @@ class UpdateUserInformationScreen extends StatelessWidget {
                     return UpdateForm(userData: state.user.data!);
                   }
 
-                  return const Center(child: Text('Failed to load profile data'));
+                  return const Center(
+                    child: Text('Failed to load profile data'),
+                  );
                 },
               ),
             ),
@@ -89,14 +92,30 @@ class _UpdateFormState extends State<UpdateForm> {
     super.initState();
     _nameController = TextEditingController(text: widget.userData.name ?? '');
     _emailController = TextEditingController(text: widget.userData.email ?? '');
-    _phoneNumberController = TextEditingController(text: widget.userData.phoneNumber ?? '');
-    _nationalIdController = TextEditingController(text: widget.userData.nationalId ?? '');
-    _emergencyContactNameController = TextEditingController(text: widget.userData.emergencyContactName ?? '');
-    _emergencyContactPhoneController = TextEditingController(text: widget.userData.emergencyContactPhone ?? '');
-    _allergiesController = TextEditingController(text: widget.userData.allergies ?? '');
-    _ageController = TextEditingController(text: widget.userData.age?.toString() ?? '');
-    _genderController = TextEditingController(text: widget.userData.gender ?? '');
-    _maritalStatusController = TextEditingController(text: widget.userData.maritalStatus ?? '');
+    _phoneNumberController = TextEditingController(
+      text: widget.userData.phoneNumber ?? '',
+    );
+    _nationalIdController = TextEditingController(
+      text: widget.userData.nationalId ?? '',
+    );
+    _emergencyContactNameController = TextEditingController(
+      text: widget.userData.emergencyContactName ?? '',
+    );
+    _emergencyContactPhoneController = TextEditingController(
+      text: widget.userData.emergencyContactPhone ?? '',
+    );
+    _allergiesController = TextEditingController(
+      text: widget.userData.allergies ?? '',
+    );
+    _ageController = TextEditingController(
+      text: widget.userData.age?.toString() ?? '',
+    );
+    _genderController = TextEditingController(
+      text: widget.userData.gender ?? '',
+    );
+    _maritalStatusController = TextEditingController(
+      text: widget.userData.maritalStatus ?? '',
+    );
     _dobController = TextEditingController(
       text:
           widget.userData.birthDate != null
@@ -135,12 +154,14 @@ class _UpdateFormState extends State<UpdateForm> {
         };
 
         // Try direct mapping first
-        backendMaritalStatus = localizedToBackend[_maritalStatusController.text];
+        backendMaritalStatus =
+            localizedToBackend[_maritalStatusController.text];
 
         // If direct mapping fails, try case-insensitive matching
         if (backendMaritalStatus == null) {
           for (var entry in localizedToBackend.entries) {
-            if (entry.key.toLowerCase() == _maritalStatusController.text.toLowerCase()) {
+            if (entry.key.toLowerCase() ==
+                _maritalStatusController.text.toLowerCase()) {
               backendMaritalStatus = entry.value;
               break;
             }
@@ -150,7 +171,12 @@ class _UpdateFormState extends State<UpdateForm> {
         // Fallback to direct value if no mapping found (in case it's already in correct format)
         if (backendMaritalStatus == null) {
           // Check if it's already a valid backend value
-          final validBackendValues = ['Single', 'Married', 'Divorced', 'Widowed'];
+          final validBackendValues = [
+            'Single',
+            'Married',
+            'Divorced',
+            'Widowed',
+          ];
           if (validBackendValues.contains(_maritalStatusController.text)) {
             backendMaritalStatus = _maritalStatusController.text;
           }
@@ -193,7 +219,10 @@ class _UpdateFormState extends State<UpdateForm> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 12.h),
-                Text(S.of(context).update_your_info, style: AppTextStyles.poppins18SemiBold(context)),
+                Text(
+                  S.of(context).update_your_info,
+                  style: AppTextStyles.poppins18SemiBold(context),
+                ),
                 SizedBox(height: 12.h),
                 _buildRequiredForm(userData),
                 SizedBox(height: 12.h),
@@ -203,24 +232,40 @@ class _UpdateFormState extends State<UpdateForm> {
                 SizedBox(height: 24.h),
                 BlocConsumer<ProfileCubit, ProfileState>(
                   listenWhen: (previous, current) {
-                    return current is UpdateUserDataSuccess || current is UpdateUserDataFailure;
+                    return current is UpdateUserDataSuccess ||
+                        current is UpdateUserDataFailure;
                   },
                   listener: (context, state) {
                     if (state is UpdateUserDataSuccess) {
-                      ToastHelper.showSuccessToast(context, S.of(context).profile_updated_successfully);
-                      Navigator.pop(context, true); // Navigate back after successful update
+                      ToastHelper.showSuccessToast(
+                        context,
+                        S.of(context).profile_updated_successfully,
+                      );
+                      Navigator.pop(
+                        context,
+                        true,
+                      ); // Navigate back after successful update
                     } else if (state is UpdateUserDataFailure) {
                       ToastHelper.showErrorToast(context, state.error);
                     }
                   },
                   buildWhen: (previous, current) {
-                    return current is UpdateUserDataLoading || current is UpdateUserDataSuccess || current is UpdateUserDataFailure;
+                    return current is UpdateUserDataLoading ||
+                        current is UpdateUserDataSuccess ||
+                        current is UpdateUserDataFailure;
                   },
                   builder: (context, state) {
                     if (state is UpdateUserDataLoading) {
-                      return CustomButton(isLoading: true, text: "", onPressed: () {});
+                      return CustomButton(
+                        isLoading: true,
+                        text: "",
+                        onPressed: () {},
+                      );
                     }
-                    return CustomButton(text: S.of(context).update_profile, onPressed: _updateUserProfile);
+                    return CustomButton(
+                      text: S.of(context).update_profile,
+                      onPressed: _updateUserProfile,
+                    );
                   },
                 ),
                 SizedBox(height: 24.h),
@@ -267,7 +312,8 @@ class _UpdateFormState extends State<UpdateForm> {
           enabled: false,
           hintText: S.of(context).enter_your_national_id,
           controller: _nationalIdController,
-          validator: (value) => AppValidators.nationalIdValidator(value, context),
+          validator:
+              (value) => AppValidators.nationalIdValidator(value, context),
           keyboardType: TextInputType.number,
           prefixIcon: const Icon(FontAwesomeIcons.idCard, size: 22),
         ),
@@ -372,7 +418,12 @@ class _UpdateFormState extends State<UpdateForm> {
 
   Widget _buildMaritalStatusDropdown() {
     // Define marital status options
-    final List<String> statusOptions = [S.of(context).single, S.of(context).married, S.of(context).divorced, S.of(context).widowed];
+    final List<String> statusOptions = [
+      S.of(context).single,
+      S.of(context).married,
+      S.of(context).divorced,
+      S.of(context).widowed,
+    ];
 
     // Map backend values to localized values for comparison
     final Map<String, String> backendToLocalized = {
@@ -386,8 +437,10 @@ class _UpdateFormState extends State<UpdateForm> {
     if (_maritalStatusController.text.isNotEmpty) {
       // Try to match backend value or localized value
       for (final entry in backendToLocalized.entries) {
-        if (_maritalStatusController.text.toLowerCase() == entry.key.toLowerCase() ||
-            _maritalStatusController.text.toLowerCase() == entry.value.toLowerCase()) {
+        if (_maritalStatusController.text.toLowerCase() ==
+                entry.key.toLowerCase() ||
+            _maritalStatusController.text.toLowerCase() ==
+                entry.value.toLowerCase()) {
           currentValue = entry.value;
           break;
         }
@@ -397,15 +450,23 @@ class _UpdateFormState extends State<UpdateForm> {
     return DropdownButtonFormField<String>(
       decoration: InputDecoration(
         labelText: S.of(context).marital_status,
-        labelStyle: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.primaryText),
+        labelStyle: AppTextStyles.poppins14Regular(
+          context,
+        ).copyWith(color: AppColors.primaryText),
         prefixIcon: const Icon(Icons.family_restroom, size: 26),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
       value: currentValue,
-      hint: Text(S.of(context).select_marital_status, style: AppTextStyles.poppins14Medium(context)),
+      hint: Text(
+        S.of(context).select_marital_status,
+        style: AppTextStyles.poppins14Medium(context),
+      ),
       items:
           statusOptions.map((String value) {
-            return DropdownMenuItem<String>(value: value, child: Text(value, style: AppTextStyles.poppins14Medium(context)));
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value, style: AppTextStyles.poppins14Medium(context)),
+            );
           }).toList(),
       onChanged: (String? newValue) {
         if (newValue != null) {

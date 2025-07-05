@@ -1134,6 +1134,291 @@ class S {
   String get medication {
     return Intl.message('Medication', name: 'medication', desc: '', args: []);
   }
+
+  /// `Vaccinations`
+  String get vaccinations {
+    return Intl.message(
+      'Vaccinations',
+      name: 'vaccinations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View and Manage Vaccinations`
+  String get view_and_manage_vaccinations {
+    return Intl.message(
+      'View and Manage Vaccinations',
+      name: 'view_and_manage_vaccinations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaccination Name`
+  String get vaccination_name {
+    return Intl.message(
+      'Vaccination Name',
+      name: 'vaccination_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaccination Date`
+  String get vaccination_date {
+    return Intl.message(
+      'Vaccination Date',
+      name: 'vaccination_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaccination Details`
+  String get vaccination_details {
+    return Intl.message(
+      'Vaccination Details',
+      name: 'vaccination_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dosage: {value}`
+  String dosage_variable(Object value) {
+    return Intl.message(
+      'Dosage: $value',
+      name: 'dosage_variable',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Medications`
+  String get medications {
+    return Intl.message('Medications', name: 'medications', desc: '', args: []);
+  }
+
+  /// `No medications found`
+  String get no_medications_found {
+    return Intl.message(
+      'No medications found',
+      name: 'no_medications_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message('Add', name: 'add', desc: '', args: []);
+  }
+
+  /// `Add Medication`
+  String get add_medication {
+    return Intl.message(
+      'Add Medication',
+      name: 'add_medication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Vaccination`
+  String get add_vaccination {
+    return Intl.message(
+      'Add Vaccination',
+      name: 'add_vaccination',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication added successfully.`
+  String get medication_added_successfully {
+    return Intl.message(
+      'Medication added successfully.',
+      name: 'medication_added_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaccination added successfully.`
+  String get vaccination_added_successfully {
+    return Intl.message(
+      'Vaccination added successfully.',
+      name: 'vaccination_added_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dosage`
+  String get dosage {
+    return Intl.message('Dosage', name: 'dosage', desc: '', args: []);
+  }
+
+  /// `Dosage is required`
+  String get dosage_required {
+    return Intl.message(
+      'Dosage is required',
+      name: 'dosage_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication name is required`
+  String get medication_name_required {
+    return Intl.message(
+      'Medication name is required',
+      name: 'medication_name_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Date`
+  String get start_date {
+    return Intl.message('Start Date', name: 'start_date', desc: '', args: []);
+  }
+
+  /// `End Date`
+  String get end_date {
+    return Intl.message('End Date', name: 'end_date', desc: '', args: []);
+  }
+
+  /// `Start date is required`
+  String get start_date_required {
+    return Intl.message(
+      'Start date is required',
+      name: 'start_date_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End date is required`
+  String get end_date_required {
+    return Intl.message(
+      'End date is required',
+      name: 'end_date_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Start Date`
+  String get select_start_date {
+    return Intl.message(
+      'Select Start Date',
+      name: 'select_start_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select End Date`
+  String get select_end_date {
+    return Intl.message(
+      'Select End Date',
+      name: 'select_end_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Medicine`
+  String get select_medicine {
+    return Intl.message(
+      'Select Medicine',
+      name: 'select_medicine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medicine is required`
+  String get medicine_required {
+    return Intl.message(
+      'Medicine is required',
+      name: 'medicine_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notes`
+  String get notes {
+    return Intl.message('Notes', name: 'notes', desc: '', args: []);
+  }
+
+  /// `Notes are required`
+  String get notes_required {
+    return Intl.message(
+      'Notes are required',
+      name: 'notes_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter medication name`
+  String get enter_medication_name {
+    return Intl.message(
+      'Enter medication name',
+      name: 'enter_medication_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `e.g., 500mg, 1 tablet`
+  String get dosage_hint {
+    return Intl.message(
+      'e.g., 500mg, 1 tablet',
+      name: 'dosage_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `e.g., Take after meals, twice a day`
+  String get note_hint {
+    return Intl.message(
+      'e.g., Take after meals, twice a day',
+      name: 'note_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medicine`
+  String get medicine {
+    return Intl.message('Medicine', name: 'medicine', desc: '', args: []);
+  }
+
+  /// `Medication Details`
+  String get medication_details {
+    return Intl.message(
+      'Medication Details',
+      name: 'medication_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No notes available`
+  String get no_notes_available {
+    return Intl.message(
+      'No notes available',
+      name: 'no_notes_available',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

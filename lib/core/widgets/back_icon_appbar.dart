@@ -3,8 +3,13 @@ import 'package:techmed/configs/theme/app_colors.dart';
 import 'package:techmed/configs/theme/app_text_styles.dart';
 
 class BackIconAppBar extends StatelessWidget {
-  const BackIconAppBar({super.key, required this.title});
+  const BackIconAppBar({
+    super.key,
+    required this.title,
+    this.icon = Icons.arrow_back_ios_new_outlined,
+  });
   final String title;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +17,7 @@ class BackIconAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new_outlined,
-            color: AppColors.white,
-          ),
+          icon: Icon(icon, color: AppColors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
         Text(title, style: AppTextStyles.poppins18Medium(context)),

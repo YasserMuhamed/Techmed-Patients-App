@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:techmed/features/Profile/data/models/change_password_request.dart';
-import 'package:techmed/features/Profile/data/models/update_user_request.dart';
-import 'package:techmed/features/Profile/data/repositories/profile_repository.dart';
+import 'package:techmed/features/profile/data/models/change_password_request.dart';
+import 'package:techmed/features/profile/data/models/update_user_request.dart';
+import 'package:techmed/features/profile/data/repositories/profile_repository.dart';
 import 'package:techmed/features/auth/data/models/user_model/user_model.dart';
 import 'package:techmed/features/auth/data/repositories/auth_repository.dart';
 

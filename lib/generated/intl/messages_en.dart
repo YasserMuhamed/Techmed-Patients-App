@@ -20,12 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(value) => "Dosage: ${value}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("Account"),
     "account_deleted": MessageLookupByLibrary.simpleMessage(
       "Account deleted successfully.",
     ),
+    "add": MessageLookupByLibrary.simpleMessage("Add"),
+    "add_medication": MessageLookupByLibrary.simpleMessage("Add Medication"),
+    "add_vaccination": MessageLookupByLibrary.simpleMessage("Add Vaccination"),
     "age": MessageLookupByLibrary.simpleMessage("Age"),
     "allergies": MessageLookupByLibrary.simpleMessage("Allergies"),
     "already_have_an_account": MessageLookupByLibrary.simpleMessage(
@@ -70,6 +75,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "dosage": MessageLookupByLibrary.simpleMessage("Dosage"),
+    "dosage_hint": MessageLookupByLibrary.simpleMessage(
+      "e.g., 500mg, 1 tablet",
+    ),
+    "dosage_required": MessageLookupByLibrary.simpleMessage(
+      "Dosage is required",
+    ),
+    "dosage_variable": m0,
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_required": MessageLookupByLibrary.simpleMessage(
       "Email is required.",
@@ -79,6 +92,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "emergency_contact_name": MessageLookupByLibrary.simpleMessage(
       "Emergency Contact Name",
+    ),
+    "end_date": MessageLookupByLibrary.simpleMessage("End Date"),
+    "end_date_required": MessageLookupByLibrary.simpleMessage(
+      "End date is required",
     ),
     "enter_allergies": MessageLookupByLibrary.simpleMessage(
       "Enter allergies (if any)",
@@ -94,6 +111,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enter_emergency_contact_number": MessageLookupByLibrary.simpleMessage(
       "Enter emergency contact number",
+    ),
+    "enter_medication_name": MessageLookupByLibrary.simpleMessage(
+      "Enter medication name",
     ),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
       "Enter new password",
@@ -164,7 +184,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "marital_status": MessageLookupByLibrary.simpleMessage("Marital Status"),
     "married": MessageLookupByLibrary.simpleMessage("Married"),
     "medication": MessageLookupByLibrary.simpleMessage("Medication"),
+    "medication_added_successfully": MessageLookupByLibrary.simpleMessage(
+      "Medication added successfully.",
+    ),
+    "medication_details": MessageLookupByLibrary.simpleMessage(
+      "Medication Details",
+    ),
     "medication_name": MessageLookupByLibrary.simpleMessage("Medication Name"),
+    "medication_name_required": MessageLookupByLibrary.simpleMessage(
+      "Medication name is required",
+    ),
+    "medications": MessageLookupByLibrary.simpleMessage("Medications"),
+    "medicine": MessageLookupByLibrary.simpleMessage("Medicine"),
+    "medicine_required": MessageLookupByLibrary.simpleMessage(
+      "Medicine is required",
+    ),
     "name_no_special_chars": MessageLookupByLibrary.simpleMessage(
       "Name should not contain special characters",
     ),
@@ -190,11 +224,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_marital_status_provided": MessageLookupByLibrary.simpleMessage(
       "No marital status provided",
     ),
+    "no_medications_found": MessageLookupByLibrary.simpleMessage(
+      "No medications found",
+    ),
     "no_name_provided": MessageLookupByLibrary.simpleMessage(
       "No name provided",
     ),
+    "no_notes_available": MessageLookupByLibrary.simpleMessage(
+      "No notes available",
+    ),
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "No profile picture available",
+    ),
+    "note_hint": MessageLookupByLibrary.simpleMessage(
+      "e.g., Take after meals, twice a day",
+    ),
+    "notes": MessageLookupByLibrary.simpleMessage("Notes"),
+    "notes_required": MessageLookupByLibrary.simpleMessage(
+      "Notes are required",
     ),
     "otp_sent": MessageLookupByLibrary.simpleMessage(
       "OTP code sent to your phone",
@@ -260,12 +307,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "schedule_doctor_visit": MessageLookupByLibrary.simpleMessage(
       "Schedule Doctor Visit",
     ),
+    "select_end_date": MessageLookupByLibrary.simpleMessage("Select End Date"),
     "select_gender": MessageLookupByLibrary.simpleMessage("Select Gender"),
     "select_marital_status": MessageLookupByLibrary.simpleMessage(
       "Select Marital Status",
     ),
+    "select_medicine": MessageLookupByLibrary.simpleMessage("Select Medicine"),
+    "select_start_date": MessageLookupByLibrary.simpleMessage(
+      "Select Start Date",
+    ),
     "settings_title": MessageLookupByLibrary.simpleMessage("Settings"),
     "single": MessageLookupByLibrary.simpleMessage("Single"),
+    "start_date": MessageLookupByLibrary.simpleMessage("Start Date"),
+    "start_date_required": MessageLookupByLibrary.simpleMessage(
+      "Start date is required",
+    ),
     "success": MessageLookupByLibrary.simpleMessage("Success"),
     "todays_medications": MessageLookupByLibrary.simpleMessage(
       "Today\'s Medications",
@@ -278,9 +334,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "upload_profile_picture": MessageLookupByLibrary.simpleMessage(
       "Upload Profile Picture",
     ),
+    "vaccination_added_successfully": MessageLookupByLibrary.simpleMessage(
+      "Vaccination added successfully.",
+    ),
+    "vaccination_date": MessageLookupByLibrary.simpleMessage(
+      "Vaccination Date",
+    ),
+    "vaccination_details": MessageLookupByLibrary.simpleMessage(
+      "Vaccination Details",
+    ),
+    "vaccination_name": MessageLookupByLibrary.simpleMessage(
+      "Vaccination Name",
+    ),
+    "vaccinations": MessageLookupByLibrary.simpleMessage("Vaccinations"),
     "verify_phone": MessageLookupByLibrary.simpleMessage("Verify phone number"),
     "view_and_manage_medications": MessageLookupByLibrary.simpleMessage(
       "View and Manage Medications",
+    ),
+    "view_and_manage_vaccinations": MessageLookupByLibrary.simpleMessage(
+      "View and Manage Vaccinations",
     ),
     "weak_password": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 6 characters long.",

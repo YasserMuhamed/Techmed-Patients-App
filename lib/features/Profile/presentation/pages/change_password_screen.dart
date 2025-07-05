@@ -3,7 +3,7 @@ import 'package:techmed/configs/theme/app_text_styles.dart';
 import 'package:techmed/core/helpers/validators.dart';
 import 'package:techmed/core/widgets/app_text_field.dart';
 import 'package:techmed/core/widgets/back_icon_appbar.dart';
-import 'package:techmed/features/Profile/presentation/widgets/change_password_button.dart';
+import 'package:techmed/features/profile/presentation/widgets/change_password_button.dart';
 import 'package:techmed/generated/l10n.dart';
 
 class ChangePasswordScreen extends StatefulWidget {

@@ -3,10 +3,10 @@ import 'package:dio/dio.dart';
 import 'package:techmed/core/api/api_constants.dart';
 import 'package:techmed/core/api/api_manager.dart';
 import 'package:techmed/core/error/failures.dart';
-import 'package:techmed/features/Profile/data/models/change_password_request.dart';
-import 'package:techmed/features/Profile/data/models/change_password_response/change_password_response.dart';
-import 'package:techmed/features/Profile/data/models/update_user_request.dart';
-import 'package:techmed/features/Profile/data/repositories/profile_repository.dart';
+import 'package:techmed/features/profile/data/models/change_password_request.dart';
+import 'package:techmed/features/profile/data/models/change_password_response/change_password_response.dart';
+import 'package:techmed/features/profile/data/models/update_user_request.dart';
+import 'package:techmed/features/profile/data/repositories/profile_repository.dart';
 import 'package:techmed/features/auth/data/models/user_model/user_model.dart';
 
 class ProfileRepositoryImplementation implements ProfileRepository {

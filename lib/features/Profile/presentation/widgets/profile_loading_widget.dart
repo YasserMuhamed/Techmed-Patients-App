@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:techmed/configs/theme/app_colors.dart';
-import 'package:techmed/features/Profile/presentation/widgets/user_info.dart';
+import 'package:techmed/features/profile/presentation/widgets/user_info.dart';
 import 'package:techmed/features/auth/data/models/user_model/user_data.dart';
 
 class ProfileLoadingWidget extends StatelessWidget {

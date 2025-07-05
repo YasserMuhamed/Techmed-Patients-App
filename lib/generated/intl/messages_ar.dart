@@ -20,12 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(value) => "الجرعة: ${value}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "account": MessageLookupByLibrary.simpleMessage("الحساب"),
     "account_deleted": MessageLookupByLibrary.simpleMessage(
       "تم حذف الحساب بنجاح.",
     ),
+    "add": MessageLookupByLibrary.simpleMessage("إضافة"),
+    "add_medication": MessageLookupByLibrary.simpleMessage("إضافة دواء"),
+    "add_vaccination": MessageLookupByLibrary.simpleMessage("إضافة تطعيم"),
     "age": MessageLookupByLibrary.simpleMessage("العمر"),
     "allergies": MessageLookupByLibrary.simpleMessage("الحساسية"),
     "already_have_an_account": MessageLookupByLibrary.simpleMessage(
@@ -70,6 +75,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
       "ليس لديك حساب؟",
     ),
+    "dosage": MessageLookupByLibrary.simpleMessage("الجرعة"),
+    "dosage_hint": MessageLookupByLibrary.simpleMessage(
+      "مثال: 500 ملغ، قرص واحد",
+    ),
+    "dosage_required": MessageLookupByLibrary.simpleMessage("الجرعة مطلوبة"),
+    "dosage_variable": m0,
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "email_required": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني مطلوب.",
@@ -79,6 +90,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "emergency_contact_name": MessageLookupByLibrary.simpleMessage(
       "اسم جهة اتصال الطوارئ",
+    ),
+    "end_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
+    "end_date_required": MessageLookupByLibrary.simpleMessage(
+      "تاريخ الانتهاء مطلوب",
     ),
     "enter_allergies": MessageLookupByLibrary.simpleMessage(
       "أدخل الحساسية (إن وجدت)",
@@ -94,6 +109,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enter_emergency_contact_number": MessageLookupByLibrary.simpleMessage(
       "أدخل رقم جهة اتصال الطوارئ",
+    ),
+    "enter_medication_name": MessageLookupByLibrary.simpleMessage(
+      "أدخل اسم الدواء",
     ),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة المرور الجديدة",
@@ -162,7 +180,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "marital_status": MessageLookupByLibrary.simpleMessage("الحالة الاجتماعية"),
     "married": MessageLookupByLibrary.simpleMessage("متزوج"),
     "medication": MessageLookupByLibrary.simpleMessage("الدواء"),
+    "medication_added_successfully": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة الدواء بنجاح.",
+    ),
+    "medication_details": MessageLookupByLibrary.simpleMessage("تفاصيل الدواء"),
     "medication_name": MessageLookupByLibrary.simpleMessage("اسم الدواء"),
+    "medication_name_required": MessageLookupByLibrary.simpleMessage(
+      "اسم الدواء مطلوب",
+    ),
+    "medications": MessageLookupByLibrary.simpleMessage("الأدوية"),
+    "medicine": MessageLookupByLibrary.simpleMessage("دواء"),
+    "medicine_required": MessageLookupByLibrary.simpleMessage("الدواء مطلوب"),
     "name_no_special_chars": MessageLookupByLibrary.simpleMessage(
       "يجب ألا يحتوي الاسم على رموز خاصة",
     ),
@@ -190,12 +218,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_marital_status_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال الحالة الاجتماعية",
     ),
+    "no_medications_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على أدوية",
+    ),
     "no_name_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال اسم",
+    ),
+    "no_notes_available": MessageLookupByLibrary.simpleMessage(
+      "لا توجد ملاحظات متاحة",
     ),
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "لا توجد صورة ملف شخصي متاحة",
     ),
+    "note_hint": MessageLookupByLibrary.simpleMessage(
+      "مثال: تناول بعد الوجبات، مرتين يوميًا",
+    ),
+    "notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
+    "notes_required": MessageLookupByLibrary.simpleMessage("الملاحظات مطلوبة"),
     "otp_sent": MessageLookupByLibrary.simpleMessage(
       "تم إرسال رمز التحقق إلى هاتفك",
     ),
@@ -260,12 +299,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "schedule_doctor_visit": MessageLookupByLibrary.simpleMessage(
       "جدولة زيارة الطبيب",
     ),
+    "select_end_date": MessageLookupByLibrary.simpleMessage(
+      "اختر تاريخ الانتهاء",
+    ),
     "select_gender": MessageLookupByLibrary.simpleMessage("اختر الجنس"),
     "select_marital_status": MessageLookupByLibrary.simpleMessage(
       "اختر الحالة الاجتماعية",
     ),
+    "select_medicine": MessageLookupByLibrary.simpleMessage("اختر الدواء"),
+    "select_start_date": MessageLookupByLibrary.simpleMessage(
+      "اختر تاريخ البدء",
+    ),
     "settings_title": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "single": MessageLookupByLibrary.simpleMessage("أعزب"),
+    "start_date": MessageLookupByLibrary.simpleMessage("تاريخ البدء"),
+    "start_date_required": MessageLookupByLibrary.simpleMessage(
+      "تاريخ البدء مطلوب",
+    ),
     "success": MessageLookupByLibrary.simpleMessage("نجاح"),
     "todays_medications": MessageLookupByLibrary.simpleMessage("أدوية اليوم"),
     "update_info": MessageLookupByLibrary.simpleMessage("تحديث المعلومات"),
@@ -276,9 +326,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "upload_profile_picture": MessageLookupByLibrary.simpleMessage(
       "تحميل صورة الملف الشخصي",
     ),
+    "vaccination_added_successfully": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة التطعيم بنجاح.",
+    ),
+    "vaccination_date": MessageLookupByLibrary.simpleMessage("تاريخ التطعيم"),
+    "vaccination_details": MessageLookupByLibrary.simpleMessage(
+      "تفاصيل التطعيم",
+    ),
+    "vaccination_name": MessageLookupByLibrary.simpleMessage("اسم التطعيم"),
+    "vaccinations": MessageLookupByLibrary.simpleMessage("التطعيمات"),
     "verify_phone": MessageLookupByLibrary.simpleMessage("تأكيد رقم الهاتف"),
     "view_and_manage_medications": MessageLookupByLibrary.simpleMessage(
       "عرض وإدارة الأدوية",
+    ),
+    "view_and_manage_vaccinations": MessageLookupByLibrary.simpleMessage(
+      "عرض وإدارة التطعيمات",
     ),
     "weak_password": MessageLookupByLibrary.simpleMessage(
       "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",

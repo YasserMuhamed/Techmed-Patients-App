@@ -6,10 +6,10 @@ import 'package:techmed/configs/theme/app_colors.dart';
 import 'package:techmed/configs/theme/app_text_styles.dart';
 import 'package:techmed/core/helpers/extensions.dart';
 import 'package:techmed/core/widgets/custom_divider.dart';
-import 'package:techmed/features/Profile/presentation/profile_cubit/profile_cubit.dart';
-import 'package:techmed/features/Profile/presentation/widgets/log_out_tile.dart';
-import 'package:techmed/features/Profile/presentation/widgets/profile_loading_widget.dart';
-import 'package:techmed/features/Profile/presentation/widgets/user_info.dart';
+import 'package:techmed/features/profile/presentation/profile_cubit/profile_cubit.dart';
+import 'package:techmed/features/profile/presentation/widgets/log_out_tile.dart';
+import 'package:techmed/features/profile/presentation/widgets/profile_loading_widget.dart';
+import 'package:techmed/features/profile/presentation/widgets/user_info.dart';
 import 'package:techmed/features/translation/cubit/localization_cubit.dart';
 import 'package:techmed/generated/l10n.dart';
 

@@ -29,21 +29,71 @@ final class MedicationFailure extends MedicationState {
   List<Object> get props => [message];
 }
 
-final class PrescriptionLoading extends MedicationState {}
+// States for creating a medication
+final class MedicationCreateLoading extends MedicationState {}
 
-final class PrescriptionSuccess extends MedicationState {
-  final PrescriptionsResponse prescriptions;
+final class MedicationCreateSuccess extends MedicationState {}
 
-  const PrescriptionSuccess(this.prescriptions);
-
-  @override
-  List<Object> get props => [prescriptions];
-}
-
-final class PrescriptionFailure extends MedicationState {
+final class MedicationCreateFailure extends MedicationState {
   final String message;
 
-  const PrescriptionFailure(this.message);
+  const MedicationCreateFailure(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+// States for deleting a medication
+final class MedicationDeleteLoading extends MedicationState {}
+
+final class MedicationDeleteSuccess extends MedicationState {}
+
+final class MedicationDeleteFailure extends MedicationState {
+  final String message;
+
+  const MedicationDeleteFailure(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+// States for getting medicines
+final class MedicinesLoading extends MedicationState {}
+
+final class MedicinesSuccess extends MedicationState {
+  final MedicinesModel medicines;
+
+  const MedicinesSuccess(this.medicines);
+
+  @override
+  List<Object> get props => [medicines];
+}
+
+final class MedicinesFailure extends MedicationState {
+  final String message;
+
+  const MedicinesFailure(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+// States for getting a single medication
+final class MedicationDetailsLoading extends MedicationState {}
+
+final class MedicationDetailsSuccess extends MedicationState {
+  final MedicationDetailsResponse medication;
+
+  const MedicationDetailsSuccess(this.medication);
+
+  @override
+  List<Object> get props => [medication];
+}
+
+final class MedicationDetailsFailure extends MedicationState {
+  final String message;
+
+  const MedicationDetailsFailure(this.message);
 
   @override
   List<Object> get props => [message];

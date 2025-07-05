@@ -30,10 +30,8 @@ class DioFactory {
   static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
-      "Accept-Language":
-          "${await SharedPrefHelper.getSecuredString(SharedPrefsKeys.languageKey) ?? "en"}",
       'Authorization':
-          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefsKeys.tokenKey) ?? ""}',
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefsKeys.tokenKey)}',
     };
   }
 

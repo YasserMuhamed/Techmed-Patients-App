@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:techmed/Features/Main/presentation/widgets/home/prescriptions_and_appointments_section.dart';
-import 'package:techmed/Features/Main/presentation/widgets/home/todays_medications_section.dart';
+import 'package:techmed/features/main/presentation/widgets/prescriptions_and_vaccinations_section.dart';
+import 'package:techmed/features/main/presentation/widgets/todays_medications_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, this.pageController});
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
             spacing: 25,
             children: [
               SizedBox(height: 1.h),
-              PrescriptionsAndAppointmentsSection(pageController: pageController!),
+              PrescriptionsAndVaccinationsSection(),
               TodaysMedicationsSection(),
             ],
           ),

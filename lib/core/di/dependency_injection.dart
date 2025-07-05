@@ -1,12 +1,13 @@
 import 'package:get_it/get_it.dart';
-import 'package:techmed/Features/Main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
-import 'package:techmed/Features/Main/presentation/manager/cubit/home_cubit.dart';
-import 'package:techmed/Features/Medication/presentation/manager/medication/medication_cubit.dart';
+import 'package:techmed/features/main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
+import 'package:techmed/features/main/presentation/manager/cubit/home_cubit.dart';
+import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
 import 'package:techmed/core/api/api_manager.dart';
 import 'package:techmed/core/api/dio_factory.dart';
-import 'package:techmed/features/Medication/data/repository/medication_repo_impl.dart';
-import 'package:techmed/features/Profile/data/repositories/profile_repository_implementation.dart';
-import 'package:techmed/features/Profile/presentation/profile_cubit/profile_cubit.dart';
+import 'package:techmed/features/medication/data/repository/medication_repo_impl.dart';
+import 'package:techmed/features/medication/presentation/manager/prescriptions/prescriptions_cubit.dart';
+import 'package:techmed/features/profile/data/repositories/profile_repository_implementation.dart';
+import 'package:techmed/features/profile/presentation/profile_cubit/profile_cubit.dart';
 import 'package:techmed/features/auth/data/repositories/auth_repository_implementation.dart';
 import 'package:techmed/features/auth/presentation/manager/login/login_cubit.dart';
 import 'package:techmed/features/auth/presentation/manager/register/register_cubit.dart';
@@ -46,6 +47,9 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<MedicationCubit>(
     () => MedicationCubit(getIt<MedicationRepositoryImplementation>()),
+  );
+  getIt.registerFactory<PrescriptionsCubit>(
+    () => PrescriptionsCubit(getIt<MedicationRepositoryImplementation>()),
   );
 
   getIt.registerFactory<ProfileCubit>(
