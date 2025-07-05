@@ -154,5 +154,10 @@
   "note_hint": "e.g., Take after meals, twice a day",
   "medicine": "Medicine",
   "medication_details": "Medication Details",
-  "no_notes_available": "No notes available"
+  "no_notes_available": "No notes available",
+  "delete_medication": "Delete Medication",
+  "confirm_delete": "Confirm Delete",
+  "delete_medication_confirmation": "Are you sure you want to delete this medication?",
+  "delete": "Delete",
+  "medication_deleted_successfully": "Medication deleted successfully."
 }

@@ -1419,6 +1419,51 @@ class S {
       args: [],
     );
   }
+
+  /// `Delete Medication`
+  String get delete_medication {
+    return Intl.message(
+      'Delete Medication',
+      name: 'delete_medication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Delete`
+  String get confirm_delete {
+    return Intl.message(
+      'Confirm Delete',
+      name: 'confirm_delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this medication?`
+  String get delete_medication_confirmation {
+    return Intl.message(
+      'Are you sure you want to delete this medication?',
+      name: 'delete_medication_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message('Delete', name: 'delete', desc: '', args: []);
+  }
+
+  /// `Medication deleted successfully.`
+  String get medication_deleted_successfully {
+    return Intl.message(
+      'Medication deleted successfully.',
+      name: 'medication_deleted_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

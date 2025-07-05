@@ -154,5 +154,10 @@
   "note_hint": "مثال: تناول بعد الوجبات، مرتين يوميًا",
   "medicine": "دواء",
   "medication_details": "تفاصيل الدواء",
-  "no_notes_available": "لا توجد ملاحظات متاحة"
+  "no_notes_available": "لا توجد ملاحظات متاحة",
+  "delete_medication": "حذف الدواء",
+  "confirm_delete": "تأكيد الحذف",
+  "delete_medication_confirmation": "هل أنت متأكد أنك تريد حذف هذا الدواء؟",
+  "delete": "حذف",
+  "medication_deleted_successfully": "تم حذف الدواء بنجاح."
 }

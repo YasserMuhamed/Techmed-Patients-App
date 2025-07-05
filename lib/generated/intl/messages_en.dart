@@ -51,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "change_password_success": MessageLookupByLibrary.simpleMessage(
       "Your password has been changed successfully.",
     ),
+    "confirm_delete": MessageLookupByLibrary.simpleMessage("Confirm Delete"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
     ),
@@ -66,9 +67,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "current_password": MessageLookupByLibrary.simpleMessage(
       "Current Password",
     ),
+    "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "delete_account": MessageLookupByLibrary.simpleMessage("Delete Account"),
     "delete_account_confirmation": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete your account?",
+    ),
+    "delete_medication": MessageLookupByLibrary.simpleMessage(
+      "Delete Medication",
+    ),
+    "delete_medication_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this medication?",
     ),
     "divorced": MessageLookupByLibrary.simpleMessage("Divorced"),
     "doctor_name": MessageLookupByLibrary.simpleMessage("Doctor Name"),
@@ -186,6 +194,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "medication": MessageLookupByLibrary.simpleMessage("Medication"),
     "medication_added_successfully": MessageLookupByLibrary.simpleMessage(
       "Medication added successfully.",
+    ),
+    "medication_deleted_successfully": MessageLookupByLibrary.simpleMessage(
+      "Medication deleted successfully.",
     ),
     "medication_details": MessageLookupByLibrary.simpleMessage(
       "Medication Details",

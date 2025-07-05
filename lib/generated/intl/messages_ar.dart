@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "change_password_success": MessageLookupByLibrary.simpleMessage(
       "تم تغيير كلمة المرور بنجاح.",
     ),
+    "confirm_delete": MessageLookupByLibrary.simpleMessage("تأكيد الحذف"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور الجديدة",
     ),
@@ -66,9 +67,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "current_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور الحالية",
     ),
+    "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "delete_account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "delete_account_confirmation": MessageLookupByLibrary.simpleMessage(
       "هل أنت متأكد أنك تريد حذف حسابك؟",
+    ),
+    "delete_medication": MessageLookupByLibrary.simpleMessage("حذف الدواء"),
+    "delete_medication_confirmation": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد حذف هذا الدواء؟",
     ),
     "divorced": MessageLookupByLibrary.simpleMessage("مطلق"),
     "doctor_name": MessageLookupByLibrary.simpleMessage("اسم الطبيب"),
@@ -182,6 +188,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "medication": MessageLookupByLibrary.simpleMessage("الدواء"),
     "medication_added_successfully": MessageLookupByLibrary.simpleMessage(
       "تمت إضافة الدواء بنجاح.",
+    ),
+    "medication_deleted_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم حذف الدواء بنجاح.",
     ),
     "medication_details": MessageLookupByLibrary.simpleMessage("تفاصيل الدواء"),
     "medication_name": MessageLookupByLibrary.simpleMessage("اسم الدواء"),
