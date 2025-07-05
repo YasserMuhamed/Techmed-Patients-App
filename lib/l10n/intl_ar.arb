@@ -176,5 +176,19 @@
   "not_specified": "غير محدد",
   "appointment_not_found": "لم يتم العثور على موعد",
   "add_appointment": "إضافة موعد",
-  "appointment_added_successfully": "تمت إضافة الموعد بنجاح."
+  "appointment_added_successfully": "تمت إضافة الموعد بنجاح.",
+  "date_required": "التاريخ مطلوب",
+  "time_required": "الوقت مطلوب",
+  "status_required": "الحالة مطلوبة",
+  "doctor_required": "اسم الطبيب مطلوب",
+  "hospital_required": "اسم المستشفى مطلوب",
+  "select_doctor": "اختر الطبيب",
+  "select_hospital": "اختر المستشفى",
+  "no_doctors_available": "لا يوجد أطباء متاحون",
+  "no_hospitals_available": "لا توجد مستشفيات متاحة",
+  "select_appointment_date": "اختر تاريخ الموعد",
+  "select_appointment_time": "اختر وقت الموعد",
+  "hospital": "المستشفى",
+  "doctor": "الطبيب",
+  "enter_your_status": "أدخل حالتك"
 }

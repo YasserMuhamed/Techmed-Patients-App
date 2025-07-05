@@ -93,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Current Password",
     ),
     "date": MessageLookupByLibrary.simpleMessage("Date"),
+    "date_required": MessageLookupByLibrary.simpleMessage("Date is required"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "delete_account": MessageLookupByLibrary.simpleMessage("Delete Account"),
     "delete_account_confirmation": MessageLookupByLibrary.simpleMessage(
@@ -105,8 +106,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Are you sure you want to delete this medication?",
     ),
     "divorced": MessageLookupByLibrary.simpleMessage("Divorced"),
+    "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
     "doctor_and_hospital": m0,
     "doctor_name": MessageLookupByLibrary.simpleMessage("Doctor Name"),
+    "doctor_required": MessageLookupByLibrary.simpleMessage(
+      "Doctor is required",
+    ),
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
@@ -173,6 +178,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "enter_your_phone": MessageLookupByLibrary.simpleMessage(
       "Enter your phone number",
     ),
+    "enter_your_status": MessageLookupByLibrary.simpleMessage(
+      "Enter your status",
+    ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "error_message": MessageLookupByLibrary.simpleMessage(
       "An error occurred. Please try again.",
@@ -185,7 +193,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Something went wrong. Please try again later.",
     ),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "hospital": MessageLookupByLibrary.simpleMessage("Hospital"),
     "hospital_name": MessageLookupByLibrary.simpleMessage("Hospital Name"),
+    "hospital_required": MessageLookupByLibrary.simpleMessage(
+      "Hospital is required",
+    ),
     "invalid_age": MessageLookupByLibrary.simpleMessage(
       "Age must be a valid number",
     ),
@@ -257,11 +269,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_birth_date_provided": MessageLookupByLibrary.simpleMessage(
       "No birth date provided",
     ),
+    "no_doctors_available": MessageLookupByLibrary.simpleMessage(
+      "No doctors available",
+    ),
     "no_emergency_number_provided": MessageLookupByLibrary.simpleMessage(
       "No emergency number provided",
     ),
     "no_gender_provided": MessageLookupByLibrary.simpleMessage(
       "No gender provided",
+    ),
+    "no_hospitals_available": MessageLookupByLibrary.simpleMessage(
+      "No hospitals available",
     ),
     "no_marital_status_provided": MessageLookupByLibrary.simpleMessage(
       "No marital status provided",
@@ -351,8 +369,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "schedule_doctor_visit": MessageLookupByLibrary.simpleMessage(
       "Schedule Doctor Visit",
     ),
+    "select_appointment_date": MessageLookupByLibrary.simpleMessage(
+      "Select Appointment Date",
+    ),
+    "select_appointment_time": MessageLookupByLibrary.simpleMessage(
+      "Select Appointment Time",
+    ),
+    "select_doctor": MessageLookupByLibrary.simpleMessage("Select Doctor"),
     "select_end_date": MessageLookupByLibrary.simpleMessage("Select End Date"),
     "select_gender": MessageLookupByLibrary.simpleMessage("Select Gender"),
+    "select_hospital": MessageLookupByLibrary.simpleMessage("Select Hospital"),
     "select_marital_status": MessageLookupByLibrary.simpleMessage(
       "Select Marital Status",
     ),
@@ -367,8 +393,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Start date is required",
     ),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
+    "status_required": MessageLookupByLibrary.simpleMessage(
+      "Status is required",
+    ),
     "success": MessageLookupByLibrary.simpleMessage("Success"),
     "time": MessageLookupByLibrary.simpleMessage("Time"),
+    "time_required": MessageLookupByLibrary.simpleMessage("Time is required"),
     "todays_medications": MessageLookupByLibrary.simpleMessage(
       "Today\'s Medications",
     ),

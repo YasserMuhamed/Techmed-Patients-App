@@ -15,5 +15,7 @@ class ApiConstants {
   static String deleteAppointmentEndPoint(int id) => "/appointments/$id";
 
   static const getPrescriptionsEndPoint = "/prescriptions";
+  static const getDoctorsEndPoint = "/data/doctors";
+  static const getHospitalsEndPoint = "/data/hospitals";
   static const getAllMedicinesEndPoint = "/data/medicine";
 }

@@ -77,3 +77,24 @@ final class AppointmentDetailsFailure extends AppointmentsState {
   @override
   List<Object> get props => [message];
 }
+
+/// States for getting hospitals
+final class HospitalsLoading extends AppointmentsState {}
+
+final class HospitalsSuccess extends AppointmentsState {
+  final HospitalsModel hospitals;
+
+  const HospitalsSuccess(this.hospitals);
+
+  @override
+  List<Object> get props => [hospitals];
+}
+
+final class HospitalsFailure extends AppointmentsState {
+  final String message;
+
+  const HospitalsFailure(this.message);
+
+  @override
+  List<Object> get props => [message];
+}

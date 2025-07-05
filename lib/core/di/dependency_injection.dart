@@ -1,3 +1,4 @@
+import 'package:techmed/features/appointment/presentation/manager/doctors/doctors_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:techmed/features/appointment/data/repository/appointment_repo_impl.dart';
 import 'package:techmed/features/appointment/presentation/manager/appointments/appointments_cubit.dart';
@@ -21,22 +22,16 @@ Future<void> setupGetIt() async {
   // Dio Client
   DioFactory.getDio();
 
-  getIt.registerLazySingleton<ApiManager>(
-    () => ApiManager(dio: DioFactory.getDio()),
-  );
+  getIt.registerLazySingleton<ApiManager>(() => ApiManager(dio: DioFactory.getDio()));
 
   // Repositories
-  getIt.registerLazySingleton<AuthRepositoryImplementation>(
-    () => AuthRepositoryImplementation(apiManager: getIt<ApiManager>()),
-  );
+  getIt.registerLazySingleton<AuthRepositoryImplementation>(() => AuthRepositoryImplementation(apiManager: getIt<ApiManager>()));
 
   getIt.registerLazySingleton<MedicationRepositoryImplementation>(
     () => MedicationRepositoryImplementation(apiManager: getIt<ApiManager>()),
   );
 
-  getIt.registerLazySingleton<ProfileRepositoryImplementation>(
-    () => ProfileRepositoryImplementation(apiManager: getIt<ApiManager>()),
-  );
+  getIt.registerLazySingleton<ProfileRepositoryImplementation>(() => ProfileRepositoryImplementation(apiManager: getIt<ApiManager>()));
 
   getIt.registerLazySingleton<AppointmentRepositoryImplementation>(
     () => AppointmentRepositoryImplementation(apiManager: getIt<ApiManager>()),
@@ -45,27 +40,16 @@ Future<void> setupGetIt() async {
   // Cubits
   getIt.registerFactory<LocaleCubit>(() => LocaleCubit());
   getIt.registerFactory<BottomNavCubit>(() => BottomNavCubit());
-  getIt.registerFactory<LoginCubit>(
-    () => LoginCubit(authRepository: getIt<AuthRepositoryImplementation>()),
-  );
-  getIt.registerFactory<RegisterCubit>(
-    () => RegisterCubit(authRepository: getIt<AuthRepositoryImplementation>()),
-  );
-  getIt.registerFactory<MedicationCubit>(
-    () => MedicationCubit(getIt<MedicationRepositoryImplementation>()),
-  );
-  getIt.registerFactory<PrescriptionsCubit>(
-    () => PrescriptionsCubit(getIt<MedicationRepositoryImplementation>()),
-  );
-  getIt.registerFactory<AppointmentsCubit>(
-    () => AppointmentsCubit(getIt<AppointmentRepositoryImplementation>()),
-  );
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(authRepository: getIt<AuthRepositoryImplementation>()));
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(authRepository: getIt<AuthRepositoryImplementation>()));
+  getIt.registerFactory<MedicationCubit>(() => MedicationCubit(getIt<MedicationRepositoryImplementation>()));
+  getIt.registerFactory<PrescriptionsCubit>(() => PrescriptionsCubit(getIt<MedicationRepositoryImplementation>()));
+  getIt.registerFactory<AppointmentsCubit>(() => AppointmentsCubit(getIt<AppointmentRepositoryImplementation>()));
+
+  getIt.registerFactory<DoctorsCubit>(() => DoctorsCubit(getIt<AppointmentRepositoryImplementation>()));
 
   getIt.registerFactory<ProfileCubit>(
-    () => ProfileCubit(
-      authRepository: getIt<AuthRepositoryImplementation>(),
-      profileRepository: getIt<ProfileRepositoryImplementation>(),
-    ),
+    () => ProfileCubit(authRepository: getIt<AuthRepositoryImplementation>(), profileRepository: getIt<ProfileRepositoryImplementation>()),
   );
   getIt.registerFactory<HomeCubit>(() => HomeCubit());
 }

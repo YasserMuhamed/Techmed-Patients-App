@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:techmed/features/appointment/presentation/manager/appointments/appointments_cubit.dart';
+import 'package:techmed/features/appointment/presentation/manager/doctors/doctors_cubit.dart';
 import 'package:techmed/features/appointment/presentation/views/appointment_details_screen.dart';
 import 'package:techmed/features/appointment/presentation/views/create_appointment_screen.dart';
 import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
@@ -32,63 +33,29 @@ class AppRouter {
 
     switch (settings.name) {
       case AppRoutes.kLoginScreen:
-        return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<LoginCubit>(),
-                child: const LoginScreen(),
-              ),
-        );
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (context) => getIt<LoginCubit>(), child: const LoginScreen()));
       case AppRoutes.kRegisterScreen:
-        return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<RegisterCubit>(),
-                child: const RegisterScreen(),
-              ),
-        );
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (context) => getIt<RegisterCubit>(), child: const RegisterScreen()));
       case AppRoutes.kChangePasswordScreen:
         return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<ProfileCubit>(),
-                child: const ChangePasswordScreen(),
-              ),
+          builder: (_) => BlocProvider(create: (context) => getIt<ProfileCubit>(), child: const ChangePasswordScreen()),
         );
       case AppRoutes.kUpdateUserInfoScreen:
         return MaterialPageRoute(
           builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<ProfileCubit>()..getUserProfile(),
-                child: const UpdateUserInformationScreen(),
-              ),
+              (_) => BlocProvider(create: (context) => getIt<ProfileCubit>()..getUserProfile(), child: const UpdateUserInformationScreen()),
         );
       case AppRoutes.kPrescriptionsScreen:
         return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create:
-                    (context) =>
-                        getIt<PrescriptionsCubit>()..getPrescriptions(),
-                child: PrescriptionsScreen(),
-              ),
+          builder: (_) => BlocProvider(create: (context) => getIt<PrescriptionsCubit>()..getPrescriptions(), child: PrescriptionsScreen()),
         );
       case AppRoutes.kVaccinationsScreen:
         return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<MedicationCubit>()..getMedications(),
-                child: VaccinationScreen(),
-              ),
+          builder: (_) => BlocProvider(create: (context) => getIt<MedicationCubit>()..getMedications(), child: VaccinationScreen()),
         );
       case AppRoutes.kCreateMedicationScreen:
         return MaterialPageRoute(
-          builder:
-              (_) => BlocProvider(
-                create:
-                    (context) => getIt<MedicationCubit>()..getAllMedicines(),
-                child: CreateMedicationScreen(),
-              ),
+          builder: (_) => BlocProvider(create: (context) => getIt<MedicationCubit>()..getAllMedicines(), child: CreateMedicationScreen()),
         );
       case AppRoutes.kMedicationDetailsScreen:
         return MaterialPageRoute(
@@ -99,9 +66,7 @@ class AppRouter {
                   cubit.getMedicationDetails(settings.arguments! as int);
                   return cubit;
                 },
-                child: MedicationDetailsScreen(
-                  medicationId: settings.arguments! as int,
-                ),
+                child: MedicationDetailsScreen(medicationId: settings.arguments! as int),
               ),
         );
 
@@ -114,16 +79,17 @@ class AppRouter {
                   cubit.getAppointmentDetails(settings.arguments! as int);
                   return cubit;
                 },
-                child: AppointmentDetailsScreen(
-                  appointmentId: settings.arguments! as int,
-                ),
+                child: AppointmentDetailsScreen(appointmentId: settings.arguments! as int),
               ),
         );
       case AppRoutes.kCreateAppointmentScreen:
         return MaterialPageRoute(
           builder:
-              (_) => BlocProvider(
-                create: (context) => getIt<AppointmentsCubit>(),
+              (_) => MultiBlocProvider(
+                providers: [
+                  BlocProvider(create: (context) => getIt<AppointmentsCubit>()..getAllHospitals()),
+                  BlocProvider(create: (context) => getIt<DoctorsCubit>()..getAllDoctors()),
+                ],
                 child: CreateAppointmentScreen(),
               ),
         );
@@ -132,20 +98,10 @@ class AppRouter {
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider(
-                    create:
-                        (context) =>
-                            getIt<AppointmentsCubit>()..getAppointments(),
-                  ),
-                  BlocProvider(
-                    create:
-                        (context) => getIt<ProfileCubit>()..getUserProfile(),
-                  ),
+                  BlocProvider(create: (context) => getIt<AppointmentsCubit>()..getAppointments()),
+                  BlocProvider(create: (context) => getIt<ProfileCubit>()..getUserProfile()),
                   BlocProvider(create: (context) => getIt<BottomNavCubit>()),
-                  BlocProvider(
-                    create:
-                        (context) => getIt<MedicationCubit>()..getMedications(),
-                  ),
+                  BlocProvider(create: (context) => getIt<MedicationCubit>()..getMedications()),
                 ],
                 child: const MainScreen(),
               ),

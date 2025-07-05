@@ -178,5 +178,19 @@
   "unknown_doctor": "Unknown Doctor",
   "appointment_not_found": "Appointment not found",
   "add_appointment": "Add Appointment",
-  "appointment_added_successfully": "Appointment added successfully."
+  "appointment_added_successfully": "Appointment added successfully.",
+  "date_required": "Date is required",
+  "time_required": "Time is required",
+  "status_required": "Status is required",
+  "doctor_required": "Doctor is required",
+  "hospital_required": "Hospital is required",
+  "select_doctor": "Select Doctor",
+  "select_hospital": "Select Hospital",
+  "no_doctors_available": "No doctors available",
+  "no_hospitals_available": "No hospitals available",
+  "select_appointment_date": "Select Appointment Date",
+  "select_appointment_time": "Select Appointment Time",
+  "hospital": "Hospital",
+  "doctor": "Doctor",
+  "enter_your_status": "Enter your status"
 }

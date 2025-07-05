@@ -91,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "كلمة المرور الحالية",
     ),
     "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+    "date_required": MessageLookupByLibrary.simpleMessage("التاريخ مطلوب"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "delete_account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "delete_account_confirmation": MessageLookupByLibrary.simpleMessage(
@@ -101,8 +102,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل أنت متأكد أنك تريد حذف هذا الدواء؟",
     ),
     "divorced": MessageLookupByLibrary.simpleMessage("مطلق"),
+    "doctor": MessageLookupByLibrary.simpleMessage("الطبيب"),
     "doctor_and_hospital": m0,
     "doctor_name": MessageLookupByLibrary.simpleMessage("اسم الطبيب"),
+    "doctor_required": MessageLookupByLibrary.simpleMessage("اسم الطبيب مطلوب"),
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
       "ليس لديك حساب؟",
     ),
@@ -165,6 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل كلمة المرور",
     ),
     "enter_your_phone": MessageLookupByLibrary.simpleMessage("أدخل رقم هاتفك"),
+    "enter_your_status": MessageLookupByLibrary.simpleMessage("أدخل حالتك"),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "error_message": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ. يرجى المحاولة مرة أخرى.",
@@ -179,7 +183,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "حدث خطأ ما. يرجى المحاولة لاحقًا.",
     ),
     "home": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
+    "hospital": MessageLookupByLibrary.simpleMessage("المستشفى"),
     "hospital_name": MessageLookupByLibrary.simpleMessage("اسم المستشفى"),
+    "hospital_required": MessageLookupByLibrary.simpleMessage(
+      "اسم المستشفى مطلوب",
+    ),
     "invalid_age": MessageLookupByLibrary.simpleMessage(
       "يجب أن يكون العمر رقمًا صالحًا",
     ),
@@ -247,11 +255,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_birth_date_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال تاريخ الميلاد",
     ),
+    "no_doctors_available": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد أطباء متاحون",
+    ),
     "no_emergency_number_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال رقم للطوارئ",
     ),
     "no_gender_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم توفير الجنس",
+    ),
+    "no_hospitals_available": MessageLookupByLibrary.simpleMessage(
+      "لا توجد مستشفيات متاحة",
     ),
     "no_marital_status_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال الحالة الاجتماعية",
@@ -339,10 +353,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "schedule_doctor_visit": MessageLookupByLibrary.simpleMessage(
       "جدولة زيارة الطبيب",
     ),
+    "select_appointment_date": MessageLookupByLibrary.simpleMessage(
+      "اختر تاريخ الموعد",
+    ),
+    "select_appointment_time": MessageLookupByLibrary.simpleMessage(
+      "اختر وقت الموعد",
+    ),
+    "select_doctor": MessageLookupByLibrary.simpleMessage("اختر الطبيب"),
     "select_end_date": MessageLookupByLibrary.simpleMessage(
       "اختر تاريخ الانتهاء",
     ),
     "select_gender": MessageLookupByLibrary.simpleMessage("اختر الجنس"),
+    "select_hospital": MessageLookupByLibrary.simpleMessage("اختر المستشفى"),
     "select_marital_status": MessageLookupByLibrary.simpleMessage(
       "اختر الحالة الاجتماعية",
     ),
@@ -357,8 +379,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "تاريخ البدء مطلوب",
     ),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
+    "status_required": MessageLookupByLibrary.simpleMessage("الحالة مطلوبة"),
     "success": MessageLookupByLibrary.simpleMessage("نجاح"),
     "time": MessageLookupByLibrary.simpleMessage("الوقت"),
+    "time_required": MessageLookupByLibrary.simpleMessage("الوقت مطلوب"),
     "todays_medications": MessageLookupByLibrary.simpleMessage("أدوية اليوم"),
     "up_coming": MessageLookupByLibrary.simpleMessage("القادم"),
     "update_info": MessageLookupByLibrary.simpleMessage("تحديث المعلومات"),

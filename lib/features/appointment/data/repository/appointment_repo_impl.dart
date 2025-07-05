@@ -4,6 +4,8 @@ import 'package:techmed/Core/error/failures.dart';
 import 'package:techmed/features/appointment/data/model/all_appointments_response/all_appointments_response.dart';
 import 'package:techmed/features/appointment/data/model/appointment_details_response/appointment_details_model.dart';
 import 'package:techmed/features/appointment/data/model/create_appointment_request.dart';
+import 'package:techmed/features/appointment/data/model/doctors_model/doctors_model.dart';
+import 'package:techmed/features/appointment/data/model/hospitals_model/hospitals_model.dart';
 
 import 'package:techmed/features/appointment/data/repository/appointment_repo.dart';
 import 'package:techmed/core/api/api_constants.dart';
@@ -16,9 +18,7 @@ class AppointmentRepositoryImplementation extends AppointmentRepository {
   @override
   Future<Either<Failures, AllAppointmentsResponse>> getAppointments() async {
     try {
-      final response = await apiManager.get(
-        endPoint: ApiConstants.getAppointmentsEndPoint,
-      );
+      final response = await apiManager.get(endPoint: ApiConstants.getAppointmentsEndPoint);
       return Right(AllAppointmentsResponse.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -29,13 +29,9 @@ class AppointmentRepositoryImplementation extends AppointmentRepository {
   }
 
   @override
-  Future<Either<Failures, AppointmentDetailsModel>> getSingleAppointment(
-    int appointmentId,
-  ) async {
+  Future<Either<Failures, AppointmentDetailsModel>> getSingleAppointment(int appointmentId) async {
     try {
-      final response = await apiManager.get(
-        endPoint: ApiConstants.getSingleAppointmentEndPoint(appointmentId),
-      );
+      final response = await apiManager.get(endPoint: ApiConstants.getSingleAppointmentEndPoint(appointmentId));
       return Right(AppointmentDetailsModel.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -48,9 +44,7 @@ class AppointmentRepositoryImplementation extends AppointmentRepository {
   @override
   Future<Either<Failures, dynamic>> cancelAppointment(int appointmentId) async {
     try {
-      final response = await apiManager.delete(
-        endPoint: ApiConstants.deleteAppointmentEndPoint(appointmentId),
-      );
+      final response = await apiManager.delete(endPoint: ApiConstants.deleteAppointmentEndPoint(appointmentId));
       return Right(response.data);
     } catch (e) {
       if (e is DioException) {
@@ -61,15 +55,36 @@ class AppointmentRepositoryImplementation extends AppointmentRepository {
   }
 
   @override
-  Future<Either<Failures, dynamic>> createAppointment(
-    CreateAppointmentRequest appointmentData,
-  ) async {
+  Future<Either<Failures, dynamic>> createAppointment(CreateAppointmentRequest appointmentData) async {
     try {
-      final response = await apiManager.post(
-        endPoint: ApiConstants.createAppointmentEndPoint,
-        data: appointmentData.toJson(),
-      );
+      final response = await apiManager.post(endPoint: ApiConstants.createAppointmentEndPoint, data: appointmentData.toJson());
       return Right(response.data);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioException(e));
+      }
+      return Left(ServerFailure(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failures, DoctorsModel>> getDoctors() async {
+    try {
+      final response = await apiManager.get(endPoint: ApiConstants.getDoctorsEndPoint);
+      return Right(DoctorsModel.fromJson(response.data));
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioException(e));
+      }
+      return Left(ServerFailure(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failures, HospitalsModel>> getHospitals() async {
+    try {
+      final response = await apiManager.get(endPoint: ApiConstants.getHospitalsEndPoint);
+      return Right(HospitalsModel.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioException(e));

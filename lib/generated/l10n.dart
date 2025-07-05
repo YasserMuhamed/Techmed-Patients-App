@@ -1629,6 +1629,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Date is required`
+  String get date_required {
+    return Intl.message(
+      'Date is required',
+      name: 'date_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time is required`
+  String get time_required {
+    return Intl.message(
+      'Time is required',
+      name: 'time_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status is required`
+  String get status_required {
+    return Intl.message(
+      'Status is required',
+      name: 'status_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor is required`
+  String get doctor_required {
+    return Intl.message(
+      'Doctor is required',
+      name: 'doctor_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hospital is required`
+  String get hospital_required {
+    return Intl.message(
+      'Hospital is required',
+      name: 'hospital_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Doctor`
+  String get select_doctor {
+    return Intl.message(
+      'Select Doctor',
+      name: 'select_doctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Hospital`
+  String get select_hospital {
+    return Intl.message(
+      'Select Hospital',
+      name: 'select_hospital',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No doctors available`
+  String get no_doctors_available {
+    return Intl.message(
+      'No doctors available',
+      name: 'no_doctors_available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No hospitals available`
+  String get no_hospitals_available {
+    return Intl.message(
+      'No hospitals available',
+      name: 'no_hospitals_available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Appointment Date`
+  String get select_appointment_date {
+    return Intl.message(
+      'Select Appointment Date',
+      name: 'select_appointment_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Appointment Time`
+  String get select_appointment_time {
+    return Intl.message(
+      'Select Appointment Time',
+      name: 'select_appointment_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hospital`
+  String get hospital {
+    return Intl.message('Hospital', name: 'hospital', desc: '', args: []);
+  }
+
+  /// `Doctor`
+  String get doctor {
+    return Intl.message('Doctor', name: 'doctor', desc: '', args: []);
+  }
+
+  /// `Enter your status`
+  String get enter_your_status {
+    return Intl.message(
+      'Enter your status',
+      name: 'enter_your_status',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
