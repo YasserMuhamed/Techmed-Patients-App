@@ -20,7 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(value) => "Dosage: ${value}";
+  static String m0(doctorName, hospitalName) =>
+      "${doctorName} · ${hospitalName}";
+
+  static String m1(value) => "Dosage: ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -29,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Account deleted successfully.",
     ),
     "add": MessageLookupByLibrary.simpleMessage("Add"),
+    "add_appointment": MessageLookupByLibrary.simpleMessage("Add Appointment"),
     "add_medication": MessageLookupByLibrary.simpleMessage("Add Medication"),
     "add_vaccination": MessageLookupByLibrary.simpleMessage("Add Vaccination"),
     "age": MessageLookupByLibrary.simpleMessage("Age"),
@@ -40,9 +44,27 @@ class MessageLookup extends MessageLookupByLibrary {
       "Your personal health management app",
     ),
     "app_name": MessageLookupByLibrary.simpleMessage("TechMed"),
+    "appointment_added_successfully": MessageLookupByLibrary.simpleMessage(
+      "Appointment added successfully.",
+    ),
+    "appointment_canceled_successfully": MessageLookupByLibrary.simpleMessage(
+      "Appointment canceled successfully.",
+    ),
+    "appointment_details": MessageLookupByLibrary.simpleMessage(
+      "Appointment Details",
+    ),
+    "appointment_not_found": MessageLookupByLibrary.simpleMessage(
+      "Appointment not found",
+    ),
     "appointments": MessageLookupByLibrary.simpleMessage("Appointments"),
     "birth_date": MessageLookupByLibrary.simpleMessage("Birth Date"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cancel_appointment": MessageLookupByLibrary.simpleMessage(
+      "Cancel Appointment",
+    ),
+    "cancel_appointment_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to cancel this appointment?",
+    ),
     "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
     "change_password": MessageLookupByLibrary.simpleMessage("Change Password"),
     "change_password_error": MessageLookupByLibrary.simpleMessage(
@@ -50,6 +72,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "change_password_success": MessageLookupByLibrary.simpleMessage(
       "Your password has been changed successfully.",
+    ),
+    "confirm_cancel_appointment": MessageLookupByLibrary.simpleMessage(
+      "Confirm Cancel Appointment",
     ),
     "confirm_delete": MessageLookupByLibrary.simpleMessage("Confirm Delete"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
@@ -67,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "current_password": MessageLookupByLibrary.simpleMessage(
       "Current Password",
     ),
+    "date": MessageLookupByLibrary.simpleMessage("Date"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "delete_account": MessageLookupByLibrary.simpleMessage("Delete Account"),
     "delete_account_confirmation": MessageLookupByLibrary.simpleMessage(
@@ -79,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Are you sure you want to delete this medication?",
     ),
     "divorced": MessageLookupByLibrary.simpleMessage("Divorced"),
+    "doctor_and_hospital": m0,
     "doctor_name": MessageLookupByLibrary.simpleMessage("Doctor Name"),
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
@@ -90,7 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dosage_required": MessageLookupByLibrary.simpleMessage(
       "Dosage is required",
     ),
-    "dosage_variable": m0,
+    "dosage_variable": m1,
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_required": MessageLookupByLibrary.simpleMessage(
       "Email is required.",
@@ -158,6 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Something went wrong. Please try again later.",
     ),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "hospital_name": MessageLookupByLibrary.simpleMessage("Hospital Name"),
     "invalid_age": MessageLookupByLibrary.simpleMessage(
       "Age must be a valid number",
     ),
@@ -223,6 +251,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_allergies_provided": MessageLookupByLibrary.simpleMessage(
       "No allergies provided",
     ),
+    "no_appointments_found": MessageLookupByLibrary.simpleMessage(
+      "No appointments found",
+    ),
     "no_birth_date_provided": MessageLookupByLibrary.simpleMessage(
       "No birth date provided",
     ),
@@ -247,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "No profile picture available",
     ),
+    "not_specified": MessageLookupByLibrary.simpleMessage("Not specified"),
     "note_hint": MessageLookupByLibrary.simpleMessage(
       "e.g., Take after meals, twice a day",
     ),
@@ -276,6 +308,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_required": MessageLookupByLibrary.simpleMessage(
       "Password is required.",
     ),
+    "past": MessageLookupByLibrary.simpleMessage("Past"),
     "personal_info": MessageLookupByLibrary.simpleMessage(
       "Personal Information",
     ),
@@ -333,10 +366,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "start_date_required": MessageLookupByLibrary.simpleMessage(
       "Start date is required",
     ),
+    "status": MessageLookupByLibrary.simpleMessage("Status"),
     "success": MessageLookupByLibrary.simpleMessage("Success"),
+    "time": MessageLookupByLibrary.simpleMessage("Time"),
     "todays_medications": MessageLookupByLibrary.simpleMessage(
       "Today\'s Medications",
     ),
+    "unknown_doctor": MessageLookupByLibrary.simpleMessage("Unknown Doctor"),
+    "unknown_hospital": MessageLookupByLibrary.simpleMessage(
+      "Unknown Hospital",
+    ),
+    "up_coming": MessageLookupByLibrary.simpleMessage("Upcoming"),
     "update_info": MessageLookupByLibrary.simpleMessage("Update Information"),
     "update_profile": MessageLookupByLibrary.simpleMessage("Update Profile"),
     "update_your_info": MessageLookupByLibrary.simpleMessage(

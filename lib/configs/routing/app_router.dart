@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:techmed/features/appointment/presentation/manager/appointments/appointments_cubit.dart';
+import 'package:techmed/features/appointment/presentation/views/appointment_details_screen.dart';
+import 'package:techmed/features/appointment/presentation/views/create_appointment_screen.dart';
 import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
 
 import 'package:techmed/configs/routing/app_routes.dart';
@@ -101,11 +104,39 @@ class AppRouter {
                 ),
               ),
         );
+
+      case AppRoutes.kAppointmentDetailsScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) {
+                  final cubit = getIt<AppointmentsCubit>();
+                  cubit.getAppointmentDetails(settings.arguments! as int);
+                  return cubit;
+                },
+                child: AppointmentDetailsScreen(
+                  appointmentId: settings.arguments! as int,
+                ),
+              ),
+        );
+      case AppRoutes.kCreateAppointmentScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<AppointmentsCubit>(),
+                child: CreateAppointmentScreen(),
+              ),
+        );
       case AppRoutes.kMainScreen:
         return MaterialPageRoute(
           builder:
               (_) => MultiBlocProvider(
                 providers: [
+                  BlocProvider(
+                    create:
+                        (context) =>
+                            getIt<AppointmentsCubit>()..getAppointments(),
+                  ),
                   BlocProvider(
                     create:
                         (context) => getIt<ProfileCubit>()..getUserProfile(),

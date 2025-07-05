@@ -9,7 +9,9 @@ import 'package:techmed/features/medication/data/model/create_medication_request
 abstract class MedicationRepo {
   Future<Either<Failures, MedicationsResponse>> getMedications();
   Future<Either<Failures, MedicinesModel>> getAllMedicines();
-  Future<Either<Failures, MedicationDetailsResponse>> getSingleMedication(int medicationId);
+  Future<Either<Failures, MedicationDetailsResponse>> getSingleMedication(
+    int medicationId,
+  );
   Future<Either<Failures, dynamic>> deleteMedication(int medicationId);
   Future<Either<Failures, dynamic>> createMedication(
     CreateMedicationRequest medicationData,

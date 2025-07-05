@@ -1464,6 +1464,171 @@ class S {
       args: [],
     );
   }
+
+  /// `Upcoming`
+  String get up_coming {
+    return Intl.message('Upcoming', name: 'up_coming', desc: '', args: []);
+  }
+
+  /// `Past`
+  String get past {
+    return Intl.message('Past', name: 'past', desc: '', args: []);
+  }
+
+  /// `{doctorName} · {hospitalName}`
+  String doctor_and_hospital(Object doctorName, Object hospitalName) {
+    return Intl.message(
+      '$doctorName · $hospitalName',
+      name: 'doctor_and_hospital',
+      desc: '',
+      args: [doctorName, hospitalName],
+    );
+  }
+
+  /// `No appointments found`
+  String get no_appointments_found {
+    return Intl.message(
+      'No appointments found',
+      name: 'no_appointments_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel Appointment`
+  String get cancel_appointment {
+    return Intl.message(
+      'Cancel Appointment',
+      name: 'cancel_appointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Cancel Appointment`
+  String get confirm_cancel_appointment {
+    return Intl.message(
+      'Confirm Cancel Appointment',
+      name: 'confirm_cancel_appointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to cancel this appointment?`
+  String get cancel_appointment_confirmation {
+    return Intl.message(
+      'Are you sure you want to cancel this appointment?',
+      name: 'cancel_appointment_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appointment canceled successfully.`
+  String get appointment_canceled_successfully {
+    return Intl.message(
+      'Appointment canceled successfully.',
+      name: 'appointment_canceled_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appointment Details`
+  String get appointment_details {
+    return Intl.message(
+      'Appointment Details',
+      name: 'appointment_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time`
+  String get time {
+    return Intl.message('Time', name: 'time', desc: '', args: []);
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message('Date', name: 'date', desc: '', args: []);
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message('Status', name: 'status', desc: '', args: []);
+  }
+
+  /// `Hospital Name`
+  String get hospital_name {
+    return Intl.message(
+      'Hospital Name',
+      name: 'hospital_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not specified`
+  String get not_specified {
+    return Intl.message(
+      'Not specified',
+      name: 'not_specified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown Hospital`
+  String get unknown_hospital {
+    return Intl.message(
+      'Unknown Hospital',
+      name: 'unknown_hospital',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown Doctor`
+  String get unknown_doctor {
+    return Intl.message(
+      'Unknown Doctor',
+      name: 'unknown_doctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appointment not found`
+  String get appointment_not_found {
+    return Intl.message(
+      'Appointment not found',
+      name: 'appointment_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Appointment`
+  String get add_appointment {
+    return Intl.message(
+      'Add Appointment',
+      name: 'add_appointment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appointment added successfully.`
+  String get appointment_added_successfully {
+    return Intl.message(
+      'Appointment added successfully.',
+      name: 'appointment_added_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

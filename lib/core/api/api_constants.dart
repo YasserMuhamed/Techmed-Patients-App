@@ -8,6 +8,12 @@ class ApiConstants {
   static String getSingleMedicationEndPoint(int id) => "/medications/$id";
   static const createMedicationEndPoint = "/medications";
   static String deleteMedicationEndPoint(int id) => "/medications/$id";
+
+  static const getAppointmentsEndPoint = "/appointments";
+  static String getSingleAppointmentEndPoint(int id) => "/appointments/$id";
+  static const createAppointmentEndPoint = "/appointments";
+  static String deleteAppointmentEndPoint(int id) => "/appointments/$id";
+
   static const getPrescriptionsEndPoint = "/prescriptions";
   static const getAllMedicinesEndPoint = "/data/medicine";
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:techmed/configs/theme/app_colors.dart';
-import 'package:techmed/core/constants/assets.dart';
 
-class PillContainer extends StatelessWidget {
-  const PillContainer({super.key});
+class SvgICContainer extends StatelessWidget {
+  const SvgICContainer({super.key, required this.svgPath});
+  final String svgPath;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class PillContainer extends StatelessWidget {
         color: AppColors.dividerColor,
         borderRadius: BorderRadius.circular(8),
       ),
-      child: SvgPicture.asset(Assets.assetsSvgsMedicine),
+      child: SvgPicture.asset(svgPath),
     );
   }
 }

@@ -7,5 +7,8 @@ class AppRoutes {
   static const String kPrescriptionsScreen = '/prescriptionsScreen';
   static const String kCreateMedicationScreen = '/createMedicationScreen';
   static const String kMedicationDetailsScreen = '/medicationDetailsScreen';
+  static const String kAppointmentsScreen = '/appointmentsScreen';
+  static const String kCreateAppointmentScreen = '/createAppointmentScreen';
+  static const String kAppointmentDetailsScreen = '/appointmentDetailsScreen';
   static const String kVaccinationsScreen = '/vaccinationsScreen';
 }

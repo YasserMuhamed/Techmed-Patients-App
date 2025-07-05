@@ -7,7 +7,7 @@ import 'package:techmed/configs/theme/app_colors.dart';
 import 'package:techmed/configs/theme/app_text_styles.dart';
 import 'package:techmed/core/widgets/logo_widget.dart';
 import 'package:techmed/features/main/presentation/pages/home_screen.dart';
-import 'package:techmed/features/main/presentation/pages/schedule_screen.dart';
+import 'package:techmed/features/appointment/presentation/views/appointment_screen.dart';
 import 'package:techmed/features/medication/presentation/views/medication_screen.dart.dart';
 import 'package:techmed/features/profile/presentation/pages/profile_screen.dart';
 import 'package:techmed/generated/l10n.dart';
@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
     topLevelPages = [
       HomeScreen(pageController: pageController),
       const MedicationScreen(),
-      const ScheduleScreen(),
+      const AppointmentScreen(),
       const ProfileView(),
     ];
   }

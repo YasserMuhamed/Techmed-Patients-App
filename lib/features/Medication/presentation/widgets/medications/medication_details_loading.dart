@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:techmed/configs/theme/app_colors.dart';
 import 'package:techmed/configs/theme/app_text_styles.dart';
-import 'package:techmed/core/widgets/pill_container.dart';
+import 'package:techmed/core/constants/assets.dart';
+import 'package:techmed/core/widgets/svg_ic_container.dart';
 import 'package:techmed/generated/l10n.dart';
 
 class MedicationDetailsLoadingWidget extends StatelessWidget {
@@ -16,14 +17,11 @@ class MedicationDetailsLoadingWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           16.verticalSpace,
-          Text(
-            S.of(context).medication,
-            style: AppTextStyles.poppins18Bold(context),
-          ),
+          Text(S.of(context).medication, style: AppTextStyles.poppins18Bold(context)),
           20.verticalSpace,
           Row(
             children: [
-              PillContainer(),
+              SvgICContainer(svgPath: Assets.assetsSvgsMedicine),
               16.horizontalSpace,
               Expanded(
                 child: Column(
@@ -39,9 +37,7 @@ class MedicationDetailsLoadingWidget extends StatelessWidget {
                     ),
                     Text(
                       S.of(context).dosage_variable('500mg'),
-                      style: AppTextStyles.poppins14Regular(
-                        context,
-                      ).copyWith(color: AppColors.secondaryText),
+                      style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
                       maxLines: null,
                       softWrap: true,
                       overflow: TextOverflow.visible,
@@ -52,39 +48,21 @@ class MedicationDetailsLoadingWidget extends StatelessWidget {
             ],
           ),
           28.verticalSpace,
-          Text(
-            S.of(context).dosage,
-            style: AppTextStyles.poppins18Bold(context),
-          ),
+          Text(S.of(context).dosage, style: AppTextStyles.poppins18Bold(context)),
           28.verticalSpace,
-          Text(
-            S.of(context).notes,
-            style: AppTextStyles.poppins16Regular(context),
-          ),
+          Text(S.of(context).notes, style: AppTextStyles.poppins16Regular(context)),
           32.verticalSpace,
-          Text(
-            S.of(context).start_date,
-            style: AppTextStyles.poppins18Bold(context),
-          ),
+          Text(S.of(context).start_date, style: AppTextStyles.poppins18Bold(context)),
           32.verticalSpace,
           Text("July 15, 2023", style: AppTextStyles.poppins16Regular(context)),
           32.verticalSpace,
-          Text(
-            S.of(context).end_date,
-            style: AppTextStyles.poppins18Bold(context),
-          ),
+          Text(S.of(context).end_date, style: AppTextStyles.poppins18Bold(context)),
           32.verticalSpace,
           Text("July 15, 2023", style: AppTextStyles.poppins16Regular(context)),
           32.verticalSpace,
-          Text(
-            S.of(context).notes,
-            style: AppTextStyles.poppins18Bold(context),
-          ),
+          Text(S.of(context).notes, style: AppTextStyles.poppins18Bold(context)),
           32.verticalSpace,
-          Text(
-            "Take with food aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            style: AppTextStyles.poppins16Regular(context),
-          ),
+          Text("Take with food aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", style: AppTextStyles.poppins16Regular(context)),
         ],
       ),
     );

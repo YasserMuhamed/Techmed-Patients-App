@@ -3,15 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
-import 'package:skeletonizer/skeletonizer.dart';
+
 import 'package:techmed/configs/theme/app_colors.dart';
 import 'package:techmed/configs/theme/app_text_styles.dart';
+import 'package:techmed/core/constants/assets.dart';
 import 'package:techmed/core/di/dependency_injection.dart';
 import 'package:techmed/core/helpers/toast_helper.dart';
-import 'package:techmed/core/widgets/pill_container.dart';
+import 'package:techmed/core/widgets/svg_ic_container.dart';
+
 import 'package:techmed/features/medication/data/model/medication_details_response/data.dart';
 import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
 import 'package:techmed/features/medication/presentation/widgets/medications/medication_details_loading.dart';
+
 import 'package:techmed/generated/l10n.dart';
 
 class MedicationDetailsScreen extends StatefulWidget {
@@ -132,7 +135,7 @@ class MedicationInfoSection extends StatelessWidget {
         20.verticalSpace,
         Row(
           children: [
-            PillContainer(),
+            SvgICContainer(svgPath: Assets.assetsSvgsMedicine),
             16.horizontalSpace,
             Expanded(
               child: Column(

@@ -159,5 +159,22 @@
   "confirm_delete": "تأكيد الحذف",
   "delete_medication_confirmation": "هل أنت متأكد أنك تريد حذف هذا الدواء؟",
   "delete": "حذف",
-  "medication_deleted_successfully": "تم حذف الدواء بنجاح."
+  "medication_deleted_successfully": "تم حذف الدواء بنجاح.",
+  "up_coming": "القادم",
+  "past": "الماضي",
+  "doctor_and_hospital": "{doctorName} · {hospitalName}",
+  "no_appointments_found": "لم يتم العثور على مواعيد",
+  "cancel_appointment": "إلغاء الموعد",
+  "confirm_cancel_appointment": "تأكيد إلغاء الموعد",
+  "cancel_appointment_confirmation": "هل أنت متأكد أنك تريد إلغاء هذا الموعد؟",
+  "appointment_canceled_successfully": "تم إلغاء الموعد بنجاح.",
+  "appointment_details": "تفاصيل الموعد",
+  "time": "الوقت",
+  "date": "التاريخ",
+  "status": "الحالة",
+  "hospital_name": "اسم المستشفى",
+  "not_specified": "غير محدد",
+  "appointment_not_found": "لم يتم العثور على موعد",
+  "add_appointment": "إضافة موعد",
+  "appointment_added_successfully": "تمت إضافة الموعد بنجاح."
 }

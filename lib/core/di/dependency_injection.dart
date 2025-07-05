@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:techmed/features/appointment/data/repository/appointment_repo_impl.dart';
+import 'package:techmed/features/appointment/presentation/manager/appointments/appointments_cubit.dart';
 import 'package:techmed/features/main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
 import 'package:techmed/features/main/presentation/manager/cubit/home_cubit.dart';
 import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
@@ -36,6 +38,10 @@ Future<void> setupGetIt() async {
     () => ProfileRepositoryImplementation(apiManager: getIt<ApiManager>()),
   );
 
+  getIt.registerLazySingleton<AppointmentRepositoryImplementation>(
+    () => AppointmentRepositoryImplementation(apiManager: getIt<ApiManager>()),
+  );
+
   // Cubits
   getIt.registerFactory<LocaleCubit>(() => LocaleCubit());
   getIt.registerFactory<BottomNavCubit>(() => BottomNavCubit());
@@ -50,6 +56,9 @@ Future<void> setupGetIt() async {
   );
   getIt.registerFactory<PrescriptionsCubit>(
     () => PrescriptionsCubit(getIt<MedicationRepositoryImplementation>()),
+  );
+  getIt.registerFactory<AppointmentsCubit>(
+    () => AppointmentsCubit(getIt<AppointmentRepositoryImplementation>()),
   );
 
   getIt.registerFactory<ProfileCubit>(

@@ -16,7 +16,9 @@ class MedicationRepositoryImplementation extends MedicationRepo {
   @override
   Future<Either<Failures, MedicationsResponse>> getMedications() async {
     try {
-      final response = await apiManager.get(endPoint: ApiConstants.getMedicationsEndPoint);
+      final response = await apiManager.get(
+        endPoint: ApiConstants.getMedicationsEndPoint,
+      );
       return Right(MedicationsResponse.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -29,7 +31,9 @@ class MedicationRepositoryImplementation extends MedicationRepo {
   @override
   Future<Either<Failures, PrescriptionsResponse>> getPrescriptions() async {
     try {
-      final response = await apiManager.get(endPoint: ApiConstants.getPrescriptionsEndPoint);
+      final response = await apiManager.get(
+        endPoint: ApiConstants.getPrescriptionsEndPoint,
+      );
       return Right(PrescriptionsResponse.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -40,9 +44,14 @@ class MedicationRepositoryImplementation extends MedicationRepo {
   }
 
   @override
-  Future<Either<Failures, dynamic>> createMedication(CreateMedicationRequest medicationData) async {
+  Future<Either<Failures, dynamic>> createMedication(
+    CreateMedicationRequest medicationData,
+  ) async {
     try {
-      final response = await apiManager.post(endPoint: ApiConstants.createMedicationEndPoint, data: medicationData.toJson());
+      final response = await apiManager.post(
+        endPoint: ApiConstants.createMedicationEndPoint,
+        data: medicationData.toJson(),
+      );
       return Right(response.data);
     } catch (e) {
       if (e is DioException) {
@@ -55,7 +64,9 @@ class MedicationRepositoryImplementation extends MedicationRepo {
   @override
   Future<Either<Failures, dynamic>> deleteMedication(int medicationId) async {
     try {
-      final response = await apiManager.delete(endPoint: ApiConstants.deleteMedicationEndPoint(medicationId));
+      final response = await apiManager.delete(
+        endPoint: ApiConstants.deleteMedicationEndPoint(medicationId),
+      );
       return Right(response.data);
     } catch (e) {
       if (e is DioException) {
@@ -68,7 +79,9 @@ class MedicationRepositoryImplementation extends MedicationRepo {
   @override
   Future<Either<Failures, MedicinesModel>> getAllMedicines() async {
     try {
-      final response = await apiManager.get(endPoint: ApiConstants.getAllMedicinesEndPoint);
+      final response = await apiManager.get(
+        endPoint: ApiConstants.getAllMedicinesEndPoint,
+      );
       return Right(MedicinesModel.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -79,9 +92,13 @@ class MedicationRepositoryImplementation extends MedicationRepo {
   }
 
   @override
-  Future<Either<Failures, MedicationDetailsResponse>> getSingleMedication(int medicationId) async {
+  Future<Either<Failures, MedicationDetailsResponse>> getSingleMedication(
+    int medicationId,
+  ) async {
     try {
-      final response = await apiManager.get(endPoint: ApiConstants.getSingleMedicationEndPoint(medicationId));
+      final response = await apiManager.get(
+        endPoint: ApiConstants.getSingleMedicationEndPoint(medicationId),
+      );
       return Right(MedicationDetailsResponse.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {

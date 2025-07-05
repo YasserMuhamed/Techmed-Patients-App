@@ -20,7 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(value) => "الجرعة: ${value}";
+  static String m0(doctorName, hospitalName) =>
+      "${doctorName} · ${hospitalName}";
+
+  static String m1(value) => "الجرعة: ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -29,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم حذف الحساب بنجاح.",
     ),
     "add": MessageLookupByLibrary.simpleMessage("إضافة"),
+    "add_appointment": MessageLookupByLibrary.simpleMessage("إضافة موعد"),
     "add_medication": MessageLookupByLibrary.simpleMessage("إضافة دواء"),
     "add_vaccination": MessageLookupByLibrary.simpleMessage("إضافة تطعيم"),
     "age": MessageLookupByLibrary.simpleMessage("العمر"),
@@ -40,9 +44,25 @@ class MessageLookup extends MessageLookupByLibrary {
       "تطبيقك الشخصي لإدارة الصحة",
     ),
     "app_name": MessageLookupByLibrary.simpleMessage("تيك ميد"),
+    "appointment_added_successfully": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة الموعد بنجاح.",
+    ),
+    "appointment_canceled_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم إلغاء الموعد بنجاح.",
+    ),
+    "appointment_details": MessageLookupByLibrary.simpleMessage(
+      "تفاصيل الموعد",
+    ),
+    "appointment_not_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على موعد",
+    ),
     "appointments": MessageLookupByLibrary.simpleMessage("المواعيد"),
     "birth_date": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "cancel_appointment": MessageLookupByLibrary.simpleMessage("إلغاء الموعد"),
+    "cancel_appointment_confirmation": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد إلغاء هذا الموعد؟",
+    ),
     "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "change_password": MessageLookupByLibrary.simpleMessage(
       "تغيير كلمة المرور",
@@ -52,6 +72,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "change_password_success": MessageLookupByLibrary.simpleMessage(
       "تم تغيير كلمة المرور بنجاح.",
+    ),
+    "confirm_cancel_appointment": MessageLookupByLibrary.simpleMessage(
+      "تأكيد إلغاء الموعد",
     ),
     "confirm_delete": MessageLookupByLibrary.simpleMessage("تأكيد الحذف"),
     "confirm_new_password": MessageLookupByLibrary.simpleMessage(
@@ -67,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "current_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور الحالية",
     ),
+    "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "delete_account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "delete_account_confirmation": MessageLookupByLibrary.simpleMessage(
@@ -77,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل أنت متأكد أنك تريد حذف هذا الدواء؟",
     ),
     "divorced": MessageLookupByLibrary.simpleMessage("مطلق"),
+    "doctor_and_hospital": m0,
     "doctor_name": MessageLookupByLibrary.simpleMessage("اسم الطبيب"),
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
       "ليس لديك حساب؟",
@@ -86,7 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "مثال: 500 ملغ، قرص واحد",
     ),
     "dosage_required": MessageLookupByLibrary.simpleMessage("الجرعة مطلوبة"),
-    "dosage_variable": m0,
+    "dosage_variable": m1,
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "email_required": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني مطلوب.",
@@ -154,6 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "حدث خطأ ما. يرجى المحاولة لاحقًا.",
     ),
     "home": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
+    "hospital_name": MessageLookupByLibrary.simpleMessage("اسم المستشفى"),
     "invalid_age": MessageLookupByLibrary.simpleMessage(
       "يجب أن يكون العمر رقمًا صالحًا",
     ),
@@ -215,6 +241,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_allergies_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال حساسية",
     ),
+    "no_appointments_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على مواعيد",
+    ),
     "no_birth_date_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال تاريخ الميلاد",
     ),
@@ -239,6 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "لا توجد صورة ملف شخصي متاحة",
     ),
+    "not_specified": MessageLookupByLibrary.simpleMessage("غير محدد"),
     "note_hint": MessageLookupByLibrary.simpleMessage(
       "مثال: تناول بعد الوجبات، مرتين يوميًا",
     ),
@@ -266,6 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_required": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور مطلوبة.",
     ),
+    "past": MessageLookupByLibrary.simpleMessage("الماضي"),
     "personal_info": MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
     "phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "phone_number_required": MessageLookupByLibrary.simpleMessage(
@@ -325,8 +356,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "start_date_required": MessageLookupByLibrary.simpleMessage(
       "تاريخ البدء مطلوب",
     ),
+    "status": MessageLookupByLibrary.simpleMessage("الحالة"),
     "success": MessageLookupByLibrary.simpleMessage("نجاح"),
+    "time": MessageLookupByLibrary.simpleMessage("الوقت"),
     "todays_medications": MessageLookupByLibrary.simpleMessage("أدوية اليوم"),
+    "up_coming": MessageLookupByLibrary.simpleMessage("القادم"),
     "update_info": MessageLookupByLibrary.simpleMessage("تحديث المعلومات"),
     "update_profile": MessageLookupByLibrary.simpleMessage(
       "تحديث الملف الشخصي",
