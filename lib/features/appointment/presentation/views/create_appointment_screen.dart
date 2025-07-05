@@ -9,7 +9,6 @@ import 'package:techmed/core/helpers/extensions.dart';
 import 'package:techmed/core/helpers/toast_helper.dart';
 import 'package:techmed/core/widgets/app_text_field.dart';
 import 'package:techmed/core/widgets/custom_button.dart';
-import 'package:techmed/features/appointment/data/model/appointment_details_response/appointment.dart';
 import 'package:techmed/features/appointment/presentation/manager/appointments/appointments_cubit.dart';
 import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
 import 'package:techmed/generated/l10n.dart';
