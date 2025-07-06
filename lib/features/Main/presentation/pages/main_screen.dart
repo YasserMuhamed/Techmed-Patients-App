@@ -27,12 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     pageController = PageController();
-    topLevelPages = [
-      HomeScreen(pageController: pageController),
-      const MedicationScreen(),
-      const AppointmentScreen(),
-      const ProfileView(),
-    ];
+    topLevelPages = [HomeScreen(), const MedicationScreen(), const AppointmentScreen(), const ProfileView()];
   }
 
   @override
@@ -64,16 +59,10 @@ class _MainScreenState extends State<MainScreen> {
       selectedItemColor: AppColors.white,
       unselectedItemColor: AppColors.secondaryText,
       selectedLabelStyle: AppTextStyles.poppins12Medium(context),
-      unselectedLabelStyle: AppTextStyles.poppins12Regular(
-        context,
-      ).copyWith(color: AppColors.secondaryText),
+      unselectedLabelStyle: AppTextStyles.poppins12Regular(context).copyWith(color: AppColors.secondaryText),
       onTap: (index) {
         BlocProvider.of<BottomNavCubit>(context).changeSelectedIndex(index);
-        pageController.animateToPage(
-          index,
-          duration: const Duration(milliseconds: 10),
-          curve: Curves.fastLinearToSlowEaseIn,
-        );
+        pageController.animateToPage(index, duration: const Duration(milliseconds: 10), curve: Curves.fastLinearToSlowEaseIn);
       },
       items: [
         BottomNavigationBarItem(
@@ -83,32 +72,16 @@ class _MainScreenState extends State<MainScreen> {
           label: S.of(context).home,
           activeIcon: Icon(IconlyBold.home),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(IconlyLight.heart),
-          label: S.of(context).medication,
-          activeIcon: Icon(IconlyBold.heart),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(IconlyLight.calendar),
-          label: S.of(context).appointments,
-          activeIcon: Icon(IconlyBold.calendar),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(IconlyLight.profile),
-          label: S.of(context).profile,
-          activeIcon: Icon(IconlyBold.profile),
-        ),
+        BottomNavigationBarItem(icon: Icon(IconlyLight.heart), label: S.of(context).medication, activeIcon: Icon(IconlyBold.heart)),
+        BottomNavigationBarItem(icon: Icon(IconlyLight.calendar), label: S.of(context).appointments, activeIcon: Icon(IconlyBold.calendar)),
+        BottomNavigationBarItem(icon: Icon(IconlyLight.profile), label: S.of(context).profile, activeIcon: Icon(IconlyBold.profile)),
       ],
     );
   }
 
   // App Bar - MainWrapper Widget
   AppBar _mainWrapperAppBar() {
-    return AppBar(
-      title: LogoText(fontSize: 18),
-      centerTitle: true,
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-    );
+    return AppBar(title: LogoText(fontSize: 18), centerTitle: true, backgroundColor: Theme.of(context).scaffoldBackgroundColor);
   }
 
   // Body - MainWrapper Widget
