@@ -49,18 +49,12 @@ class _LoginFormSectionState extends State<LoginFormSection> {
             controller: passwordController,
             maxLines: isObscure ? 1 : 1,
             keyboardType: TextInputType.visiblePassword,
-            validator:
-                (value) => AppValidators.passwordValidator(value, context),
+            validator: (value) => AppValidators.passwordValidator(value, context),
             prefixIcon: Icon(Icons.lock_outline, color: AppColors.iconColor),
             hintText: S.of(context).enter_your_password,
             obscureText: isObscure,
             suffixIcon: IconButton(
-              icon: Icon(
-                isObscure
-                    ? Icons.visibility_off_outlined
-                    : Icons.visibility_outlined,
-                color: AppColors.iconColor,
-              ),
+              icon: Icon(isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined, color: AppColors.iconColor),
               onPressed: () {
                 setState(() {
                   isObscure = !isObscure;
@@ -105,10 +99,7 @@ class LoginButton extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccess) {
           DioFactory.setTokenIntoHeaderAfterLogin(state.response.data!.token!);
-          SharedPrefHelper.setSecuredString(
-            SharedPrefsKeys.tokenKey,
-            state.response.data!.token!,
-          );
+          SharedPrefHelper.setSecuredString(SharedPrefsKeys.tokenKey, state.response.data!.token!);
           context.pushReplacementNamed(AppRoutes.kMainScreen);
         } else if (state is LoginFailure) {
           ToastHelper.showErrorToast(context, state.errorMessage);
@@ -116,19 +107,12 @@ class LoginButton extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is LoginLoading) {
-          return CustomButton(
-            text: S.of(context).login,
-            isLoading: true,
-            onPressed: () {},
-          );
+          return CustomButton(text: S.of(context).login, isLoading: true, onPressed: () {});
         }
         return CustomButton(
           text: S.of(context).login,
           onPressed: () {
-            LoginRequest loginRequest = LoginRequest(
-              email: emailController.text,
-              password: passwordController.text,
-            );
+            LoginRequest loginRequest = LoginRequest(email: emailController.text, password: passwordController.text);
             if (formKey.currentState!.validate()) {
               BlocProvider.of<LoginCubit>(context).login(loginRequest);
             } else {

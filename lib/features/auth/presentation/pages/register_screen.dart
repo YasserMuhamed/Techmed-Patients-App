@@ -20,11 +20,7 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               children: [
                 AppPaddings.gap88.h.verticalSpace,
-                Text(
-                  S.of(context).create_account,
-                  style: AppTextStyles.poppins20SemiBold(context),
-                  textAlign: TextAlign.start,
-                ),
+                Text(S.of(context).create_account, style: AppTextStyles.poppins20SemiBold(context), textAlign: TextAlign.start),
                 const SizedBox(height: 20),
                 RegisterFormSection(),
                 AppPaddings.gap12.verticalSpace,
@@ -32,10 +28,7 @@ class RegisterScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
 
                   children: [
-                    Text(
-                      S.of(context).already_have_an_account,
-                      style: AppTextStyles.poppins14Regular(context),
-                    ),
+                    Text(S.of(context).already_have_an_account, style: AppTextStyles.poppins14Regular(context)),
                     TextButton(
                       style: TextButton.styleFrom(
                         overlayColor: AppColors.primaryColor.withOpacity(0),
@@ -46,10 +39,7 @@ class RegisterScreen extends StatelessWidget {
                       onPressed: () {
                         context.pop();
                       },
-                      child: Text(
-                        S.of(context).login,
-                        style: AppTextStyles.poppins14SemiBold(context),
-                      ),
+                      child: Text(S.of(context).login, style: AppTextStyles.poppins14SemiBold(context)),
                     ),
                   ],
                 ),
