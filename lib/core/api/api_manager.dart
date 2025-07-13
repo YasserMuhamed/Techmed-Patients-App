@@ -25,10 +25,7 @@ class ApiManager {
     return response;
   }
 
-  Future<Response> patch({
-    required String endPoint,
-    required Object data,
-  }) async {
+  Future<Response> patch({required String endPoint, required Object data}) async {
     final response = await dio.patch(baseUrl + endPoint, data: data);
 
     return response;

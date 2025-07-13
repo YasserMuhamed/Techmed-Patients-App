@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:techmed/configs/routing/app_routes.dart';
 
 import 'package:techmed/configs/theme/app_colors.dart';
 import 'package:techmed/configs/theme/app_text_styles.dart';
@@ -35,8 +36,13 @@ class TodaysMedicationsSection extends StatelessWidget {
                       final startDate = medication.startDate!;
                       final endDate = medication.endDate!;
                       final today = DateTime.now();
-                      return today.isAfter(startDate.subtract(const Duration(days: 1))) &&
-                          today.isBefore(endDate.add(const Duration(days: 1)));
+
+                      // Convert to date-only for comparison
+                      final todayDate = DateTime(today.year, today.month, today.day);
+                      final startDateOnly = DateTime(startDate.year, startDate.month, startDate.day);
+                      final endDateOnly = DateTime(endDate.year, endDate.month, endDate.day);
+
+                      return !todayDate.isBefore(startDateOnly) && !todayDate.isAfter(endDateOnly);
                     }).toList();
                 if (state.medications.data == null || state.medications.data!.isEmpty) {
                   return Center(child: Text(S.of(context).no_medications_found, style: AppTextStyles.poppins16Medium(context)));
@@ -48,10 +54,17 @@ class TodaysMedicationsSection extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: todaysMedicationList.length,
                   itemBuilder: (context, index) {
-                    final medication = state.medications.data![index];
+                    final medication = todaysMedicationList[index];
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 16),
                       child: MedicationItem(
+                        onTap: () {
+                          Navigator.pushNamed(context, AppRoutes.kMedicationDetailsScreen, arguments: medication.id).then((value) {
+                            if (value == true) {
+                              context.read<MedicationCubit>().getMedications();
+                            }
+                          });
+                        },
                         medicationName: medication.medicine!.enName!,
                         dosage: S.of(context).dosage_variable(medication.dosage!),
                         notes: medication.notes ?? "Not specified",
@@ -73,20 +86,24 @@ class TodaysMedicationsSection extends StatelessWidget {
 }
 
 class MedicationItem extends StatelessWidget {
-  const MedicationItem({super.key, required this.medicationName, required this.dosage, required this.notes});
+  const MedicationItem({super.key, required this.medicationName, required this.dosage, required this.notes, required this.onTap});
 
   final String medicationName;
   final String dosage;
   final String notes;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(color: AppColors.darkBackground, borderRadius: BorderRadius.circular(12)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [_MedicationDetails(medicationName, dosage, notes), _MedicationIcon()],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(color: AppColors.darkBackground, borderRadius: BorderRadius.circular(12)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [_MedicationDetails(medicationName, dosage, notes), _MedicationIcon()],
+        ),
       ),
     );
   }
