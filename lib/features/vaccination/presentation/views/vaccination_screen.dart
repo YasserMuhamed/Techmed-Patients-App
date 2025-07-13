@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:techmed/configs/routing/app_routes.dart';
 import 'package:techmed/configs/theme/app_colors.dart';
@@ -19,14 +20,17 @@ class VaccinationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(S.of(context).vaccinations, style: AppTextStyles.poppins18Bold(context)),
+        centerTitle: true,
+        leading: IconButton(icon: Icon(FontAwesomeIcons.xmark), onPressed: () => Navigator.of(context).pop()),
+      ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(S.of(context).vaccinations, style: AppTextStyles.poppins22Bold(context)),
-              16.verticalSpace,
               Expanded(
                 child: BlocBuilder<VaccinationCubit, VaccinationState>(
                   buildWhen: (previous, current) {
