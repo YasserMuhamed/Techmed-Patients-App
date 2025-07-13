@@ -9,6 +9,11 @@ class ApiConstants {
   static const createMedicationEndPoint = "/medications";
   static String deleteMedicationEndPoint(int id) => "/medications/$id";
 
+  static const getVaccinationEndPoint = "/vaccination";
+  static String getSingleVaccinationEndPoint(int id) => "/vaccination/$id";
+  static const createVaccinationEndPoint = "/vaccination";
+  static String deleteVaccinationEndPoint(int id) => "/vaccination/$id";
+
   static const getAppointmentsEndPoint = "/appointments";
   static String getSingleAppointmentEndPoint(int id) => "/appointments/$id";
   static const createAppointmentEndPoint = "/appointments";

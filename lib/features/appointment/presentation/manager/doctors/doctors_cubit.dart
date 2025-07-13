@@ -5,8 +5,6 @@ import 'package:techmed/features/appointment/data/repository/appointment_repo.da
 
 part 'doctors_state.dart';
 
-
-
 class DoctorsCubit extends Cubit<DoctorsState> {
   final AppointmentRepository appointmentRepository;
   DoctorsCubit(this.appointmentRepository) : super(DoctorsInitial());

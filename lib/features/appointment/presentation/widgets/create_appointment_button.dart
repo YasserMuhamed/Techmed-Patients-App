@@ -34,11 +34,15 @@ class CreateAppointmentButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AppointmentsCubit, AppointmentsState>(
       listenWhen: (previous, current) {
-        return current is AppointmentCreateSuccess || current is AppointmentCreateFailure;
+        return current is AppointmentCreateSuccess ||
+            current is AppointmentCreateFailure;
       },
       listener: (context, state) {
         if (state is AppointmentCreateSuccess) {
-          ToastHelper.showSuccessToast(context, S.of(context).appointment_added_successfully);
+          ToastHelper.showSuccessToast(
+            context,
+            S.of(context).appointment_added_successfully,
+          );
           Navigator.of(context).pop(true);
         } else if (state is AppointmentCreateFailure) {
           ToastHelper.showErrorToast(context, state.message);
@@ -53,27 +57,41 @@ class CreateAppointmentButton extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState!.validate()) {
               if (selectedDate == null) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).date_required)));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).date_required)),
+                );
                 return;
               } else if (selectedTime == null) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).time_required)));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).time_required)),
+                );
                 return;
               } else if (selectedDoctorId == null) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).doctor_required)));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).doctor_required)),
+                );
                 return;
               } else if (selectedHospitalId == null) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).hospital_required)));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).hospital_required)),
+                );
                 return;
               } else {
-                CreateAppointmentRequest createAppointmentRequest = CreateAppointmentRequest(
+                CreateAppointmentRequest
+                createAppointmentRequest = CreateAppointmentRequest(
                   status: statusController.text,
                   date: DateFormat('yyyy-MM-dd', "en-US").format(selectedDate!),
-                  time: '${selectedTime!.hour.toString().padLeft(2, '0')}:${selectedTime!.minute.toString().padLeft(2, '0')}',
+                  time:
+                      '${selectedTime!.hour.toString().padLeft(2, '0')}:${selectedTime!.minute.toString().padLeft(2, '0')}',
                   doctorId: selectedDoctorId!,
                   hospitalId: selectedHospitalId!,
                 );
-                debugPrint("Create Appointment Request: ${createAppointmentRequest.toJson()}");
-                BlocProvider.of<AppointmentsCubit>(context).createAppointment(createAppointmentRequest);
+                debugPrint(
+                  "Create Appointment Request: ${createAppointmentRequest.toJson()}",
+                );
+                BlocProvider.of<AppointmentsCubit>(
+                  context,
+                ).createAppointment(createAppointmentRequest);
               }
             } else {
               setAutovalidateMode(AutovalidateMode.onUserInteraction);

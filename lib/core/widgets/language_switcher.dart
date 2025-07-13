@@ -14,13 +14,19 @@ class LanguageSwitcher extends StatelessWidget {
           onPressed: () {
             context.read<LocaleCubit>().setLocale(Locale('en'));
           },
-          child: const Text('English', style: TextStyle(fontFamily: "Cairo", color: Colors.white)),
+          child: const Text(
+            'English',
+            style: TextStyle(fontFamily: "Cairo", color: Colors.white),
+          ),
         ),
         TextButton(
           onPressed: () {
             context.read<LocaleCubit>().setLocale(Locale('ar'));
           },
-          child: const Text('العربية', style: TextStyle(fontFamily: "Cairo", color: Colors.white)),
+          child: const Text(
+            'العربية',
+            style: TextStyle(fontFamily: "Cairo", color: Colors.white),
+          ),
         ),
       ],
     );

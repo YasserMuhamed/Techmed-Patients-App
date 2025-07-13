@@ -11,19 +11,30 @@ class HospitalsDropdownBuilder extends StatelessWidget {
   final int? selectedHospitalId;
   final Function(int?) onChanged;
 
-  const HospitalsDropdownBuilder({super.key, required this.selectedHospitalId, required this.onChanged});
+  const HospitalsDropdownBuilder({
+    super.key,
+    required this.selectedHospitalId,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppointmentsCubit, AppointmentsState>(
       buildWhen: (previous, current) {
-        return current is HospitalsLoading || current is HospitalsSuccess || current is HospitalsFailure;
+        return current is HospitalsLoading ||
+            current is HospitalsSuccess ||
+            current is HospitalsFailure;
       },
       builder: (context, state) {
         if (state is HospitalsLoading || state is AppointmentsInitial) {
           return Center(child: CircularProgressIndicator());
         } else if (state is HospitalsFailure) {
-          return Text(state.message, style: AppTextStyles.poppins14Regular(context).copyWith(color: Colors.red));
+          return Text(
+            state.message,
+            style: AppTextStyles.poppins14Regular(
+              context,
+            ).copyWith(color: Colors.red),
+          );
         } else if (state is HospitalsSuccess) {
           if (state.hospitals.data!.isNotEmpty) {
             return DropdownButtonFormField<String>(
@@ -34,8 +45,11 @@ class HospitalsDropdownBuilder extends StatelessWidget {
               selectedItemBuilder: (context) {
                 return state.hospitals.data!
                     .map(
-                      (hospital) =>
-                          Text(hospital.name ?? '', style: AppTextStyles.poppins14Medium(context), overflow: TextOverflow.ellipsis),
+                      (hospital) => Text(
+                        hospital.name ?? '',
+                        style: AppTextStyles.poppins14Medium(context),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     )
                     .toList();
               },
@@ -49,32 +63,56 @@ class HospitalsDropdownBuilder extends StatelessWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Icon(Icons.local_hospital, color: AppColors.white, size: 22),
+                                  Icon(
+                                    Icons.local_hospital,
+                                    color: AppColors.white,
+                                    size: 22,
+                                  ),
                                   SizedBox(width: 8.w),
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           hospital.name ?? '',
-                                          style: AppTextStyles.poppins14Medium(context),
+                                          style: AppTextStyles.poppins14Medium(
+                                            context,
+                                          ),
                                           overflow: TextOverflow.ellipsis,
                                         ),
-                                        if ((hospital.location ?? '').isNotEmpty)
+                                        if ((hospital.location ?? '')
+                                            .isNotEmpty)
                                           Row(
                                             children: [
-                                              Icon(Icons.location_on, color: AppColors.secondaryText, size: 16),
+                                              Icon(
+                                                Icons.location_on,
+                                                color: AppColors.secondaryText,
+                                                size: 16,
+                                              ),
                                               SizedBox(width: 4.w),
                                               Expanded(
                                                 child: Text(
                                                   hospital.location ?? '',
-                                                  style: AppTextStyles.poppins12Regular(context).copyWith(color: AppColors.secondaryText),
-                                                  overflow: TextOverflow.ellipsis,
+                                                  style:
+                                                      AppTextStyles.poppins12Regular(
+                                                        context,
+                                                      ).copyWith(
+                                                        color:
+                                                            AppColors
+                                                                .secondaryText,
+                                                      ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                               ),
                                             ],
                                           ),
-                                        Divider(height: 8, thickness: 1, color: AppColors.cardBackground),
+                                        Divider(
+                                          height: 8,
+                                          thickness: 1,
+                                          color: AppColors.cardBackground,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -87,18 +125,25 @@ class HospitalsDropdownBuilder extends StatelessWidget {
                       .toList(),
               decoration: InputDecoration(
                 labelText: S.of(context).select_doctor,
-                labelStyle: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
+                labelStyle: AppTextStyles.poppins14Regular(
+                  context,
+                ).copyWith(color: AppColors.secondaryText),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(color: AppColors.cardBackground),
                 ),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.cardBackground)),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: AppColors.cardBackground),
+                ),
               ),
             );
           }
           return Text(
             S.of(context).no_doctors_available,
-            style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
+            style: AppTextStyles.poppins14Regular(
+              context,
+            ).copyWith(color: AppColors.secondaryText),
           );
         }
         return SizedBox.shrink();

@@ -192,5 +192,15 @@
   "select_appointment_time": "Select Appointment Time",
   "hospital": "Hospital",
   "doctor": "Doctor",
-  "enter_your_status": "Enter your status"
+  "enter_your_status": "Enter your status",
+  "retry": "Retry",
+  "no_vaccinations_found": "No vaccinations found",
+  "delete_vaccination": "Delete Vaccination",
+  "vaccination_deleted_successfully": "Vaccination deleted successfully.",
+  "delete_vaccination_confirmation": "Are you sure you want to delete this vaccination?",
+  "enter_vaccination_name": "Enter vaccination name",
+  "select_vaccination_date": "Select vaccination date",
+  "vaccination_name_required": "Vaccination name is required",
+  "vaccination_date_required": "Vaccination date is required",
+  "vaccination_note_hint": "e.g., Booster shot, annual flu vaccine"
 }

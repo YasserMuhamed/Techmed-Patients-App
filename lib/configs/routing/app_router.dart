@@ -5,6 +5,7 @@ import 'package:techmed/features/appointment/presentation/manager/doctors/doctor
 import 'package:techmed/features/appointment/presentation/views/appointment_details_screen.dart';
 import 'package:techmed/features/appointment/presentation/views/create_appointment_screen.dart';
 import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
+import 'package:techmed/features/vaccination/presentation/cubit/vaccination_cubit.dart';
 
 import 'package:techmed/configs/routing/app_routes.dart';
 import 'package:techmed/core/di/dependency_injection.dart';
@@ -17,11 +18,14 @@ import 'package:techmed/features/auth/presentation/pages/register_screen.dart';
 import 'package:techmed/features/main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
 import 'package:techmed/features/main/presentation/pages/main_screen.dart';
 import 'package:techmed/features/main/presentation/pages/prescriptions_screen.dart';
-import 'package:techmed/features/main/presentation/pages/vaccination_screen.dart';
+import 'package:techmed/features/vaccination/presentation/views/vaccination_screen.dart';
 
 import 'package:techmed/features/medication/presentation/manager/prescriptions/prescriptions_cubit.dart';
 import 'package:techmed/features/medication/presentation/views/create_medication_screen.dart';
 import 'package:techmed/features/medication/presentation/views/medication_details_screen.dart';
+
+import 'package:techmed/features/vaccination/presentation/views/create_vaccination_screen.dart';
+import 'package:techmed/features/vaccination/presentation/views/vaccination_details_screen.dart';
 
 import 'package:techmed/features/profile/presentation/pages/change_password_screen.dart';
 import 'package:techmed/features/profile/presentation/pages/update_user_information_screen.dart';
@@ -51,7 +55,23 @@ class AppRouter {
         );
       case AppRoutes.kVaccinationsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(create: (context) => getIt<MedicationCubit>()..getMedications(), child: VaccinationScreen()),
+          builder: (_) => BlocProvider(create: (context) => getIt<VaccinationCubit>()..getVaccinations(), child: VaccinationScreen()),
+        );
+      case AppRoutes.kCreateVaccinationScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(create: (context) => getIt<VaccinationCubit>(), child: CreateVaccinationScreen()),
+        );
+      case AppRoutes.kVaccinationDetailsScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) {
+                  final cubit = getIt<VaccinationCubit>();
+                  cubit.getVaccinationDetails(settings.arguments! as int);
+                  return cubit;
+                },
+                child: VaccinationDetailsScreen(vaccinationId: settings.arguments! as int),
+              ),
         );
       case AppRoutes.kCreateMedicationScreen:
         return MaterialPageRoute(

@@ -25,23 +25,38 @@ class MedicationScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(S.of(context).medications, style: AppTextStyles.poppins22Bold(context)),
+              Text(
+                S.of(context).medications,
+                style: AppTextStyles.poppins22Bold(context),
+              ),
               16.verticalSpace,
               Expanded(
                 child: BlocBuilder<MedicationCubit, MedicationState>(
                   buildWhen: (previous, current) {
-                    return current is MedicationLoading || current is MedicationSuccess || current is MedicationFailure;
+                    return current is MedicationLoading ||
+                        current is MedicationSuccess ||
+                        current is MedicationFailure;
                   },
                   builder: (context, state) {
                     if (state is MedicationLoading) {
                       return const Center(child: CircularProgressIndicator());
                     } else if (state is MedicationSuccess) {
-                      if (state.medications.data == null || state.medications.data!.isEmpty) {
-                        return Center(child: Text(S.of(context).no_medications_found, style: AppTextStyles.poppins16Medium(context)));
+                      if (state.medications.data == null ||
+                          state.medications.data!.isEmpty) {
+                        return Center(
+                          child: Text(
+                            S.of(context).no_medications_found,
+                            style: AppTextStyles.poppins16Medium(context),
+                          ),
+                        );
                       }
 
                       return RefreshIndicator(
-                        onRefresh: () => BlocProvider.of<MedicationCubit>(context).getMedications(),
+                        onRefresh:
+                            () =>
+                                BlocProvider.of<MedicationCubit>(
+                                  context,
+                                ).getMedications(),
                         child: ListView.builder(
                           itemCount: state.medications.data!.length,
                           itemBuilder: (context, index) {
@@ -54,7 +69,12 @@ class MedicationScreen extends StatelessWidget {
                       return MedicationFailureRefresh(message: state.message);
                     }
 
-                    return Center(child: Text("unknown state", style: AppTextStyles.poppins16Medium(context)));
+                    return Center(
+                      child: Text(
+                        "unknown state",
+                        style: AppTextStyles.poppins16Medium(context),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -63,7 +83,10 @@ class MedicationScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: DecoratedBox(
-        decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(8.r)),
+        decoration: BoxDecoration(
+          color: AppColors.primaryColor,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
         child: TextButton.icon(
           onPressed: () {
             context.pushNamed(AppRoutes.kCreateMedicationScreen).then((value) {
@@ -73,7 +96,12 @@ class MedicationScreen extends StatelessWidget {
             });
           },
           icon: Icon(Icons.add, color: AppColors.white, size: 24.sp),
-          label: Text(S.of(context).add_medication, style: AppTextStyles.poppins16Bold(context).copyWith(color: AppColors.white)),
+          label: Text(
+            S.of(context).add_medication,
+            style: AppTextStyles.poppins16Bold(
+              context,
+            ).copyWith(color: AppColors.white),
+          ),
         ),
       ),
     );

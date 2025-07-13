@@ -13,7 +13,9 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return [SliverToBoxAdapter(child: PrescriptionsAndVaccinationsSection())];
+            return [
+              SliverToBoxAdapter(child: PrescriptionsAndVaccinationsSection()),
+            ];
           },
           body: RefreshIndicator(
             onRefresh: () async {

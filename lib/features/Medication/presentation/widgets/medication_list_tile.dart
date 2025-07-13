@@ -18,26 +18,38 @@ class MedicationListTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         print("Medication ID: ${medication.id}");
-        context.pushNamed(AppRoutes.kMedicationDetailsScreen, arguments: medication.id).then((value) {
-          if (value == true) {
-            BlocProvider.of<MedicationCubit>(context).getMedications();
-          }
-        });
+        context
+            .pushNamed(
+              AppRoutes.kMedicationDetailsScreen,
+              arguments: medication.id,
+            )
+            .then((value) {
+              if (value == true) {
+                BlocProvider.of<MedicationCubit>(context).getMedications();
+              }
+            });
       },
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         leading: SvgICContainer(svgPath: Assets.assetsSvgsMedicine),
-        title: Text(medication.medicine!.enName!, style: AppTextStyles.poppins16Medium(context)),
+        title: Text(
+          medication.medicine!.enName!,
+          style: AppTextStyles.poppins16Medium(context),
+        ),
         subtitle: Text(
           S.of(context).dosage_variable(medication.dosage!),
-          style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
+          style: AppTextStyles.poppins14Regular(
+            context,
+          ).copyWith(color: AppColors.secondaryText),
         ),
         trailing: SizedBox(
           width: MediaQuery.of(context).size.width * 0.3,
           child: Text(
             textAlign: TextAlign.end,
             medication.notes!,
-            style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.primaryText),
+            style: AppTextStyles.poppins14Regular(
+              context,
+            ).copyWith(color: AppColors.primaryText),
           ),
         ),
       ),

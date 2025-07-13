@@ -20,7 +20,8 @@ class CreateAppointmentScreen extends StatefulWidget {
   const CreateAppointmentScreen({super.key});
 
   @override
-  State<CreateAppointmentScreen> createState() => _CreateAppointmentScreenState();
+  State<CreateAppointmentScreen> createState() =>
+      _CreateAppointmentScreenState();
 }
 
 class _CreateAppointmentScreenState extends State<CreateAppointmentScreen> {
@@ -35,16 +36,20 @@ class _CreateAppointmentScreenState extends State<CreateAppointmentScreen> {
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.transparent,
-        title: Text(S.of(context).add_appointment, style: AppTextStyles.poppins18Medium(context)),
+        title: Text(
+          S.of(context).add_appointment,
+          style: AppTextStyles.poppins18Medium(context),
+        ),
         centerTitle: true,
-        leading: IconButton(icon: Icon(FontAwesomeIcons.xmark, color: AppColors.white), onPressed: () => context.pop()),
+        leading: IconButton(
+          icon: Icon(FontAwesomeIcons.xmark, color: AppColors.white),
+          onPressed: () => context.pop(),
+        ),
       ),
       body: Form(
         key: formKey,
@@ -57,7 +62,10 @@ class _CreateAppointmentScreenState extends State<CreateAppointmentScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   24.verticalSpace,
-                  Text(S.of(context).status, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).status,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
                   AppTextField(
                     hintText: S.of(context).enter_your_status,
@@ -70,20 +78,43 @@ class _CreateAppointmentScreenState extends State<CreateAppointmentScreen> {
                     },
                   ),
                   24.verticalSpace,
-                  Text(S.of(context).date, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).date,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
-                  AppointmentDatePicker(selectedDate: selectedDate, onDateSelected: (date) => setState(() => selectedDate = date)),
+                  AppointmentDatePicker(
+                    selectedDate: selectedDate,
+                    onDateSelected:
+                        (date) => setState(() => selectedDate = date),
+                  ),
                   24.verticalSpace,
-                  Text(S.of(context).time, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).time,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
-                  AppointmentTimePicker(selectedTime: selectedTime, onTimeSelected: (time) => setState(() => selectedTime = time)),
+                  AppointmentTimePicker(
+                    selectedTime: selectedTime,
+                    onTimeSelected:
+                        (time) => setState(() => selectedTime = time),
+                  ),
 
                   24.verticalSpace,
-                  Text(S.of(context).doctor_name, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).doctor_name,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
-                  DoctorsDropdownBuilder(selectedDoctorId: selectedDoctorId, onChanged: (id) => setState(() => selectedDoctorId = id)),
+                  DoctorsDropdownBuilder(
+                    selectedDoctorId: selectedDoctorId,
+                    onChanged: (id) => setState(() => selectedDoctorId = id),
+                  ),
                   24.verticalSpace,
-                  Text(S.of(context).hospital_name, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).hospital_name,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
                   HospitalsDropdownBuilder(
                     selectedHospitalId: selectedHospitalId,
@@ -93,7 +124,8 @@ class _CreateAppointmentScreenState extends State<CreateAppointmentScreen> {
                   CreateAppointmentButton(
                     formKey: formKey,
                     autovalidateMode: autovalidateMode,
-                    setAutovalidateMode: (mode) => setState(() => autovalidateMode = mode),
+                    setAutovalidateMode:
+                        (mode) => setState(() => autovalidateMode = mode),
                     statusController: statusController,
                     selectedDate: selectedDate,
                     selectedTime: selectedTime,

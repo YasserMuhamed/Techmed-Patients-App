@@ -39,9 +39,15 @@ class _CreateMedicationScreenState extends State<CreateMedicationScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.transparent,
-        title: Text(S.of(context).add_medication, style: AppTextStyles.poppins18Medium(context)),
+        title: Text(
+          S.of(context).add_medication,
+          style: AppTextStyles.poppins18Medium(context),
+        ),
         centerTitle: true,
-        leading: IconButton(icon: Icon(FontAwesomeIcons.xmark, color: AppColors.white), onPressed: () => context.pop()),
+        leading: IconButton(
+          icon: Icon(FontAwesomeIcons.xmark, color: AppColors.white),
+          onPressed: () => context.pop(),
+        ),
       ),
       body: Form(
         key: formKey,
@@ -54,7 +60,10 @@ class _CreateMedicationScreenState extends State<CreateMedicationScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   24.verticalSpace,
-                  Text(S.of(context).medicine, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).medicine,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
                   BlocBuilder<MedicationCubit, MedicationState>(
                     builder: (context, state) {
@@ -63,14 +72,25 @@ class _CreateMedicationScreenState extends State<CreateMedicationScreen> {
                           child: ListTile(
                             title: Text(
                               S.of(context).select_medicine,
-                              style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
+                              style: AppTextStyles.poppins14Regular(
+                                context,
+                              ).copyWith(color: AppColors.secondaryText),
                             ),
 
-                            trailing: const Icon(FontAwesomeIcons.spinner, color: AppColors.secondaryText, size: 16),
+                            trailing: const Icon(
+                              FontAwesomeIcons.spinner,
+                              color: AppColors.secondaryText,
+                              size: 16,
+                            ),
                           ),
                         );
                       } else if (state is MedicinesFailure) {
-                        return Text(state.message, style: AppTextStyles.poppins14Regular(context).copyWith(color: Colors.red));
+                        return Text(
+                          state.message,
+                          style: AppTextStyles.poppins14Regular(
+                            context,
+                          ).copyWith(color: Colors.red),
+                        );
                       } else if (state is MedicinesSuccess) {
                         return MedicineDropdown(
                           medicines: state.medicines.data!.medicine!,
@@ -86,11 +106,20 @@ class _CreateMedicationScreenState extends State<CreateMedicationScreen> {
                     },
                   ),
                   24.verticalSpace,
-                  Text(S.of(context).dosage, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).dosage,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
-                  AppTextField(hintText: S.of(context).dosage_hint, controller: dosageController),
+                  AppTextField(
+                    hintText: S.of(context).dosage_hint,
+                    controller: dosageController,
+                  ),
                   24.verticalSpace,
-                  Text(S.of(context).start_date, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).start_date,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
                   StartDatePicker(
                     pickedStartDate: pickedStartDate,
@@ -101,7 +130,10 @@ class _CreateMedicationScreenState extends State<CreateMedicationScreen> {
                     },
                   ),
                   24.verticalSpace,
-                  Text(S.of(context).end_date, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).end_date,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
                   EndDatePicker(
                     pickedEndDate: pickedEndDate,
@@ -113,18 +145,29 @@ class _CreateMedicationScreenState extends State<CreateMedicationScreen> {
                   ),
 
                   24.verticalSpace,
-                  Text(S.of(context).notes, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).notes,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
-                  AppTextField(hintText: S.of(context).note_hint, maxLines: 5, controller: noteController),
+                  AppTextField(
+                    hintText: S.of(context).note_hint,
+                    maxLines: 5,
+                    controller: noteController,
+                  ),
                   24.verticalSpace,
 
                   BlocConsumer<MedicationCubit, MedicationState>(
                     listenWhen: (previous, current) {
-                      return current is MedicationCreateSuccess || current is MedicationCreateFailure;
+                      return current is MedicationCreateSuccess ||
+                          current is MedicationCreateFailure;
                     },
                     listener: (context, state) {
                       if (state is MedicationCreateSuccess) {
-                        ToastHelper.showSuccessToast(context, S.of(context).medication_added_successfully);
+                        ToastHelper.showSuccessToast(
+                          context,
+                          S.of(context).medication_added_successfully,
+                        );
                         Navigator.of(context).pop(true);
                       } else if (state is MedicationCreateFailure) {
                         ToastHelper.showErrorToast(context, state.message);
@@ -132,34 +175,66 @@ class _CreateMedicationScreenState extends State<CreateMedicationScreen> {
                     },
                     builder: (context, state) {
                       if (state is MedicationCreateLoading) {
-                        return CustomButton(text: "", isLoading: true, onPressed: () {});
+                        return CustomButton(
+                          text: "",
+                          isLoading: true,
+                          onPressed: () {},
+                        );
                       }
                       return CustomButton(
                         text: S.of(context).add_medication,
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             if (pickedStartDate == null) {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).start_date_required)));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    S.of(context).start_date_required,
+                                  ),
+                                ),
+                              );
                               return;
                             } else if (pickedEndDate == null) {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).end_date_required)));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    S.of(context).end_date_required,
+                                  ),
+                                ),
+                              );
                               return;
                             } else if (selectedMedicineId == null) {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).medicine_required)));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    S.of(context).medicine_required,
+                                  ),
+                                ),
+                              );
                               return;
                             } else {
-                              CreateMedicationRequest createMedicationRequest = CreateMedicationRequest(
-                                dosage: dosageController.text,
-                                startDate: DateFormat('yyyy-MM-dd HH:mm:ss.SSS', "en_US").format(pickedStartDate!),
-                                endDate: DateFormat('yyyy-MM-dd HH:mm:ss.SSS', "en_US").format(pickedEndDate!),
-                                notes: noteController.text,
-                                medicineId: selectedMedicineId!,
-                              );
-                              BlocProvider.of<MedicationCubit>(context).createMedication(createMedicationRequest);
+                              CreateMedicationRequest createMedicationRequest =
+                                  CreateMedicationRequest(
+                                    dosage: dosageController.text,
+                                    startDate: DateFormat(
+                                      'yyyy-MM-dd HH:mm:ss.SSS',
+                                      "en_US",
+                                    ).format(pickedStartDate!),
+                                    endDate: DateFormat(
+                                      'yyyy-MM-dd HH:mm:ss.SSS',
+                                      "en_US",
+                                    ).format(pickedEndDate!),
+                                    notes: noteController.text,
+                                    medicineId: selectedMedicineId!,
+                                  );
+                              BlocProvider.of<MedicationCubit>(
+                                context,
+                              ).createMedication(createMedicationRequest);
                             }
                           } else {
                             setState(() {
-                              autovalidateMode = AutovalidateMode.onUserInteraction;
+                              autovalidateMode =
+                                  AutovalidateMode.onUserInteraction;
                             });
                           }
                         },

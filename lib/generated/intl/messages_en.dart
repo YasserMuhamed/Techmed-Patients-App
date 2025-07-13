@@ -105,6 +105,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "delete_medication_confirmation": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete this medication?",
     ),
+    "delete_vaccination": MessageLookupByLibrary.simpleMessage(
+      "Delete Vaccination",
+    ),
+    "delete_vaccination_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this vaccination?",
+    ),
     "divorced": MessageLookupByLibrary.simpleMessage("Divorced"),
     "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
     "doctor_and_hospital": m0,
@@ -157,6 +163,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
       "Enter new password",
+    ),
+    "enter_vaccination_name": MessageLookupByLibrary.simpleMessage(
+      "Enter vaccination name",
     ),
     "enter_your_age": MessageLookupByLibrary.simpleMessage("Enter your age"),
     "enter_your_birth_date": MessageLookupByLibrary.simpleMessage(
@@ -296,6 +305,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "No profile picture available",
     ),
+    "no_vaccinations_found": MessageLookupByLibrary.simpleMessage(
+      "No vaccinations found",
+    ),
     "not_specified": MessageLookupByLibrary.simpleMessage("Not specified"),
     "note_hint": MessageLookupByLibrary.simpleMessage(
       "e.g., Take after meals, twice a day",
@@ -359,6 +371,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "This field is required",
     ),
     "reset_password": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "retype_pass_required": MessageLookupByLibrary.simpleMessage(
       "Retype password is required",
     ),
@@ -385,6 +398,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "select_medicine": MessageLookupByLibrary.simpleMessage("Select Medicine"),
     "select_start_date": MessageLookupByLibrary.simpleMessage(
       "Select Start Date",
+    ),
+    "select_vaccination_date": MessageLookupByLibrary.simpleMessage(
+      "Select vaccination date",
     ),
     "settings_title": MessageLookupByLibrary.simpleMessage("Settings"),
     "single": MessageLookupByLibrary.simpleMessage("Single"),
@@ -421,11 +437,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "vaccination_date": MessageLookupByLibrary.simpleMessage(
       "Vaccination Date",
     ),
+    "vaccination_date_required": MessageLookupByLibrary.simpleMessage(
+      "Vaccination date is required",
+    ),
+    "vaccination_deleted_successfully": MessageLookupByLibrary.simpleMessage(
+      "Vaccination deleted successfully.",
+    ),
     "vaccination_details": MessageLookupByLibrary.simpleMessage(
       "Vaccination Details",
     ),
     "vaccination_name": MessageLookupByLibrary.simpleMessage(
       "Vaccination Name",
+    ),
+    "vaccination_name_required": MessageLookupByLibrary.simpleMessage(
+      "Vaccination name is required",
+    ),
+    "vaccination_note_hint": MessageLookupByLibrary.simpleMessage(
+      "e.g., Booster shot, annual flu vaccine",
     ),
     "vaccinations": MessageLookupByLibrary.simpleMessage("Vaccinations"),
     "verify_phone": MessageLookupByLibrary.simpleMessage("Verify phone number"),

@@ -12,19 +12,30 @@ class DoctorsDropdownBuilder extends StatelessWidget {
   final int? selectedDoctorId;
   final Function(int?) onChanged;
 
-  const DoctorsDropdownBuilder({super.key, required this.selectedDoctorId, required this.onChanged});
+  const DoctorsDropdownBuilder({
+    super.key,
+    required this.selectedDoctorId,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DoctorsCubit, DoctorsState>(
       buildWhen: (previous, current) {
-        return current is DoctorsLoading || current is DoctorsSuccess || current is DoctorsFailure;
+        return current is DoctorsLoading ||
+            current is DoctorsSuccess ||
+            current is DoctorsFailure;
       },
       builder: (context, state) {
         if (state is DoctorsLoading || state is DoctorsInitial) {
           return Center(child: CircularProgressIndicator());
         } else if (state is DoctorsFailure) {
-          return Text(state.message, style: AppTextStyles.poppins14Regular(context).copyWith(color: Colors.red));
+          return Text(
+            state.message,
+            style: AppTextStyles.poppins14Regular(
+              context,
+            ).copyWith(color: Colors.red),
+          );
         } else if (state is DoctorsSuccess) {
           if (state.doctors.data!.doctors!.isNotEmpty) {
             return DropdownButtonFormField<String>(
@@ -35,7 +46,11 @@ class DoctorsDropdownBuilder extends StatelessWidget {
               selectedItemBuilder: (context) {
                 return state.doctors.data!.doctors!
                     .map(
-                      (doctor) => Text(doctor.name ?? '', style: AppTextStyles.poppins14Medium(context), overflow: TextOverflow.ellipsis),
+                      (doctor) => Text(
+                        doctor.name ?? '',
+                        style: AppTextStyles.poppins14Medium(context),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     )
                     .toList();
               },
@@ -49,32 +64,56 @@ class DoctorsDropdownBuilder extends StatelessWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Icon(FontAwesomeIcons.userDoctor, color: AppColors.white, size: 22),
+                                  Icon(
+                                    FontAwesomeIcons.userDoctor,
+                                    color: AppColors.white,
+                                    size: 22,
+                                  ),
                                   SizedBox(width: 8.w),
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           doctor.name ?? '',
-                                          style: AppTextStyles.poppins14Medium(context),
+                                          style: AppTextStyles.poppins14Medium(
+                                            context,
+                                          ),
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                         if ((doctor.jobTitle ?? '').isNotEmpty)
                                           Row(
                                             children: [
-                                              Icon(FontAwesomeIcons.briefcaseMedical, color: AppColors.secondaryText, size: 16),
+                                              Icon(
+                                                FontAwesomeIcons
+                                                    .briefcaseMedical,
+                                                color: AppColors.secondaryText,
+                                                size: 16,
+                                              ),
                                               SizedBox(width: 4.w),
                                               Expanded(
                                                 child: Text(
                                                   doctor.jobTitle ?? '',
-                                                  style: AppTextStyles.poppins12Regular(context).copyWith(color: AppColors.secondaryText),
-                                                  overflow: TextOverflow.ellipsis,
+                                                  style:
+                                                      AppTextStyles.poppins12Regular(
+                                                        context,
+                                                      ).copyWith(
+                                                        color:
+                                                            AppColors
+                                                                .secondaryText,
+                                                      ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                               ),
                                             ],
                                           ),
-                                        Divider(height: 8, thickness: 1, color: AppColors.cardBackground),
+                                        Divider(
+                                          height: 8,
+                                          thickness: 1,
+                                          color: AppColors.cardBackground,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -87,18 +126,25 @@ class DoctorsDropdownBuilder extends StatelessWidget {
                       .toList(),
               decoration: InputDecoration(
                 labelText: S.of(context).select_doctor,
-                labelStyle: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
+                labelStyle: AppTextStyles.poppins14Regular(
+                  context,
+                ).copyWith(color: AppColors.secondaryText),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(color: AppColors.cardBackground),
                 ),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.cardBackground)),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: AppColors.cardBackground),
+                ),
               ),
             );
           }
           return Text(
             S.of(context).no_doctors_available,
-            style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
+            style: AppTextStyles.poppins14Regular(
+              context,
+            ).copyWith(color: AppColors.secondaryText),
           );
         }
         return SizedBox.shrink();

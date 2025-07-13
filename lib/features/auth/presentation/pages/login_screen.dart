@@ -24,14 +24,20 @@ class LoginScreen extends StatelessWidget {
                 LanguageSwitcher(),
                 AppPaddings.gap88.h.verticalSpace,
                 AppPaddings.gap88.h.verticalSpace,
-                Text(S.of(context).welcome_message, style: AppTextStyles.poppins20SemiBold(context)),
+                Text(
+                  S.of(context).welcome_message,
+                  style: AppTextStyles.poppins20SemiBold(context),
+                ),
                 const SizedBox(height: 20),
                 LoginFormSection(),
                 AppPaddings.gap12.verticalSpace,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(S.of(context).dont_have_an_account, style: AppTextStyles.poppins14Regular(context)),
+                    Text(
+                      S.of(context).dont_have_an_account,
+                      style: AppTextStyles.poppins14Regular(context),
+                    ),
                     TextButton(
                       style: TextButton.styleFrom(
                         overlayColor: AppColors.primaryColor.withOpacity(0),
@@ -42,7 +48,10 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         context.pushNamed(AppRoutes.kRegisterScreen);
                       },
-                      child: Text(S.of(context).register, style: AppTextStyles.poppins14SemiBold(context)),
+                      child: Text(
+                        S.of(context).register,
+                        style: AppTextStyles.poppins14SemiBold(context),
+                      ),
                     ),
                   ],
                 ),

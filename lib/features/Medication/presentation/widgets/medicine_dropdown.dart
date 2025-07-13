@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:techmed/configs/theme/app_colors.dart';
 import 'package:techmed/configs/theme/app_text_styles.dart';
 import 'package:techmed/generated/l10n.dart';
@@ -9,7 +9,13 @@ class MedicineDropdown extends StatelessWidget {
   final ValueChanged<int?> onChanged;
   final String? errorText;
 
-  const MedicineDropdown({super.key, required this.medicines, required this.selectedMedicineId, required this.onChanged, this.errorText});
+  const MedicineDropdown({
+    super.key,
+    required this.medicines,
+    required this.selectedMedicineId,
+    required this.onChanged,
+    this.errorText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +27,10 @@ class MedicineDropdown extends StatelessWidget {
       items:
           medicines
               .map<DropdownMenuItem<String>>(
-                (medicine) => DropdownMenuItem<String>(value: medicine.id.toString(), child: Text(medicine.enName ?? '')),
+                (medicine) => DropdownMenuItem<String>(
+                  value: medicine.id.toString(),
+                  child: Text(medicine.enName ?? ''),
+                ),
               )
               .toList(),
       onChanged: (value) {
@@ -29,9 +38,17 @@ class MedicineDropdown extends StatelessWidget {
       },
       decoration: InputDecoration(
         labelText: S.of(context).select_medicine,
-        labelStyle: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.cardBackground)),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: AppColors.cardBackground)),
+        labelStyle: AppTextStyles.poppins14Regular(
+          context,
+        ).copyWith(color: AppColors.secondaryText),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: AppColors.cardBackground),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: AppColors.cardBackground),
+        ),
         errorText: errorText,
       ),
     );

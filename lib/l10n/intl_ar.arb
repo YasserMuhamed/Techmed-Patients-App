@@ -190,5 +190,15 @@
   "select_appointment_time": "اختر وقت الموعد",
   "hospital": "المستشفى",
   "doctor": "الطبيب",
-  "enter_your_status": "أدخل حالتك"
+  "enter_your_status": "أدخل حالتك",
+  "retry": "إعادة المحاولة",
+  "no_vaccinations_found": "لم يتم العثور على تطعيمات",
+  "delete_vaccination": "حذف التطعيم",
+  "vaccination_deleted_successfully": "تم حذف التطعيم بنجاح.",
+  "delete_vaccination_confirmation": "هل أنت متأكد من أنك تريد حذف هذا التطعيم؟",
+  "enter_vaccination_name": "أدخل اسم التطعيم",
+  "select_vaccination_date": "اختر تاريخ التطعيم",
+  "vaccination_name_required": "اسم التطعيم مطلوب",
+  "vaccination_date_required": "تاريخ التطعيم مطلوب",
+  "vaccination_note_hint": "مثال: جرعة معززة، لقاح الإنفلونزا السنوي"
 }

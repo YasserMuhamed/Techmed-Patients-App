@@ -8,9 +8,13 @@ import 'package:techmed/features/appointment/data/model/hospitals_model/hospital
 
 abstract class AppointmentRepository {
   Future<Either<Failures, AllAppointmentsResponse>> getAppointments();
-  Future<Either<Failures, AppointmentDetailsModel>> getSingleAppointment(int appointmentId);
+  Future<Either<Failures, AppointmentDetailsModel>> getSingleAppointment(
+    int appointmentId,
+  );
   Future<Either<Failures, dynamic>> cancelAppointment(int appointmentId);
-  Future<Either<Failures, dynamic>> createAppointment(CreateAppointmentRequest appointmentData);
+  Future<Either<Failures, dynamic>> createAppointment(
+    CreateAppointmentRequest appointmentData,
+  );
   Future<Either<Failures, DoctorsModel>> getDoctors();
   Future<Either<Failures, HospitalsModel>> getHospitals();
 }

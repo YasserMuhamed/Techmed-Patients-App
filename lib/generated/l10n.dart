@@ -1759,6 +1759,101 @@ class S {
       args: [],
     );
   }
+
+  /// `Retry`
+  String get retry {
+    return Intl.message('Retry', name: 'retry', desc: '', args: []);
+  }
+
+  /// `No vaccinations found`
+  String get no_vaccinations_found {
+    return Intl.message(
+      'No vaccinations found',
+      name: 'no_vaccinations_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Vaccination`
+  String get delete_vaccination {
+    return Intl.message(
+      'Delete Vaccination',
+      name: 'delete_vaccination',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaccination deleted successfully.`
+  String get vaccination_deleted_successfully {
+    return Intl.message(
+      'Vaccination deleted successfully.',
+      name: 'vaccination_deleted_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this vaccination?`
+  String get delete_vaccination_confirmation {
+    return Intl.message(
+      'Are you sure you want to delete this vaccination?',
+      name: 'delete_vaccination_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter vaccination name`
+  String get enter_vaccination_name {
+    return Intl.message(
+      'Enter vaccination name',
+      name: 'enter_vaccination_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select vaccination date`
+  String get select_vaccination_date {
+    return Intl.message(
+      'Select vaccination date',
+      name: 'select_vaccination_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaccination name is required`
+  String get vaccination_name_required {
+    return Intl.message(
+      'Vaccination name is required',
+      name: 'vaccination_name_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vaccination date is required`
+  String get vaccination_date_required {
+    return Intl.message(
+      'Vaccination date is required',
+      name: 'vaccination_date_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `e.g., Booster shot, annual flu vaccine`
+  String get vaccination_note_hint {
+    return Intl.message(
+      'e.g., Booster shot, annual flu vaccine',
+      name: 'vaccination_note_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

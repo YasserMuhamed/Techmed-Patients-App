@@ -5,9 +5,11 @@ import 'package:techmed/features/appointment/presentation/manager/appointments/a
 import 'package:techmed/features/main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
 import 'package:techmed/features/main/presentation/manager/cubit/home_cubit.dart';
 import 'package:techmed/features/medication/presentation/manager/medication/medication_cubit.dart';
+import 'package:techmed/features/vaccination/presentation/cubit/vaccination_cubit.dart';
 import 'package:techmed/core/api/api_manager.dart';
 import 'package:techmed/core/api/dio_factory.dart';
 import 'package:techmed/features/medication/data/repository/medication_repo_impl.dart';
+import 'package:techmed/features/vaccination/data/repository/vaccination_repo_impl.dart';
 import 'package:techmed/features/medication/presentation/manager/prescriptions/prescriptions_cubit.dart';
 import 'package:techmed/features/profile/data/repositories/profile_repository_implementation.dart';
 import 'package:techmed/features/profile/presentation/profile_cubit/profile_cubit.dart';
@@ -37,6 +39,10 @@ Future<void> setupGetIt() async {
     () => AppointmentRepositoryImplementation(apiManager: getIt<ApiManager>()),
   );
 
+  getIt.registerLazySingleton<VaccinationRepositoryImplementation>(
+    () => VaccinationRepositoryImplementation(apiManager: getIt<ApiManager>()),
+  );
+
   // Cubits
   getIt.registerFactory<LocaleCubit>(() => LocaleCubit());
   getIt.registerFactory<BottomNavCubit>(() => BottomNavCubit());
@@ -47,6 +53,8 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<AppointmentsCubit>(() => AppointmentsCubit(getIt<AppointmentRepositoryImplementation>()));
 
   getIt.registerFactory<DoctorsCubit>(() => DoctorsCubit(getIt<AppointmentRepositoryImplementation>()));
+
+  getIt.registerFactory<VaccinationCubit>(() => VaccinationCubit(getIt<VaccinationRepositoryImplementation>()));
 
   getIt.registerFactory<ProfileCubit>(
     () => ProfileCubit(authRepository: getIt<AuthRepositoryImplementation>(), profileRepository: getIt<ProfileRepositoryImplementation>()),

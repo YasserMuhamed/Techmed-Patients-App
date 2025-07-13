@@ -8,7 +8,11 @@ class EndDatePicker extends StatelessWidget {
   final DateTime? pickedEndDate;
   final ValueChanged<DateTime?> onDatePicked;
 
-  const EndDatePicker({super.key, required this.pickedEndDate, required this.onDatePicked});
+  const EndDatePicker({
+    super.key,
+    required this.pickedEndDate,
+    required this.onDatePicked,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +28,29 @@ class EndDatePicker extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-        decoration: BoxDecoration(border: Border.all(color: AppColors.cardBackground), borderRadius: BorderRadius.circular(8)),
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.cardBackground),
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              pickedEndDate != null ? DateFormat('yyyy-MM-dd').format(pickedEndDate!) : S.of(context).select_end_date,
-              style: AppTextStyles.poppins14Regular(
-                context,
-              ).copyWith(color: pickedEndDate == null ? AppColors.secondaryText : AppColors.primaryText),
+              pickedEndDate != null
+                  ? DateFormat('yyyy-MM-dd').format(pickedEndDate!)
+                  : S.of(context).select_end_date,
+              style: AppTextStyles.poppins14Regular(context).copyWith(
+                color:
+                    pickedEndDate == null
+                        ? AppColors.secondaryText
+                        : AppColors.primaryText,
+              ),
             ),
-            Icon(Icons.calendar_today, color: AppColors.secondaryText, size: 20),
+            Icon(
+              Icons.calendar_today,
+              color: AppColors.secondaryText,
+              size: 20,
+            ),
           ],
         ),
       ),

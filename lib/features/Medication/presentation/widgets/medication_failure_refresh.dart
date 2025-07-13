@@ -10,10 +10,20 @@ class MedicationFailureRefresh extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () => BlocProvider.of<MedicationCubit>(context).getMedications(),
+      onRefresh:
+          () => BlocProvider.of<MedicationCubit>(context).getMedications(),
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
-        child: Column(children: [Center(child: Text(message, style: AppTextStyles.poppins16Medium(context)))]),
+        child: Column(
+          children: [
+            Center(
+              child: Text(
+                message,
+                style: AppTextStyles.poppins16Medium(context),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

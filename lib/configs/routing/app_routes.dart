@@ -11,4 +11,6 @@ class AppRoutes {
   static const String kCreateAppointmentScreen = '/createAppointmentScreen';
   static const String kAppointmentDetailsScreen = '/appointmentDetailsScreen';
   static const String kVaccinationsScreen = '/vaccinationsScreen';
+  static const String kCreateVaccinationScreen = '/createVaccinationScreen';
+  static const String kVaccinationDetailsScreen = '/vaccinationDetailsScreen';
 }

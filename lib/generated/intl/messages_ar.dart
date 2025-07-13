@@ -101,6 +101,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "delete_medication_confirmation": MessageLookupByLibrary.simpleMessage(
       "هل أنت متأكد أنك تريد حذف هذا الدواء؟",
     ),
+    "delete_vaccination": MessageLookupByLibrary.simpleMessage("حذف التطعيم"),
+    "delete_vaccination_confirmation": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من أنك تريد حذف هذا التطعيم؟",
+    ),
     "divorced": MessageLookupByLibrary.simpleMessage("مطلق"),
     "doctor": MessageLookupByLibrary.simpleMessage("الطبيب"),
     "doctor_and_hospital": m0,
@@ -149,6 +153,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enter_new_password": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة المرور الجديدة",
+    ),
+    "enter_vaccination_name": MessageLookupByLibrary.simpleMessage(
+      "أدخل اسم التطعيم",
     ),
     "enter_your_age": MessageLookupByLibrary.simpleMessage("أدخل عمرك"),
     "enter_your_birth_date": MessageLookupByLibrary.simpleMessage(
@@ -282,6 +289,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "لا توجد صورة ملف شخصي متاحة",
     ),
+    "no_vaccinations_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على تطعيمات",
+    ),
     "not_specified": MessageLookupByLibrary.simpleMessage("غير محدد"),
     "note_hint": MessageLookupByLibrary.simpleMessage(
       "مثال: تناول بعد الوجبات، مرتين يوميًا",
@@ -343,6 +353,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_password": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "retype_pass_required": MessageLookupByLibrary.simpleMessage(
       "إعادة كتابة كلمة المرور مطلوبة",
     ),
@@ -372,6 +383,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "select_start_date": MessageLookupByLibrary.simpleMessage(
       "اختر تاريخ البدء",
     ),
+    "select_vaccination_date": MessageLookupByLibrary.simpleMessage(
+      "اختر تاريخ التطعيم",
+    ),
     "settings_title": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "single": MessageLookupByLibrary.simpleMessage("أعزب"),
     "start_date": MessageLookupByLibrary.simpleMessage("تاريخ البدء"),
@@ -397,10 +411,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "تمت إضافة التطعيم بنجاح.",
     ),
     "vaccination_date": MessageLookupByLibrary.simpleMessage("تاريخ التطعيم"),
+    "vaccination_date_required": MessageLookupByLibrary.simpleMessage(
+      "تاريخ التطعيم مطلوب",
+    ),
+    "vaccination_deleted_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم حذف التطعيم بنجاح.",
+    ),
     "vaccination_details": MessageLookupByLibrary.simpleMessage(
       "تفاصيل التطعيم",
     ),
     "vaccination_name": MessageLookupByLibrary.simpleMessage("اسم التطعيم"),
+    "vaccination_name_required": MessageLookupByLibrary.simpleMessage(
+      "اسم التطعيم مطلوب",
+    ),
+    "vaccination_note_hint": MessageLookupByLibrary.simpleMessage(
+      "مثال: جرعة معززة، لقاح الإنفلونزا السنوي",
+    ),
     "vaccinations": MessageLookupByLibrary.simpleMessage("التطعيمات"),
     "verify_phone": MessageLookupByLibrary.simpleMessage("تأكيد رقم الهاتف"),
     "view_and_manage_medications": MessageLookupByLibrary.simpleMessage(
