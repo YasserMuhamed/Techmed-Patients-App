@@ -23,7 +23,21 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(doctorName, hospitalName) =>
       "${doctorName} · ${hospitalName}";
 
-  static String m1(value) => "Dosage: ${value}";
+  static String m1(id) => "Doctor ID: ${id}";
+
+  static String m2(dosage) => "Dosage: ${dosage}";
+
+  static String m3(value) => "Dosage: ${value}";
+
+  static String m4(id) => "Hospital ID: ${id}";
+
+  static String m5(count) => "${count} items";
+
+  static String m6(id) => "Medicine ID: ${id}";
+
+  static String m7(notes) => "Notes: ${notes}";
+
+  static String m8(id) => "Prescription #${id}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -114,6 +128,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "divorced": MessageLookupByLibrary.simpleMessage("Divorced"),
     "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
     "doctor_and_hospital": m0,
+    "doctor_id": m1,
+    "doctor_information": MessageLookupByLibrary.simpleMessage(
+      "Doctor Information",
+    ),
     "doctor_name": MessageLookupByLibrary.simpleMessage("Doctor Name"),
     "doctor_required": MessageLookupByLibrary.simpleMessage(
       "Doctor is required",
@@ -125,10 +143,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "dosage_hint": MessageLookupByLibrary.simpleMessage(
       "e.g., 500mg, 1 tablet",
     ),
+    "dosage_info": m2,
     "dosage_required": MessageLookupByLibrary.simpleMessage(
       "Dosage is required",
     ),
-    "dosage_variable": m1,
+    "dosage_variable": m3,
+    "dr_title": MessageLookupByLibrary.simpleMessage("Dr."),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_required": MessageLookupByLibrary.simpleMessage(
       "Email is required.",
@@ -203,6 +223,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "hospital": MessageLookupByLibrary.simpleMessage("Hospital"),
+    "hospital_id": m4,
+    "hospital_information": MessageLookupByLibrary.simpleMessage(
+      "Hospital Information",
+    ),
     "hospital_name": MessageLookupByLibrary.simpleMessage("Hospital Name"),
     "hospital_required": MessageLookupByLibrary.simpleMessage(
       "Hospital is required",
@@ -222,6 +246,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_phone": MessageLookupByLibrary.simpleMessage(
       "Invalid phone number",
     ),
+    "items_count": m5,
     "loading_message": MessageLookupByLibrary.simpleMessage(
       "Loading, please wait...",
     ),
@@ -256,6 +281,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "medications": MessageLookupByLibrary.simpleMessage("Medications"),
     "medicine": MessageLookupByLibrary.simpleMessage("Medicine"),
+    "medicine_id": m6,
     "medicine_required": MessageLookupByLibrary.simpleMessage(
       "Medicine is required",
     ),
@@ -278,6 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_birth_date_provided": MessageLookupByLibrary.simpleMessage(
       "No birth date provided",
     ),
+    "no_date": MessageLookupByLibrary.simpleMessage("No date"),
     "no_doctors_available": MessageLookupByLibrary.simpleMessage(
       "No doctors available",
     ),
@@ -296,11 +323,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_medications_found": MessageLookupByLibrary.simpleMessage(
       "No medications found",
     ),
+    "no_medications_prescribed": MessageLookupByLibrary.simpleMessage(
+      "No medications prescribed",
+    ),
     "no_name_provided": MessageLookupByLibrary.simpleMessage(
       "No name provided",
     ),
     "no_notes_available": MessageLookupByLibrary.simpleMessage(
       "No notes available",
+    ),
+    "no_prescriptions_found": MessageLookupByLibrary.simpleMessage(
+      "No prescriptions found",
     ),
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "No profile picture available",
@@ -313,6 +346,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "e.g., Take after meals, twice a day",
     ),
     "notes": MessageLookupByLibrary.simpleMessage("Notes"),
+    "notes_info": m7,
     "notes_required": MessageLookupByLibrary.simpleMessage(
       "Notes are required",
     ),
@@ -346,9 +380,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "phone_number_required": MessageLookupByLibrary.simpleMessage(
       "Phone number is required",
     ),
+    "prescribed_medications": MessageLookupByLibrary.simpleMessage(
+      "Prescribed Medications",
+    ),
     "prescription_details": MessageLookupByLibrary.simpleMessage(
       "Prescription Details",
     ),
+    "prescription_id": m8,
     "prescriptions": MessageLookupByLibrary.simpleMessage("Prescriptions"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "profile_picture": MessageLookupByLibrary.simpleMessage("Profile Picture"),
@@ -422,6 +460,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "unknown_hospital": MessageLookupByLibrary.simpleMessage(
       "Unknown Hospital",
     ),
+    "unknown_medicine": MessageLookupByLibrary.simpleMessage(
+      "Unknown Medicine",
+    ),
+    "unknown_state": MessageLookupByLibrary.simpleMessage("Unknown state"),
     "up_coming": MessageLookupByLibrary.simpleMessage("Upcoming"),
     "update_info": MessageLookupByLibrary.simpleMessage("Update Information"),
     "update_profile": MessageLookupByLibrary.simpleMessage("Update Profile"),

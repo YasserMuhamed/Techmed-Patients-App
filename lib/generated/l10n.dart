@@ -1854,6 +1854,156 @@ class S {
       args: [],
     );
   }
+
+  /// `No prescriptions found`
+  String get no_prescriptions_found {
+    return Intl.message(
+      'No prescriptions found',
+      name: 'no_prescriptions_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown state`
+  String get unknown_state {
+    return Intl.message(
+      'Unknown state',
+      name: 'unknown_state',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prescription #{id}`
+  String prescription_id(Object id) {
+    return Intl.message(
+      'Prescription #$id',
+      name: 'prescription_id',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `Dr.`
+  String get dr_title {
+    return Intl.message('Dr.', name: 'dr_title', desc: '', args: []);
+  }
+
+  /// `{count} items`
+  String items_count(Object count) {
+    return Intl.message(
+      '$count items',
+      name: 'items_count',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `No date`
+  String get no_date {
+    return Intl.message('No date', name: 'no_date', desc: '', args: []);
+  }
+
+  /// `Doctor Information`
+  String get doctor_information {
+    return Intl.message(
+      'Doctor Information',
+      name: 'doctor_information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hospital Information`
+  String get hospital_information {
+    return Intl.message(
+      'Hospital Information',
+      name: 'hospital_information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prescribed Medications`
+  String get prescribed_medications {
+    return Intl.message(
+      'Prescribed Medications',
+      name: 'prescribed_medications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor ID: {id}`
+  String doctor_id(Object id) {
+    return Intl.message(
+      'Doctor ID: $id',
+      name: 'doctor_id',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `Hospital ID: {id}`
+  String hospital_id(Object id) {
+    return Intl.message(
+      'Hospital ID: $id',
+      name: 'hospital_id',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `Medicine ID: {id}`
+  String medicine_id(Object id) {
+    return Intl.message(
+      'Medicine ID: $id',
+      name: 'medicine_id',
+      desc: '',
+      args: [id],
+    );
+  }
+
+  /// `Unknown Medicine`
+  String get unknown_medicine {
+    return Intl.message(
+      'Unknown Medicine',
+      name: 'unknown_medicine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dosage: {dosage}`
+  String dosage_info(Object dosage) {
+    return Intl.message(
+      'Dosage: $dosage',
+      name: 'dosage_info',
+      desc: '',
+      args: [dosage],
+    );
+  }
+
+  /// `Notes: {notes}`
+  String notes_info(Object notes) {
+    return Intl.message(
+      'Notes: $notes',
+      name: 'notes_info',
+      desc: '',
+      args: [notes],
+    );
+  }
+
+  /// `No medications prescribed`
+  String get no_medications_prescribed {
+    return Intl.message(
+      'No medications prescribed',
+      name: 'no_medications_prescribed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

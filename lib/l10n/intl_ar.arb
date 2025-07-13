@@ -200,5 +200,21 @@
   "select_vaccination_date": "اختر تاريخ التطعيم",
   "vaccination_name_required": "اسم التطعيم مطلوب",
   "vaccination_date_required": "تاريخ التطعيم مطلوب",
-  "vaccination_note_hint": "مثال: جرعة معززة، لقاح الإنفلونزا السنوي"
+  "vaccination_note_hint": "مثال: جرعة معززة، لقاح الإنفلونزا السنوي",
+  "no_prescriptions_found": "لم يتم العثور على وصفات طبية",
+  "unknown_state": "حالة غير معروفة",
+  "prescription_id": "وصفة طبية رقم #{id}",
+  "dr_title": "د.",
+  "items_count": "{count} عنصر",
+  "no_date": "لا يوجد تاريخ",
+  "doctor_information": "معلومات الطبيب",
+  "hospital_information": "معلومات المستشفى",
+  "prescribed_medications": "الأدوية الموصوفة",
+  "doctor_id": "معرف الطبيب: {id}",
+  "hospital_id": "معرف المستشفى: {id}",
+  "medicine_id": "معرف الدواء: {id}",
+  "unknown_medicine": "دواء غير معروف",
+  "dosage_info": "الجرعة: {dosage}",
+  "notes_info": "ملاحظات: {notes}",
+  "no_medications_prescribed": "لم يتم وصف أدوية"
 }

@@ -23,7 +23,21 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(doctorName, hospitalName) =>
       "${doctorName} · ${hospitalName}";
 
-  static String m1(value) => "الجرعة: ${value}";
+  static String m1(id) => "معرف الطبيب: ${id}";
+
+  static String m2(dosage) => "الجرعة: ${dosage}";
+
+  static String m3(value) => "الجرعة: ${value}";
+
+  static String m4(id) => "معرف المستشفى: ${id}";
+
+  static String m5(count) => "${count} عنصر";
+
+  static String m6(id) => "معرف الدواء: ${id}";
+
+  static String m7(notes) => "ملاحظات: ${notes}";
+
+  static String m8(id) => "وصفة طبية رقم #${id}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -108,6 +122,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "divorced": MessageLookupByLibrary.simpleMessage("مطلق"),
     "doctor": MessageLookupByLibrary.simpleMessage("الطبيب"),
     "doctor_and_hospital": m0,
+    "doctor_id": m1,
+    "doctor_information": MessageLookupByLibrary.simpleMessage(
+      "معلومات الطبيب",
+    ),
     "doctor_name": MessageLookupByLibrary.simpleMessage("اسم الطبيب"),
     "doctor_required": MessageLookupByLibrary.simpleMessage("اسم الطبيب مطلوب"),
     "dont_have_an_account": MessageLookupByLibrary.simpleMessage(
@@ -117,8 +135,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "dosage_hint": MessageLookupByLibrary.simpleMessage(
       "مثال: 500 ملغ، قرص واحد",
     ),
+    "dosage_info": m2,
     "dosage_required": MessageLookupByLibrary.simpleMessage("الجرعة مطلوبة"),
-    "dosage_variable": m1,
+    "dosage_variable": m3,
+    "dr_title": MessageLookupByLibrary.simpleMessage("د."),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "email_required": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني مطلوب.",
@@ -191,6 +211,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "home": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
     "hospital": MessageLookupByLibrary.simpleMessage("المستشفى"),
+    "hospital_id": m4,
+    "hospital_information": MessageLookupByLibrary.simpleMessage(
+      "معلومات المستشفى",
+    ),
     "hospital_name": MessageLookupByLibrary.simpleMessage("اسم المستشفى"),
     "hospital_required": MessageLookupByLibrary.simpleMessage(
       "اسم المستشفى مطلوب",
@@ -208,6 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "رمز التحقق غير صحيح",
     ),
     "invalid_phone": MessageLookupByLibrary.simpleMessage("رقم هاتف غير صالح"),
+    "items_count": m5,
     "loading_message": MessageLookupByLibrary.simpleMessage(
       "جاري التحميل، يرجى الانتظار...",
     ),
@@ -240,6 +265,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "medications": MessageLookupByLibrary.simpleMessage("الأدوية"),
     "medicine": MessageLookupByLibrary.simpleMessage("دواء"),
+    "medicine_id": m6,
     "medicine_required": MessageLookupByLibrary.simpleMessage("الدواء مطلوب"),
     "name_no_special_chars": MessageLookupByLibrary.simpleMessage(
       "يجب ألا يحتوي الاسم على رموز خاصة",
@@ -262,6 +288,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_birth_date_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال تاريخ الميلاد",
     ),
+    "no_date": MessageLookupByLibrary.simpleMessage("لا يوجد تاريخ"),
     "no_doctors_available": MessageLookupByLibrary.simpleMessage(
       "لا يوجد أطباء متاحون",
     ),
@@ -280,11 +307,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_medications_found": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على أدوية",
     ),
+    "no_medications_prescribed": MessageLookupByLibrary.simpleMessage(
+      "لم يتم وصف أدوية",
+    ),
     "no_name_provided": MessageLookupByLibrary.simpleMessage(
       "لم يتم إدخال اسم",
     ),
     "no_notes_available": MessageLookupByLibrary.simpleMessage(
       "لا توجد ملاحظات متاحة",
+    ),
+    "no_prescriptions_found": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على وصفات طبية",
     ),
     "no_profile_picture": MessageLookupByLibrary.simpleMessage(
       "لا توجد صورة ملف شخصي متاحة",
@@ -297,6 +330,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "مثال: تناول بعد الوجبات، مرتين يوميًا",
     ),
     "notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
+    "notes_info": m7,
     "notes_required": MessageLookupByLibrary.simpleMessage("الملاحظات مطلوبة"),
     "otp_sent": MessageLookupByLibrary.simpleMessage(
       "تم إرسال رمز التحقق إلى هاتفك",
@@ -326,9 +360,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "phone_number_required": MessageLookupByLibrary.simpleMessage(
       "رقم الهاتف مطلوب",
     ),
+    "prescribed_medications": MessageLookupByLibrary.simpleMessage(
+      "الأدوية الموصوفة",
+    ),
     "prescription_details": MessageLookupByLibrary.simpleMessage(
       "تفاصيل الوصفة الطبية",
     ),
+    "prescription_id": m8,
     "prescriptions": MessageLookupByLibrary.simpleMessage("الوصفات الطبية"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "profile_picture": MessageLookupByLibrary.simpleMessage(
@@ -398,6 +436,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "time": MessageLookupByLibrary.simpleMessage("الوقت"),
     "time_required": MessageLookupByLibrary.simpleMessage("الوقت مطلوب"),
     "todays_medications": MessageLookupByLibrary.simpleMessage("أدوية اليوم"),
+    "unknown_medicine": MessageLookupByLibrary.simpleMessage("دواء غير معروف"),
+    "unknown_state": MessageLookupByLibrary.simpleMessage("حالة غير معروفة"),
     "up_coming": MessageLookupByLibrary.simpleMessage("القادم"),
     "update_info": MessageLookupByLibrary.simpleMessage("تحديث المعلومات"),
     "update_profile": MessageLookupByLibrary.simpleMessage(

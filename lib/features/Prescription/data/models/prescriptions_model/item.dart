@@ -38,18 +38,9 @@ class Item extends Equatable {
     timesPerDay: json['timesPerDay'] as int?,
     medicineId: json['medicineId'] as int?,
     prescriptionId: json['prescriptionId'] as int?,
-    createdAt:
-        json['createdAt'] == null
-            ? null
-            : DateTime.parse(json['createdAt'] as String),
-    updatedAt:
-        json['updatedAt'] == null
-            ? null
-            : DateTime.parse(json['updatedAt'] as String),
-    medicine:
-        json['medicine'] == null
-            ? null
-            : Medicine.fromJson(json['medicine'] as Map<String, dynamic>),
+    createdAt: json['createdAt'] == null ? null : DateTime.parse(json['createdAt'] as String),
+    updatedAt: json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt'] as String),
+    medicine: json['medicine'] == null ? null : Medicine.fromJson(json['medicine'] as Map<String, dynamic>),
   );
 
   Map<String, dynamic> toJson() => {
@@ -68,18 +59,6 @@ class Item extends Equatable {
 
   @override
   List<Object?> get props {
-    return [
-      id,
-      quantity,
-      dosage,
-      duration,
-      notes,
-      timesPerDay,
-      medicineId,
-      prescriptionId,
-      createdAt,
-      updatedAt,
-      medicine,
-    ];
+    return [id, quantity, dosage, duration, notes, timesPerDay, medicineId, prescriptionId, createdAt, updatedAt, medicine];
   }
 }

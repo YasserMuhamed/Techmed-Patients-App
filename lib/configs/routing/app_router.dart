@@ -18,7 +18,7 @@ import 'package:techmed/features/auth/presentation/pages/register_screen.dart';
 
 import 'package:techmed/features/main/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
 import 'package:techmed/features/main/presentation/pages/main_screen.dart';
-import 'package:techmed/features/main/presentation/pages/prescriptions_screen.dart';
+import 'package:techmed/features/Prescription/presentation/views/prescriptions_screen.dart';
 import 'package:techmed/features/vaccination/presentation/views/vaccination_screen.dart';
 
 import 'package:techmed/features/medication/presentation/views/create_medication_screen.dart';
@@ -26,6 +26,8 @@ import 'package:techmed/features/medication/presentation/views/medication_detail
 
 import 'package:techmed/features/vaccination/presentation/views/create_vaccination_screen.dart';
 import 'package:techmed/features/vaccination/presentation/views/vaccination_details_screen.dart';
+
+import 'package:techmed/features/Prescription/presentation/views/prescription_details_screen.dart';
 
 import 'package:techmed/features/profile/presentation/pages/change_password_screen.dart';
 import 'package:techmed/features/profile/presentation/pages/update_user_information_screen.dart';
@@ -52,6 +54,18 @@ class AppRouter {
       case AppRoutes.kPrescriptionsScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(create: (context) => getIt<PrescriptionCubit>()..getPrescriptions(), child: PrescriptionsScreen()),
+        );
+      case AppRoutes.kPrescriptionDetailsScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) {
+                  final cubit = getIt<PrescriptionCubit>();
+                  cubit.getSinglePrescription(settings.arguments! as int);
+                  return cubit;
+                },
+                child: PrescriptionDetailsScreen(prescriptionId: settings.arguments! as int),
+              ),
         );
       case AppRoutes.kVaccinationsScreen:
         return MaterialPageRoute(

@@ -5,6 +5,7 @@ class AppRoutes {
   static const String kChangePasswordScreen = '/changePasswordScreen';
   static const String kUpdateUserInfoScreen = '/updateUserInfoScreen';
   static const String kPrescriptionsScreen = '/prescriptionsScreen';
+  static const String kPrescriptionDetailsScreen = '/prescriptionDetailsScreen';
   static const String kCreateMedicationScreen = '/createMedicationScreen';
   static const String kMedicationDetailsScreen = '/medicationDetailsScreen';
   static const String kAppointmentsScreen = '/appointmentsScreen';

@@ -202,5 +202,21 @@
   "select_vaccination_date": "Select vaccination date",
   "vaccination_name_required": "Vaccination name is required",
   "vaccination_date_required": "Vaccination date is required",
-  "vaccination_note_hint": "e.g., Booster shot, annual flu vaccine"
+  "vaccination_note_hint": "e.g., Booster shot, annual flu vaccine",
+  "no_prescriptions_found": "No prescriptions found",
+  "unknown_state": "Unknown state",
+  "prescription_id": "Prescription #{id}",
+  "dr_title": "Dr.",
+  "items_count": "{count} items",
+  "no_date": "No date",
+  "doctor_information": "Doctor Information",
+  "hospital_information": "Hospital Information",
+  "prescribed_medications": "Prescribed Medications",
+  "doctor_id": "Doctor ID: {id}",
+  "hospital_id": "Hospital ID: {id}",
+  "medicine_id": "Medicine ID: {id}",
+  "unknown_medicine": "Unknown Medicine",
+  "dosage_info": "Dosage: {dosage}",
+  "notes_info": "Notes: {notes}",
+  "no_medications_prescribed": "No medications prescribed"
 }
