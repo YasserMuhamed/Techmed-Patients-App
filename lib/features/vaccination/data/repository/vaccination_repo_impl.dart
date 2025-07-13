@@ -15,7 +15,9 @@ class VaccinationRepositoryImplementation extends VaccinationRepo {
   @override
   Future<Either<Failures, VaccinationModel>> getVaccinations() async {
     try {
-      final response = await apiManager.get(endPoint: ApiConstants.getVaccinationEndPoint);
+      final response = await apiManager.get(
+        endPoint: ApiConstants.getVaccinationEndPoint,
+      );
       return Right(VaccinationModel.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {
@@ -26,9 +28,14 @@ class VaccinationRepositoryImplementation extends VaccinationRepo {
   }
 
   @override
-  Future<Either<Failures, dynamic>> createVaccination(CreateVaccinationRequest vaccinationData) async {
+  Future<Either<Failures, dynamic>> createVaccination(
+    CreateVaccinationRequest vaccinationData,
+  ) async {
     try {
-      final response = await apiManager.post(endPoint: ApiConstants.createVaccinationEndPoint, data: vaccinationData.toJson());
+      final response = await apiManager.post(
+        endPoint: ApiConstants.createVaccinationEndPoint,
+        data: vaccinationData.toJson(),
+      );
       return Right(response.data);
     } catch (e) {
       if (e is DioException) {
@@ -41,7 +48,9 @@ class VaccinationRepositoryImplementation extends VaccinationRepo {
   @override
   Future<Either<Failures, dynamic>> deleteVaccination(int vaccinationId) async {
     try {
-      final response = await apiManager.delete(endPoint: ApiConstants.deleteVaccinationEndPoint(vaccinationId));
+      final response = await apiManager.delete(
+        endPoint: ApiConstants.deleteVaccinationEndPoint(vaccinationId),
+      );
       return Right(response.data);
     } catch (e) {
       if (e is DioException) {
@@ -52,9 +61,13 @@ class VaccinationRepositoryImplementation extends VaccinationRepo {
   }
 
   @override
-  Future<Either<Failures, VaccinationDetails>> getSingleVaccination(int vaccinationId) async {
+  Future<Either<Failures, VaccinationDetails>> getSingleVaccination(
+    int vaccinationId,
+  ) async {
     try {
-      final response = await apiManager.get(endPoint: ApiConstants.getSingleVaccinationEndPoint(vaccinationId));
+      final response = await apiManager.get(
+        endPoint: ApiConstants.getSingleVaccinationEndPoint(vaccinationId),
+      );
       return Right(VaccinationDetails.fromJson(response.data));
     } catch (e) {
       if (e is DioException) {

@@ -1,3 +1,5 @@
+import 'package:techmed/features/Prescription/data/repositories/prescription_repository_implementation.dart';
+import 'package:techmed/features/Prescription/presentation/cubit/prescription_cubit.dart';
 import 'package:techmed/features/appointment/presentation/manager/doctors/doctors_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:techmed/features/appointment/data/repository/appointment_repo_impl.dart';
@@ -10,7 +12,6 @@ import 'package:techmed/core/api/api_manager.dart';
 import 'package:techmed/core/api/dio_factory.dart';
 import 'package:techmed/features/medication/data/repository/medication_repo_impl.dart';
 import 'package:techmed/features/vaccination/data/repository/vaccination_repo_impl.dart';
-import 'package:techmed/features/medication/presentation/manager/prescriptions/prescriptions_cubit.dart';
 import 'package:techmed/features/profile/data/repositories/profile_repository_implementation.dart';
 import 'package:techmed/features/profile/presentation/profile_cubit/profile_cubit.dart';
 import 'package:techmed/features/auth/data/repositories/auth_repository_implementation.dart';
@@ -33,6 +34,10 @@ Future<void> setupGetIt() async {
     () => MedicationRepositoryImplementation(apiManager: getIt<ApiManager>()),
   );
 
+  getIt.registerLazySingleton<PrescriptionRepositoryImplementation>(
+    () => PrescriptionRepositoryImplementation(apiManager: getIt<ApiManager>()),
+  );
+
   getIt.registerLazySingleton<ProfileRepositoryImplementation>(() => ProfileRepositoryImplementation(apiManager: getIt<ApiManager>()));
 
   getIt.registerLazySingleton<AppointmentRepositoryImplementation>(
@@ -49,7 +54,7 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<LoginCubit>(() => LoginCubit(authRepository: getIt<AuthRepositoryImplementation>()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(authRepository: getIt<AuthRepositoryImplementation>()));
   getIt.registerFactory<MedicationCubit>(() => MedicationCubit(getIt<MedicationRepositoryImplementation>()));
-  getIt.registerFactory<PrescriptionsCubit>(() => PrescriptionsCubit(getIt<MedicationRepositoryImplementation>()));
+  getIt.registerFactory<PrescriptionCubit>(() => PrescriptionCubit(getIt<PrescriptionRepositoryImplementation>()));
   getIt.registerFactory<AppointmentsCubit>(() => AppointmentsCubit(getIt<AppointmentRepositoryImplementation>()));
 
   getIt.registerFactory<DoctorsCubit>(() => DoctorsCubit(getIt<AppointmentRepositoryImplementation>()));

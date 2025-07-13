@@ -15,11 +15,16 @@ class VaccinationListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(AppRoutes.kVaccinationDetailsScreen, arguments: vaccination.id).then((value) {
-          if (value == true) {
-            BlocProvider.of<VaccinationCubit>(context).getVaccinations();
-          }
-        });
+        context
+            .pushNamed(
+              AppRoutes.kVaccinationDetailsScreen,
+              arguments: vaccination.id,
+            )
+            .then((value) {
+              if (value == true) {
+                BlocProvider.of<VaccinationCubit>(context).getVaccinations();
+              }
+            });
       },
       child: ListTile(
         contentPadding: EdgeInsets.zero,
@@ -27,22 +32,33 @@ class VaccinationListTile extends StatelessWidget {
           width: 48,
           height: 48,
           padding: EdgeInsets.all(12),
-          decoration: BoxDecoration(shape: BoxShape.rectangle, color: AppColors.dividerColor, borderRadius: BorderRadius.circular(8)),
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: AppColors.dividerColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
           child: Icon(FontAwesomeIcons.syringe, color: AppColors.white),
         ),
-        title: Text(vaccination.vaccineName ?? 'Unknown Vaccination', style: AppTextStyles.poppins16Medium(context)),
+        title: Text(
+          vaccination.vaccineName ?? 'Unknown Vaccination',
+          style: AppTextStyles.poppins16Medium(context),
+        ),
         subtitle: Text(
           vaccination.vaccineDate != null
               ? '${vaccination.vaccineDate!.day}/${vaccination.vaccineDate!.month}/${vaccination.vaccineDate!.year}'
               : 'No date specified',
-          style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.secondaryText),
+          style: AppTextStyles.poppins14Regular(
+            context,
+          ).copyWith(color: AppColors.secondaryText),
         ),
         trailing: SizedBox(
           width: MediaQuery.of(context).size.width * 0.3,
           child: Text(
             textAlign: TextAlign.end,
             vaccination.vaccineNotes ?? 'No notes',
-            style: AppTextStyles.poppins14Regular(context).copyWith(color: AppColors.primaryText),
+            style: AppTextStyles.poppins14Regular(
+              context,
+            ).copyWith(color: AppColors.primaryText),
           ),
         ),
       ),

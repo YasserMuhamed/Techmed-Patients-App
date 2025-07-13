@@ -21,9 +21,15 @@ class VaccinationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).vaccinations, style: AppTextStyles.poppins18Bold(context)),
+        title: Text(
+          S.of(context).vaccinations,
+          style: AppTextStyles.poppins18Bold(context),
+        ),
         centerTitle: true,
-        leading: IconButton(icon: Icon(FontAwesomeIcons.xmark), onPressed: () => Navigator.of(context).pop()),
+        leading: IconButton(
+          icon: Icon(FontAwesomeIcons.xmark),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -34,23 +40,37 @@ class VaccinationScreen extends StatelessWidget {
               Expanded(
                 child: BlocBuilder<VaccinationCubit, VaccinationState>(
                   buildWhen: (previous, current) {
-                    return current is VaccinationLoading || current is VaccinationSuccess || current is VaccinationFailure;
+                    return current is VaccinationLoading ||
+                        current is VaccinationSuccess ||
+                        current is VaccinationFailure;
                   },
                   builder: (context, state) {
                     if (state is VaccinationLoading) {
                       return const Center(child: CircularProgressIndicator());
                     } else if (state is VaccinationSuccess) {
-                      if (state.vaccinations.data == null || state.vaccinations.data!.isEmpty) {
-                        return Center(child: Text(S.of(context).no_vaccinations_found, style: AppTextStyles.poppins16Medium(context)));
+                      if (state.vaccinations.data == null ||
+                          state.vaccinations.data!.isEmpty) {
+                        return Center(
+                          child: Text(
+                            S.of(context).no_vaccinations_found,
+                            style: AppTextStyles.poppins16Medium(context),
+                          ),
+                        );
                       }
 
                       return RefreshIndicator(
-                        onRefresh: () => BlocProvider.of<VaccinationCubit>(context).getVaccinations(),
+                        onRefresh:
+                            () =>
+                                BlocProvider.of<VaccinationCubit>(
+                                  context,
+                                ).getVaccinations(),
                         child: ListView.builder(
                           itemCount: state.vaccinations.data!.length,
                           itemBuilder: (context, index) {
                             final vaccination = state.vaccinations.data![index];
-                            return VaccinationListTile(vaccination: vaccination);
+                            return VaccinationListTile(
+                              vaccination: vaccination,
+                            );
                           },
                         ),
                       );
@@ -58,7 +78,12 @@ class VaccinationScreen extends StatelessWidget {
                       return VaccinationFailureRefresh(message: state.message);
                     }
 
-                    return Center(child: Text("unknown state", style: AppTextStyles.poppins16Medium(context)));
+                    return Center(
+                      child: Text(
+                        "unknown state",
+                        style: AppTextStyles.poppins16Medium(context),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -67,7 +92,10 @@ class VaccinationScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: DecoratedBox(
-        decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(8.r)),
+        decoration: BoxDecoration(
+          color: AppColors.primaryColor,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
         child: TextButton.icon(
           onPressed: () {
             context.pushNamed(AppRoutes.kCreateVaccinationScreen).then((value) {
@@ -77,7 +105,12 @@ class VaccinationScreen extends StatelessWidget {
             });
           },
           icon: Icon(Icons.add, color: AppColors.white, size: 24.sp),
-          label: Text(S.of(context).add_vaccination, style: AppTextStyles.poppins16Bold(context).copyWith(color: AppColors.white)),
+          label: Text(
+            S.of(context).add_vaccination,
+            style: AppTextStyles.poppins16Bold(
+              context,
+            ).copyWith(color: AppColors.white),
+          ),
         ),
       ),
     );

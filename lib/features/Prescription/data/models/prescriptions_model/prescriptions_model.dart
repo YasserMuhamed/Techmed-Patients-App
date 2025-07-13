@@ -1,21 +1,21 @@
 import 'package:equatable/equatable.dart';
 
-import 'prescription.dart';
+import 'datum.dart';
 
-class PrescriptionsResponse extends Equatable {
+class PrescriptionsModel extends Equatable {
   final String? message;
   final int? status;
-  final List<Prescription>? data;
+  final List<Datum>? data;
 
-  const PrescriptionsResponse({this.message, this.status, this.data});
+  const PrescriptionsModel({this.message, this.status, this.data});
 
-  factory PrescriptionsResponse.fromJson(Map<String, dynamic> json) {
-    return PrescriptionsResponse(
+  factory PrescriptionsModel.fromJson(Map<String, dynamic> json) {
+    return PrescriptionsModel(
       message: json['message'] as String?,
       status: json['status'] as int?,
       data:
           (json['data'] as List<dynamic>?)
-              ?.map((e) => Prescription.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
               .toList(),
     );
   }

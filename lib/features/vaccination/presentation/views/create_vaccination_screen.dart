@@ -17,7 +17,8 @@ class CreateVaccinationScreen extends StatefulWidget {
   const CreateVaccinationScreen({super.key});
 
   @override
-  State<CreateVaccinationScreen> createState() => _CreateVaccinationScreenState();
+  State<CreateVaccinationScreen> createState() =>
+      _CreateVaccinationScreenState();
 }
 
 class _CreateVaccinationScreenState extends State<CreateVaccinationScreen> {
@@ -34,9 +35,15 @@ class _CreateVaccinationScreenState extends State<CreateVaccinationScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.transparent,
-        title: Text(S.of(context).add_vaccination, style: AppTextStyles.poppins18Medium(context)),
+        title: Text(
+          S.of(context).add_vaccination,
+          style: AppTextStyles.poppins18Medium(context),
+        ),
         centerTitle: true,
-        leading: IconButton(icon: Icon(FontAwesomeIcons.xmark, color: AppColors.white), onPressed: () => context.pop()),
+        leading: IconButton(
+          icon: Icon(FontAwesomeIcons.xmark, color: AppColors.white),
+          onPressed: () => context.pop(),
+        ),
       ),
       body: Form(
         key: formKey,
@@ -49,7 +56,10 @@ class _CreateVaccinationScreenState extends State<CreateVaccinationScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   24.verticalSpace,
-                  Text(S.of(context).vaccination_name, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).vaccination_name,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
                   AppTextField(
                     hintText: S.of(context).enter_vaccination_name,
@@ -62,7 +72,10 @@ class _CreateVaccinationScreenState extends State<CreateVaccinationScreen> {
                     },
                   ),
                   24.verticalSpace,
-                  Text(S.of(context).vaccination_date, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).vaccination_date,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
                   VaccinationDatePicker(
                     pickedDate: pickedVaccinationDate,
@@ -73,17 +86,28 @@ class _CreateVaccinationScreenState extends State<CreateVaccinationScreen> {
                     },
                   ),
                   24.verticalSpace,
-                  Text(S.of(context).notes, style: AppTextStyles.poppins16Medium(context)),
+                  Text(
+                    S.of(context).notes,
+                    style: AppTextStyles.poppins16Medium(context),
+                  ),
                   8.verticalSpace,
-                  AppTextField(hintText: S.of(context).vaccination_note_hint, maxLines: 5, controller: noteController),
+                  AppTextField(
+                    hintText: S.of(context).vaccination_note_hint,
+                    maxLines: 5,
+                    controller: noteController,
+                  ),
                   24.verticalSpace,
                   BlocConsumer<VaccinationCubit, VaccinationState>(
                     listenWhen: (previous, current) {
-                      return current is VaccinationCreateSuccess || current is VaccinationCreateFailure;
+                      return current is VaccinationCreateSuccess ||
+                          current is VaccinationCreateFailure;
                     },
                     listener: (context, state) {
                       if (state is VaccinationCreateSuccess) {
-                        ToastHelper.showSuccessToast(context, S.of(context).vaccination_added_successfully);
+                        ToastHelper.showSuccessToast(
+                          context,
+                          S.of(context).vaccination_added_successfully,
+                        );
                         Navigator.of(context).pop(true);
                       } else if (state is VaccinationCreateFailure) {
                         ToastHelper.showErrorToast(context, state.message);
@@ -91,26 +115,39 @@ class _CreateVaccinationScreenState extends State<CreateVaccinationScreen> {
                     },
                     builder: (context, state) {
                       if (state is VaccinationCreateLoading) {
-                        return CustomButton(text: "", isLoading: true, onPressed: () {});
+                        return CustomButton(
+                          text: "",
+                          isLoading: true,
+                          onPressed: () {},
+                        );
                       }
                       return CustomButton(
                         text: S.of(context).add_vaccination,
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             if (pickedVaccinationDate == null) {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Vaccination date is required')));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Vaccination date is required'),
+                                ),
+                              );
                               return;
                             } else {
-                              CreateVaccinationRequest createVaccinationRequest = CreateVaccinationRequest(
-                                vaccineName: nameController.text,
-                                vaccineDate: pickedVaccinationDate!,
-                                vaccineNotes: noteController.text,
-                              );
-                              BlocProvider.of<VaccinationCubit>(context).createVaccination(createVaccinationRequest);
+                              CreateVaccinationRequest
+                              createVaccinationRequest =
+                                  CreateVaccinationRequest(
+                                    vaccineName: nameController.text,
+                                    vaccineDate: pickedVaccinationDate!,
+                                    vaccineNotes: noteController.text,
+                                  );
+                              BlocProvider.of<VaccinationCubit>(
+                                context,
+                              ).createVaccination(createVaccinationRequest);
                             }
                           } else {
                             setState(() {
-                              autovalidateMode = AutovalidateMode.onUserInteraction;
+                              autovalidateMode =
+                                  AutovalidateMode.onUserInteraction;
                             });
                           }
                         },

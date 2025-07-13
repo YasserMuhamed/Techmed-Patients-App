@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:techmed/features/Prescription/presentation/cubit/prescription_cubit.dart';
 import 'package:techmed/features/appointment/presentation/manager/appointments/appointments_cubit.dart';
 import 'package:techmed/features/appointment/presentation/manager/doctors/doctors_cubit.dart';
 import 'package:techmed/features/appointment/presentation/views/appointment_details_screen.dart';
@@ -20,7 +21,6 @@ import 'package:techmed/features/main/presentation/pages/main_screen.dart';
 import 'package:techmed/features/main/presentation/pages/prescriptions_screen.dart';
 import 'package:techmed/features/vaccination/presentation/views/vaccination_screen.dart';
 
-import 'package:techmed/features/medication/presentation/manager/prescriptions/prescriptions_cubit.dart';
 import 'package:techmed/features/medication/presentation/views/create_medication_screen.dart';
 import 'package:techmed/features/medication/presentation/views/medication_details_screen.dart';
 
@@ -51,7 +51,7 @@ class AppRouter {
         );
       case AppRoutes.kPrescriptionsScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(create: (context) => getIt<PrescriptionsCubit>()..getPrescriptions(), child: PrescriptionsScreen()),
+          builder: (_) => BlocProvider(create: (context) => getIt<PrescriptionCubit>()..getPrescriptions(), child: PrescriptionsScreen()),
         );
       case AppRoutes.kVaccinationsScreen:
         return MaterialPageRoute(

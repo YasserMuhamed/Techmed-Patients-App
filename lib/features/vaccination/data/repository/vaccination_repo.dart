@@ -6,7 +6,11 @@ import 'package:techmed/features/vaccination/data/models/create_vaccination_requ
 
 abstract class VaccinationRepo {
   Future<Either<Failures, VaccinationModel>> getVaccinations();
-  Future<Either<Failures, VaccinationDetails>> getSingleVaccination(int vaccinationId);
+  Future<Either<Failures, VaccinationDetails>> getSingleVaccination(
+    int vaccinationId,
+  );
   Future<Either<Failures, dynamic>> deleteVaccination(int vaccinationId);
-  Future<Either<Failures, dynamic>> createVaccination(CreateVaccinationRequest vaccinationData);
+  Future<Either<Failures, dynamic>> createVaccination(
+    CreateVaccinationRequest vaccinationData,
+  );
 }

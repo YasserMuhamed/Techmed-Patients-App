@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 import 'item.dart';
 
-class Prescription extends Equatable {
+class Data extends Equatable {
   final int? id;
   final int? hospitalId;
   final int? patientId;
@@ -11,7 +11,7 @@ class Prescription extends Equatable {
   final DateTime? updatedAt;
   final List<Item>? items;
 
-  const Prescription({
+  const Data({
     this.id,
     this.hospitalId,
     this.patientId,
@@ -21,7 +21,7 @@ class Prescription extends Equatable {
     this.items,
   });
 
-  factory Prescription.fromJson(Map<String, dynamic> json) => Prescription(
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
     id: json['id'] as int?,
     hospitalId: json['hospitalId'] as int?,
     patientId: json['patientId'] as int?,

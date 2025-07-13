@@ -4,7 +4,6 @@ import 'package:techmed/Core/error/failures.dart';
 import 'package:techmed/features/medication/data/model/medication_details_response/medication_details_response.dart';
 import 'package:techmed/features/medication/data/model/medications_response/medications_response.dart';
 import 'package:techmed/features/medication/data/model/medicines_model/medicines_model.dart';
-import 'package:techmed/features/medication/data/model/prescriptions_response/prescriptions_response.dart';
 import 'package:techmed/features/medication/data/repository/medication_repo.dart';
 import 'package:techmed/core/api/api_constants.dart';
 import 'package:techmed/core/api/api_manager.dart';
@@ -28,20 +27,6 @@ class MedicationRepositoryImplementation extends MedicationRepo {
     }
   }
 
-  @override
-  Future<Either<Failures, PrescriptionsResponse>> getPrescriptions() async {
-    try {
-      final response = await apiManager.get(
-        endPoint: ApiConstants.getPrescriptionsEndPoint,
-      );
-      return Right(PrescriptionsResponse.fromJson(response.data));
-    } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
-      }
-      return Left(ServerFailure(error: e.toString()));
-    }
-  }
 
   @override
   Future<Either<Failures, dynamic>> createMedication(

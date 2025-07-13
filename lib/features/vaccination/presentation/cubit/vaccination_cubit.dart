@@ -14,7 +14,10 @@ class VaccinationCubit extends Cubit<VaccinationState> {
   Future<void> getVaccinations() async {
     emit(VaccinationLoading());
     final response = await vaccinationRepo.getVaccinations();
-    response.fold((failure) => emit(VaccinationFailure(failure.error)), (vaccinations) => emit(VaccinationSuccess(vaccinations)));
+    response.fold(
+      (failure) => emit(VaccinationFailure(failure.error)),
+      (vaccinations) => emit(VaccinationSuccess(vaccinations)),
+    );
   }
 
   Future<void> getVaccinationDetails(int vaccinationId) async {
@@ -26,15 +29,23 @@ class VaccinationCubit extends Cubit<VaccinationState> {
     );
   }
 
-  Future<void> createVaccination(CreateVaccinationRequest vaccinationData) async {
+  Future<void> createVaccination(
+    CreateVaccinationRequest vaccinationData,
+  ) async {
     emit(VaccinationCreateLoading());
     final response = await vaccinationRepo.createVaccination(vaccinationData);
-    response.fold((failure) => emit(VaccinationCreateFailure(failure.error)), (data) => emit(VaccinationCreateSuccess()));
+    response.fold(
+      (failure) => emit(VaccinationCreateFailure(failure.error)),
+      (data) => emit(VaccinationCreateSuccess()),
+    );
   }
 
   Future<void> deleteVaccination(int vaccinationId) async {
     emit(VaccinationDeleteLoading());
     final response = await vaccinationRepo.deleteVaccination(vaccinationId);
-    response.fold((failure) => emit(VaccinationDeleteFailure(failure.error)), (data) => emit(VaccinationDeleteSuccess()));
+    response.fold(
+      (failure) => emit(VaccinationDeleteFailure(failure.error)),
+      (data) => emit(VaccinationDeleteSuccess()),
+    );
   }
 }

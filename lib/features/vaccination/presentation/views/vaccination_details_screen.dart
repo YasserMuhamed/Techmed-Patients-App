@@ -20,7 +20,8 @@ class VaccinationDetailsScreen extends StatefulWidget {
   const VaccinationDetailsScreen({super.key, required this.vaccinationId});
 
   @override
-  State<VaccinationDetailsScreen> createState() => _VaccinationDetailsScreenState();
+  State<VaccinationDetailsScreen> createState() =>
+      _VaccinationDetailsScreenState();
 }
 
 class _VaccinationDetailsScreenState extends State<VaccinationDetailsScreen> {
@@ -29,7 +30,9 @@ class _VaccinationDetailsScreenState extends State<VaccinationDetailsScreen> {
     super.initState();
     // Fetch vaccination details when screen loads
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<VaccinationCubit>().getVaccinationDetails(widget.vaccinationId);
+      context.read<VaccinationCubit>().getVaccinationDetails(
+        widget.vaccinationId,
+      );
     });
   }
 
@@ -37,9 +40,15 @@ class _VaccinationDetailsScreenState extends State<VaccinationDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).vaccination_details, style: AppTextStyles.poppins18Bold(context)),
+        title: Text(
+          S.of(context).vaccination_details,
+          style: AppTextStyles.poppins18Bold(context),
+        ),
         centerTitle: true,
-        leading: IconButton(icon: Icon(FontAwesomeIcons.xmark), onPressed: () => Navigator.of(context).pop()),
+        leading: IconButton(
+          icon: Icon(FontAwesomeIcons.xmark),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -56,7 +65,12 @@ class _VaccinationDetailsScreenState extends State<VaccinationDetailsScreen> {
                         final vaccination = state.vaccination.data!;
                         return VaccinationInfoSection(vaccination: vaccination);
                       } else if (state is VaccinationDetailsFailure) {
-                        return Center(child: Text(state.message, style: AppTextStyles.poppins16Medium(context)));
+                        return Center(
+                          child: Text(
+                            state.message,
+                            style: AppTextStyles.poppins16Medium(context),
+                          ),
+                        );
                       }
                       return const VaccinationDetailsLoadingWidget();
                     },
@@ -68,7 +82,10 @@ class _VaccinationDetailsScreenState extends State<VaccinationDetailsScreen> {
         ),
       ),
       floatingActionButton: DecoratedBox(
-        decoration: BoxDecoration(color: AppColors.error, borderRadius: BorderRadius.circular(8.r)),
+        decoration: BoxDecoration(
+          color: AppColors.error,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
         child: TextButton.icon(
           onPressed: () {
             showDialog(
@@ -77,32 +94,56 @@ class _VaccinationDetailsScreenState extends State<VaccinationDetailsScreen> {
                 return BlocProvider(
                   create: (context) => getIt<VaccinationCubit>(),
                   child: AlertDialog(
-                    title: Text(S.of(context).confirm_delete, style: AppTextStyles.poppins18Bold(context)),
-                    content: Text(S.of(context).delete_vaccination_confirmation, style: AppTextStyles.poppins16Regular(context)),
+                    title: Text(
+                      S.of(context).confirm_delete,
+                      style: AppTextStyles.poppins18Bold(context),
+                    ),
+                    content: Text(
+                      S.of(context).delete_vaccination_confirmation,
+                      style: AppTextStyles.poppins16Regular(context),
+                    ),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
-                        child: Text(S.of(context).cancel, style: AppTextStyles.poppins16Medium(context)),
+                        child: Text(
+                          S.of(context).cancel,
+                          style: AppTextStyles.poppins16Medium(context),
+                        ),
                       ),
                       BlocConsumer<VaccinationCubit, VaccinationState>(
                         listener: (context, state) {
                           if (state is VaccinationDeleteSuccess) {
-                            ToastHelper.showSuccessToast(context, S.of(context).vaccination_deleted_successfully);
+                            ToastHelper.showSuccessToast(
+                              context,
+                              S.of(context).vaccination_deleted_successfully,
+                            );
                             Navigator.of(context).pop(true);
                             Navigator.of(context).pop(true);
                           } else if (state is VaccinationDeleteFailure) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(state.message)),
+                            );
                           }
                         },
                         builder: (context, state) {
                           if (state is VaccinationDeleteLoading) {
-                            return TextButton(onPressed: () {}, child: Center(child: const CircularProgressIndicator()));
+                            return TextButton(
+                              onPressed: () {},
+                              child: Center(
+                                child: const CircularProgressIndicator(),
+                              ),
+                            );
                           }
                           return TextButton(
                             onPressed: () {
-                              context.read<VaccinationCubit>().deleteVaccination(widget.vaccinationId);
+                              context
+                                  .read<VaccinationCubit>()
+                                  .deleteVaccination(widget.vaccinationId);
                             },
-                            child: Text(S.of(context).delete, style: AppTextStyles.poppins16Medium(context)),
+                            child: Text(
+                              S.of(context).delete,
+                              style: AppTextStyles.poppins16Medium(context),
+                            ),
                           );
                         },
                       ),
@@ -113,7 +154,12 @@ class _VaccinationDetailsScreenState extends State<VaccinationDetailsScreen> {
             );
           },
           icon: Icon(FontAwesomeIcons.trash, color: AppColors.white, size: 24),
-          label: Text(S.of(context).delete_vaccination, style: AppTextStyles.poppins16Bold(context).copyWith(color: AppColors.white)),
+          label: Text(
+            S.of(context).delete_vaccination,
+            style: AppTextStyles.poppins16Bold(
+              context,
+            ).copyWith(color: AppColors.white),
+          ),
         ),
       ),
     );
@@ -131,7 +177,10 @@ class VaccinationInfoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         16.verticalSpace,
-        Text(S.of(context).vaccination_name, style: AppTextStyles.poppins18Bold(context)),
+        Text(
+          S.of(context).vaccination_name,
+          style: AppTextStyles.poppins18Bold(context),
+        ),
         20.verticalSpace,
         Row(
           children: [
@@ -139,7 +188,11 @@ class VaccinationInfoSection extends StatelessWidget {
               width: 48,
               height: 48,
               padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(shape: BoxShape.rectangle, color: AppColors.dividerColor, borderRadius: BorderRadius.circular(8)),
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: AppColors.dividerColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Icon(FontAwesomeIcons.syringe, color: AppColors.white),
             ), // Using medicine icon as placeholder
             16.horizontalSpace,
@@ -161,16 +214,24 @@ class VaccinationInfoSection extends StatelessWidget {
           ],
         ),
         32.verticalSpace,
-        Text(S.of(context).vaccination_date, style: AppTextStyles.poppins18Bold(context)),
+        Text(
+          S.of(context).vaccination_date,
+          style: AppTextStyles.poppins18Bold(context),
+        ),
         32.verticalSpace,
         Text(
-          vaccination.vaccineDate != null ? DateFormat.yMd().format(vaccination.vaccineDate!) : 'Not specified',
+          vaccination.vaccineDate != null
+              ? DateFormat.yMd().format(vaccination.vaccineDate!)
+              : 'Not specified',
           style: AppTextStyles.poppins16Regular(context),
         ),
         32.verticalSpace,
         Text(S.of(context).notes, style: AppTextStyles.poppins18Bold(context)),
         32.verticalSpace,
-        Text(vaccination.vaccineNotes ?? 'No notes available', style: AppTextStyles.poppins16Regular(context)),
+        Text(
+          vaccination.vaccineNotes ?? 'No notes available',
+          style: AppTextStyles.poppins16Regular(context),
+        ),
       ],
     );
   }

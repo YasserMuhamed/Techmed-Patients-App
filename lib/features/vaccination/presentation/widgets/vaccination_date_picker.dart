@@ -8,7 +8,11 @@ class VaccinationDatePicker extends StatelessWidget {
   final DateTime? pickedDate;
   final Function(DateTime) onDatePicked;
 
-  const VaccinationDatePicker({super.key, required this.pickedDate, required this.onDatePicked});
+  const VaccinationDatePicker({
+    super.key,
+    required this.pickedDate,
+    required this.onDatePicked,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +30,23 @@ class VaccinationDatePicker extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        decoration: BoxDecoration(border: Border.all(color: AppColors.secondaryText), borderRadius: BorderRadius.circular(8)),
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.secondaryText),
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              pickedDate != null ? DateFormat.yMd().format(pickedDate!) : S.of(context).select_vaccination_date,
-              style: AppTextStyles.poppins16Regular(
-                context,
-              ).copyWith(color: pickedDate != null ? AppColors.primaryText : AppColors.secondaryText),
+              pickedDate != null
+                  ? DateFormat.yMd().format(pickedDate!)
+                  : S.of(context).select_vaccination_date,
+              style: AppTextStyles.poppins16Regular(context).copyWith(
+                color:
+                    pickedDate != null
+                        ? AppColors.primaryText
+                        : AppColors.secondaryText,
+              ),
             ),
             Icon(Icons.calendar_today, color: AppColors.primaryColor, size: 20),
           ],

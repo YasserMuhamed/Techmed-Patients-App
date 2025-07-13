@@ -16,7 +16,10 @@ class VaccinationDetailsLoadingWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           16.verticalSpace,
-          Text(S.of(context).vaccination_name, style: AppTextStyles.poppins18Bold(context)),
+          Text(
+            S.of(context).vaccination_name,
+            style: AppTextStyles.poppins18Bold(context),
+          ),
           20.verticalSpace,
           Row(
             children: [
@@ -24,7 +27,11 @@ class VaccinationDetailsLoadingWidget extends StatelessWidget {
                 width: 48,
                 height: 48,
                 padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(shape: BoxShape.rectangle, color: AppColors.dividerColor, borderRadius: BorderRadius.circular(8)),
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: AppColors.dividerColor,
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 child: Icon(FontAwesomeIcons.syringe, color: AppColors.white),
               ),
               16.horizontalSpace,
@@ -46,13 +53,22 @@ class VaccinationDetailsLoadingWidget extends StatelessWidget {
             ],
           ),
           32.verticalSpace,
-          Text(S.of(context).vaccination_date, style: AppTextStyles.poppins18Bold(context)),
+          Text(
+            S.of(context).vaccination_date,
+            style: AppTextStyles.poppins18Bold(context),
+          ),
           32.verticalSpace,
           Text("July 15, 2023", style: AppTextStyles.poppins16Regular(context)),
           32.verticalSpace,
-          Text(S.of(context).notes, style: AppTextStyles.poppins18Bold(context)),
+          Text(
+            S.of(context).notes,
+            style: AppTextStyles.poppins18Bold(context),
+          ),
           32.verticalSpace,
-          Text("Take with food aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", style: AppTextStyles.poppins16Regular(context)),
+          Text(
+            "Take with food aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            style: AppTextStyles.poppins16Regular(context),
+          ),
         ],
       ),
     );
